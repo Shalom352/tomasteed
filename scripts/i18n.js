@@ -67,7 +67,7 @@ const TRANSLATIONS = {
 
     /* ── KPI Band ── */
     'stat-exp':     "Ans d'expérience moyenne",
-    'stat-bureaux': 'Bureaux officiels',
+    'stat-bureaux': 'Présence',
     'stat-experts': 'Experts & Partners',
     'stat-pays':    'Pays & marchés couverts',
 
@@ -256,7 +256,7 @@ const TRANSLATIONS = {
     'equipe-hero-title':   "Des <em>Experts</em> de Haut Niveau<br>au Service de l'Afrique",
     'equipe-hero-sub':     "Banquiers chevronnés issus des plus grandes institutions financières mondiales — Société Générale, BOAD, Ecobank, Mazars — réunis autour d'une mission commune : financer le développement de l'Afrique.",
     'equipe-stats-pros':   "Professionnels dédiés",
-    'equipe-stats-bureaux':"Bureaux officiels",
+    'equipe-stats-bureaux':"Présence",
     'equipe-stats-certs':  "Certifications internationales",
     'equipe-stats-instit': "Institutions d'origine",
     'equipe-section-label':"Direction Générale",
@@ -465,7 +465,7 @@ const TRANSLATIONS = {
 
     /* ── KPI Band ── */
     'stat-exp':     'Years of average experience',
-    'stat-bureaux': 'Official offices',
+    'stat-bureaux': 'Presence',
     'stat-experts': 'Experts & Partners',
     'stat-pays':    'Countries & markets covered',
 
@@ -654,7 +654,7 @@ const TRANSLATIONS = {
     'equipe-hero-title':   "Senior <em>Experts</em><br>Serving Africa",
     'equipe-hero-sub':     "Seasoned investment bankers from the world's leading financial institutions — Société Générale, BOAD, Ecobank, Mazars — united around a shared mission: financing Africa's development.",
     'equipe-stats-pros':   "Dedicated professionals",
-    'equipe-stats-bureaux':"Official offices",
+    'equipe-stats-bureaux':"Presence",
     'equipe-stats-certs':  "International certifications",
     'equipe-stats-instit': "Founding institutions",
     'equipe-section-label':"Senior Management",

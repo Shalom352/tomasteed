@@ -1262,8 +1262,18 @@ footer {
 
 @media (max-width: 768px) {
   .nav-links, .nav-cta { display: none; }
-  .nav-inner { justify-content: space-between; }
-  .lang-toggle { display: flex; font-size: .62rem; padding: 5px 10px; }
+  #navbar .container { padding-right: 6px; }
+  .nav-inner { justify-content: space-between; width: 100%; }
+  .nav-inner > div:last-child { margin-left: auto; gap: 6px; }
+  .lang-toggle {
+    display: flex;
+    font-size: .62rem;
+    padding: 5px 11px;
+    color: var(--red);
+    border-color: var(--red);
+    background: rgba(220,73,32,.08);
+  }
+  .lang-toggle:hover { border-color: var(--red-dark); color: var(--red-dark); background: rgba(220,73,32,.14); }
   .burger { display: flex; }
   .hero-stats { gap: 32px; flex-wrap: wrap; }
   .secteurs-grid { grid-template-columns: 1fr; }
