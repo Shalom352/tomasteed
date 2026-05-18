@@ -1261,7 +1261,9 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .nav-links, .nav-cta, .lang-toggle { display: none; }
+  .nav-links, .nav-cta { display: none; }
+  .nav-inner { justify-content: space-between; }
+  .lang-toggle { display: flex; font-size: .62rem; padding: 5px 10px; }
   .burger { display: flex; }
   .hero-stats { gap: 32px; flex-wrap: wrap; }
   .secteurs-grid { grid-template-columns: 1fr; }
