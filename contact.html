@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact — TOMASTEED</title>
+<meta name="description" content="Contactez TOMASTEED — Banque d'affaires panafricaine. Bureaux à Abu Dhabi et Abidjan."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles/main.css"/><link rel="stylesheet" href="styles/components.css"/><link rel="stylesheet" href="styles/animations.css"/>
+<style>
+.page-hero{position:relative;min-height:55vh;display:flex;align-items:flex-end;padding-bottom:80px;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,25,24,.45),rgba(26,25,24,.88) 70%,var(--black-deep) 100%),url('assets/contact-bg.jpg') center/cover no-repeat fixed;}
+.page-hero-content{position:relative;z-index:2;}
+.page-hero h1{font-family:var(--font-serif);font-size:clamp(2.8rem,6vw,5rem);font-weight:300;color:var(--white);margin-bottom:20px;line-height:1.1;}
+.page-hero p{font-size:1.05rem;color:var(--white-soft);opacity:.85;max-width:560px;}
+
+.contact-section{padding:100px 0;background:var(--black-deep);}
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start;}
+
+/* Formulaire */
+.contact-form-wrap{background:var(--black-card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-lg);padding:48px;}
+.contact-form-wrap h2{font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:8px;}
+.contact-form-wrap .subtitle{font-size:.85rem;color:var(--grey-light);margin-bottom:32px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{margin-bottom:20px;}
+.form-group label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-light);margin-bottom:8px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:13px 16px;font-family:var(--font-body);font-size:.9rem;color:var(--white);transition:border-color .3s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--gold);}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--grey);}
+.form-group select option{background:var(--black-card);}
+.form-group textarea{min-height:140px;resize:vertical;}
+.btn-submit{width:100%;justify-content:center;margin-top:8px;}
+
+/* Infos bureaux */
+.bureaux-info{display:flex;flex-direction:column;gap:20px;}
+.bureau-info-card{background:var(--black-card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-lg);padding:28px 32px;transition:var(--transition);position:relative;overflow:hidden;}
+.bureau-info-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .4s;}
+.bureau-info-card:hover{border-color:var(--border-gold);transform:translateX(4px);}
+.bureau-info-card:hover::before{transform:scaleY(1);}
+.bureau-info-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.bureau-flag-text{font-size:1.4rem;}
+.bureau-info-city{font-size:1rem;font-weight:800;color:var(--white);}
+.bureau-info-country{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:2px;}
+.bureau-info-details{display:grid;gap:8px;}
+.bureau-info-row{display:flex;align-items:flex-start;gap:10px;font-size:.8rem;color:var(--grey-light);}
+.bureau-info-row svg{flex-shrink:0;margin-top:2px;color:var(--gold);}
+.bureau-info-row a{color:var(--grey-light);transition:color .3s;}
+.bureau-info-row a:hover{color:var(--gold);}
+
+.hello-band{padding:64px 0;background:var(--black);text-align:center;border-top:1px solid rgba(255,255,255,.05);}
+.hello-band h3{font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:var(--white);margin-bottom:12px;}
+.hello-band p{color:var(--grey-light);margin-bottom:24px;}
+.hello-band a.email-big{font-size:1.1rem;font-weight:700;color:var(--gold);letter-spacing:.04em;transition:color .3s;}
+.hello-band a.email-big:hover{color:var(--white);}
+
+@media(max-width:1024px){.contact-grid{grid-template-columns:1fr;}}
+@media(max-width:640px){.form-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-logo">TOMAS<span class="loader-dot">TEED</span></div></div>
+
+<div id="mobileMenu" class="mobile-menu">
+  <a href="index.html" data-i18n="nav-accueil">Accueil</a>
+  <a href="identite.html" data-i18n="nav-identite">Identité</a>
+  <a href="metiers.html" data-i18n="nav-metiers">Nos Métiers</a>
+  <a href="solutions.html" data-i18n="nav-solutions">Nos Solutions</a>
+  <a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a>
+  <a href="equipe.html" data-i18n="nav-equipe">Équipe</a>
+  <a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a>
+</div>
+
+<nav id="navbar">
+  <div class="container"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">TOMAS<span>TEED</span></a>
+    <ul class="nav-links">
+      <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
+      <li><a href="metiers.html" data-i18n="nav-metiers">Nos Métiers</a></li>
+      <li><a href="solutions.html" data-i18n="nav-solutions">Nos Solutions</a></li>
+      <li><a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a></li>
+      <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
+      <li><a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="contact.html" class="btn btn-primary nav-cta active" style="padding:10px 24px;font-size:.75rem;" data-i18n="nav-contact-cta">Nous Contacter</a>
+      <button id="langToggle" class="lang-toggle">FR / EN</button>
+      <div id="burger" class="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div></div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+    <span class="label" style="display:block;margin-bottom:16px;" data-i18n="contact-hero-label">Entrer en contact</span>
+    <h1 data-i18n="contact-hero-title">Discutons de <em style="font-style:normal;color:var(--red);">votre Projet</em></h1>
+    <p data-i18n="contact-hero-sub">Notre équipe d'experts est à votre écoute pour analyser vos besoins et concevoir la solution financière adaptée.</p>
+  </div>
+</section>
+
+<!-- CONTACT PRINCIPAL -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Formulaire -->
+      <div class="contact-form-wrap reveal-left">
+        <h2 data-i18n="contact-form-title">Envoyer un message</h2>
+        <p class="subtitle" data-i18n="contact-form-sub">Nous vous répondrons dans les 24 heures ouvrées.</p>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ct-prenom" data-i18n="contact-label-prenom">Prénom</label>
+              <input type="text" id="ct-prenom" name="prenom" required placeholder="Votre prénom"/>
+            </div>
+            <div class="form-group">
+              <label for="ct-nom" data-i18n="contact-label-nom">Nom</label>
+              <input type="text" id="ct-nom" name="nom" required placeholder="Votre nom"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ct-email" data-i18n="contact-label-email">Email</label>
+            <input type="email" id="ct-email" name="email" required placeholder="votre@organisation.com"/>
+          </div>
+          <div class="form-group">
+            <label for="ct-org" data-i18n="contact-label-org">Organisation</label>
+            <input type="text" id="ct-org" name="organisation" placeholder="Votre entreprise ou institution"/>
+          </div>
+          <div class="form-group">
+            <label for="ct-sujet" data-i18n="contact-label-sujet">Sujet</label>
+            <select id="ct-sujet" name="sujet" required>
+              <option value="" data-i18n="contact-sujet-default">Sélectionner un sujet</option>
+              <option value="conseil-etats" data-i18n="contact-sujet-conseil">Conseil aux États &amp; Institutions</option>
+              <option value="ma" data-i18n="contact-sujet-ma">Fusions &amp; Acquisitions</option>
+              <option value="levee-fonds" data-i18n="contact-sujet-lf">Levée de Fonds</option>
+              <option value="structuration" data-i18n="contact-sujet-struct">Structuration Financière</option>
+              <option value="partenariat" data-i18n="contact-sujet-part">Partenariat</option>
+              <option value="autre" data-i18n="contact-sujet-autre">Autre demande</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ct-message" data-i18n="contact-label-msg">Message</label>
+            <textarea id="ct-message" name="message" required placeholder="Décrivez votre projet ou votre demande..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">
+            <span data-i18n="contact-submit">Envoyer le message</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Infos bureaux -->
+      <div class="bureaux-info reveal-right">
+
+        <div class="bureau-info-card">
+          <div class="bureau-info-head">
+            <span class="bureau-flag-text">🇦🇪</span>
+            <div>
+              <div class="bureau-info-city">Abu Dhabi</div>
+              <div class="bureau-info-country" data-i18n="contact-ad-role">Siège Social — ADGM</div>
+            </div>
+          </div>
+          <div class="bureau-info-details">
+            <div class="bureau-info-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>ADGM Square, Abu Dhabi, UAE</span>
+            </div>
+            <div class="bureau-info-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:fadel.kane@tomasteed.com">fadel.kane@tomasteed.com</a>
+            </div>
+            <div class="bureau-info-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+2250747329863">+225 07 47 32 98 63</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bureau-info-card">
+          <div class="bureau-info-head">
+            <span class="bureau-flag-text">🇨🇮</span>
+            <div>
+              <div class="bureau-info-city">Abidjan</div>
+              <div class="bureau-info-country" data-i18n="contact-abj-role">Hub Afrique de l'Ouest</div>
+            </div>
+          </div>
+          <div class="bureau-info-details">
+            <div class="bureau-info-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Plateau, Abidjan, Côte d'Ivoire</span>
+            </div>
+            <div class="bureau-info-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:stephane.lekeufack@tomasteed.com">stephane.lekeufack@tomasteed.com</a>
+            </div>
+            <div class="bureau-info-row">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+2250797375312">+225 07 97 37 53 12</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /bureaux-info -->
+    </div><!-- /contact-grid -->
+  </div>
+</section>
+
+<!-- HELLO BAND -->
+<div class="hello-band">
+  <div class="container">
+    <span class="label" style="display:block;margin-bottom:16px;" data-i18n="contact-hello-label">Contact général</span>
+    <h3 data-i18n="contact-hello-title">Une question ? Écrivez-nous directement</h3>
+    <p data-i18n="contact-hello-sub">Pour toute demande générale, notre équipe est disponible par email.</p>
+    <a href="mailto:hello@tomasteed.com" class="email-big">hello@tomasteed.com</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo" style="display:block;margin-bottom:16px;">TOMAS<span>TEED</span></span>
+        <p data-i18n="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de vos projets.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-services">Services</h4>
+        <ul>
+          <li><a href="metiers.html#conseil-etats" data-i18n="card-m1-title">Conseil aux États &amp; Institutions</a></li>
+          <li><a href="metiers.html#fusions-acquisitions" data-i18n="card-m2-title">Fusions &amp; Acquisitions</a></li>
+          <li><a href="metiers.html#levee-fonds" data-i18n="card-m3-title">Levée de Fonds</a></li>
+          <li><a href="metiers.html#structuration" data-i18n="card-m4-title">Structuration Financière</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-company">Entreprise</h4>
+        <ul>
+          <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
+          <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
+          <li><a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a></li>
+          <li><a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a></li>
+          <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@tomasteed.com">hello@tomasteed.com</a></li>
+          <li><a href="tel:+2250747329863">+225 07 47 32 98 63</a></li>
+          <li><a href="contact.html">Abu Dhabi · Abidjan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy" data-i18n="footer-rights">&copy; 2025 TOMASTEED. Tous droits réservés.</div>
+      <div class="footer-reg" data-i18n="footer-reg">Régulée par l'Abu Dhabi Global Market (ADGM) — FSRA.</div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast">Message envoyé avec succès !</div>
+<script src="scripts/i18n.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>

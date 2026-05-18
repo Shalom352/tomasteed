@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Carrières — TOMASTEED | Banque d'Affaires Panafricaine</title>
+<meta name="description" content="Rejoignez TOMASTEED, banque d'affaires panafricaine régulée ADGM. Postes ouverts à Abu Dhabi et Abidjan."/>
+<meta property="og:title" content="Carrières — TOMASTEED"/>
+<meta property="og:description" content="Construisez votre carrière au cœur de la finance africaine."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles/main.css"/>
+<link rel="stylesheet" href="styles/components.css"/>
+<link rel="stylesheet" href="styles/animations.css"/>
+<style>
+/* ── Page Hero ── */
+.page-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 96px;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(26,25,24,.4) 0%, rgba(26,25,24,.8) 65%, var(--black-deep) 100%),
+    url('assets/team-bg.jpg') center/cover no-repeat fixed;
+}
+.page-hero-content { position: relative; z-index: 2; }
+.page-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero-sub {
+  font-size: 1rem;
+  color: var(--white-soft);
+  opacity: .85;
+  max-width: 560px;
+  line-height: 1.85;
+}
+
+/* ── Why section ── */
+.why-section { padding: 96px 0; background: var(--black-deep); }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+.why-card {
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.why-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity .4s;
+}
+.why-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--border-gold); }
+.why-card:hover::after { opacity: 1; }
+.why-icon {
+  width: 52px; height: 52px;
+  border-radius: 10px;
+  background: var(--gold-muted);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.why-card h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+.why-card p { font-size: .84rem; color: var(--grey-light); line-height: 1.8; }
+
+/* ── Jobs Section ── */
+.offres-section { padding: 96px 0; background: var(--black); }
+
+/* Filter bar */
+.jobs-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.filter-btn {
+  padding: 8px 20px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--grey-light);
+  background: transparent;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: var(--gold-muted);
+}
+
+/* Jobs counter */
+.jobs-counter {
+  font-size: .75rem;
+  color: var(--grey);
+  margin-left: auto;
+  letter-spacing: .05em;
+}
+.jobs-counter span { color: var(--gold); font-weight: 700; }
+
+/* Jobs grid */
+#jobsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* Job card */
+.job-card {
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.job-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .4s;
+}
+.job-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+.job-card:hover::before { transform: scaleY(1); }
+
+.job-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.job-tag {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 3px;
+}
+.job-tag--lieu { background: var(--gold-muted); color: var(--gold); border: 1px solid var(--border-gold); }
+.job-tag--cdi  { background: rgba(50,125,72,.1); color: var(--green); border: 1px solid rgba(50,125,72,.25); }
+.job-tag--stage { background: rgba(100,100,220,.1); color: #9b9cf0; border: 1px solid rgba(100,100,220,.2); }
+.job-tag--cdd  { background: rgba(200,100,50,.1); color: #d09070; border: 1px solid rgba(200,100,50,.2); }
+
+.job-card h3 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+  letter-spacing: -.01em;
+}
+.job-card p {
+  font-size: .84rem;
+  color: var(--grey-light);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.job-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+.job-skill {
+  font-size: .62rem;
+  font-weight: 600;
+  color: var(--grey);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 3px 10px;
+  letter-spacing: .06em;
+}
+.job-card .btn {
+  font-size: .75rem;
+  padding: 10px 24px;
+  align-self: flex-start;
+}
+
+/* Empty state */
+.jobs-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 0;
+  color: var(--grey);
+  font-size: .9rem;
+}
+
+/* ── Spontanée Section ── */
+.spontanee { padding: 80px 0; background: var(--black-deep); }
+.spontanee-inner {
+  background: var(--black-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.spontanee h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+.spontanee h3 em { font-style: italic; color: var(--gold); }
+.spontanee p { font-size: .9rem; color: var(--grey-light); line-height: 1.8; margin-bottom: 24px; }
+.info-pill {
+  background: var(--black);
+  border-radius: var(--radius);
+  padding: 18px 24px;
+  border-left: 2px solid var(--gold);
+  margin-bottom: 12px;
+}
+.info-pill:last-child { margin-bottom: 0; }
+.info-pill-label {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.info-pill p {
+  font-size: .84rem;
+  color: var(--grey-light);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* ── Modal Candidature ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.88);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: none;
+  border: none;
+  color: var(--grey-light);
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: color .2s;
+}
+.modal-close:hover { color: var(--white); }
+.modal h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 0; }
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  margin-bottom: 8px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: .9rem;
+  color: var(--white);
+  transition: border-color .3s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.form-group select option { background: var(--black-card); }
+.form-group textarea { min-height: 120px; resize: vertical; }
+.file-input-wrap { position: relative; }
+.file-input-wrap input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+.file-input-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px dashed rgba(255,255,255,.15);
+  border-radius: var(--radius);
+  padding: 16px;
+  font-size: .84rem;
+  color: var(--grey-light);
+  cursor: pointer;
+  transition: border-color .3s;
+}
+.file-input-label:hover { border-color: var(--gold); color: var(--gold); }
+.form-note { font-size: .7rem; color: var(--grey); margin-top: 6px; }
+
+@media (max-width: 1024px) {
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  #jobsGrid { grid-template-columns: 1fr; }
+  .spontanee-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 640px) {
+  .why-grid { grid-template-columns: 1fr; }
+  .modal { padding: 28px; }
+  .form-row { grid-template-columns: 1fr; }
+  .spontanee-inner { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-logo">TOMAS<span class="loader-dot">TEED</span></div></div>
+
+<div id="mobileMenu" class="mobile-menu">
+  <a href="index.html" data-i18n="nav-accueil">Accueil</a>
+  <a href="identite.html" data-i18n="nav-identite">Identité</a>
+  <a href="metiers.html" data-i18n="nav-metiers">Nos Métiers</a>
+  <a href="solutions.html" data-i18n="nav-solutions">Nos Solutions</a>
+  <a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a>
+  <a href="equipe.html" data-i18n="nav-equipe">Équipe</a>
+  <a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a>
+</div>
+
+<nav id="navbar">
+  <div class="container"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">TOMAS<span>TEED</span></a>
+    <ul class="nav-links">
+      <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
+      <li><a href="metiers.html" data-i18n="nav-metiers">Nos Métiers</a></li>
+      <li><a href="solutions.html" data-i18n="nav-solutions">Nos Solutions</a></li>
+      <li><a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a></li>
+      <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
+      <li><a href="carrieres.html" class="active" data-i18n="nav-carrieres">Carrières</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="contact.html" class="btn btn-primary nav-cta" style="padding:10px 24px;font-size:.75rem;" data-i18n="nav-contact-cta">Nous Contacter</a>
+      <button id="langToggle" class="lang-toggle">FR / EN</button>
+      <div id="burger" class="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div></div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE HERO
+════════════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+    <span class="label" style="display:block;margin-bottom:20px;" data-i18n="carrieres-hero-label">Rejoignez-nous</span>
+    <h1 data-i18n="carrieres-hero-title">Construisez votre <em>Carrière</em><br>à l'échelle africaine</h1>
+    <p class="page-hero-sub" data-i18n="carrieres-hero-sub">Rejoignez une banque d'affaires panafricaine en pleine croissance et contribuez directement au financement du développement du continent.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     POURQUOI TOMASTEED
+════════════════════════════════════════════════════ -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label" data-i18n="carrieres-why-label">Pourquoi nous rejoindre</span>
+      <h2 data-i18n="carrieres-why-title">Une Opportunité <em>Unique</em></h2>
+      <div class="divider"></div>
+      <p data-i18n="carrieres-why-sub">Intégrez une équipe d'élite au cœur des marchés financiers africains.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal delay-1">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3 data-i18n="carrieres-why1-title">Développement Accéléré</h3>
+        <p data-i18n="carrieres-why1-desc">Exposés à des transactions complexes dès le premier jour, nos collaborateurs progressent à un rythme que peu d'institutions peuvent offrir en Afrique.</p>
+      </div>
+      <div class="why-card reveal delay-2">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3 data-i18n="carrieres-why2-title">Impact Continental</h3>
+        <p data-i18n="carrieres-why2-desc">Chaque mission que vous menez contribue directement au financement de projets structurants pour les 30+ pays africains où TOMASTEED est présent.</p>
+      </div>
+      <div class="why-card reveal delay-3">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3 data-i18n="carrieres-why3-title">Excellence &amp; Rigueur</h3>
+        <p data-i18n="carrieres-why3-desc">Standards internationaux, équipe issue des meilleures institutions financières mondiales — Société Générale, BOAD, Ecobank, Mazars — culture de l'excellence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     OFFRES D'EMPLOI (Dynamic)
+════════════════════════════════════════════════════ -->
+<section class="offres-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label" data-i18n="carrieres-offres-label">Postes Ouverts</span>
+      <h2 data-i18n="carrieres-offres-title">Nos <em>Offres</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="jobs-filter reveal delay-1">
+      <button class="filter-btn active" data-filter="all" data-i18n="carrieres-filter-all">Tous les postes</button>
+      <button class="filter-btn" data-filter="CDI">CDI</button>
+      <button class="filter-btn" data-filter="Stage">Stage</button>
+      <button class="filter-btn" data-filter="Abu Dhabi">Abu Dhabi</button>
+      <button class="filter-btn" data-filter="Abidjan">Abidjan</button>
+      <span class="jobs-counter"><span id="jobCount">0</span> poste(s) affiché(s)</span>
+    </div>
+
+    <div id="jobsGrid"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CANDIDATURE SPONTANÉE
+════════════════════════════════════════════════════ -->
+<section class="spontanee">
+  <div class="container">
+    <div class="spontanee-inner reveal">
+      <div>
+        <span class="label" style="display:block;margin-bottom:16px;" data-i18n="carrieres-spont-label">Candidature spontanée</span>
+        <h3 data-i18n="carrieres-spont-title">Votre profil ne correspond<br>à <em>aucune offre</em> ?</h3>
+        <p data-i18n="carrieres-spont-desc">TOMASTEED accueille les talents exceptionnels à tout moment. Si vous êtes passionné par la finance africaine et souhaitez contribuer à notre mission, envoyez-nous votre candidature.</p>
+        <button class="btn btn-outline" onclick="openModal('Candidature Spontanée', '')">
+          <span data-i18n="carrieres-spont-btn">Envoyer ma candidature</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div>
+        <div class="info-pill">
+          <div class="info-pill-label" data-i18n="carrieres-pill1-label">Profils recherchés</div>
+          <p data-i18n="carrieres-pill1-text">Analystes · Associates · VPs issus de banques d'affaires, cabinets de conseil ou fonds d'investissement</p>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label" data-i18n="carrieres-pill2-label">Langues requises</div>
+          <p data-i18n="carrieres-pill2-text">Français + Anglais requis · Arabe ou Portugais appréciés</p>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label" data-i18n="carrieres-pill3-label">Contact RH</div>
+          <p><a href="mailto:hello@tomasteed.com" style="color:var(--gold);">hello@tomasteed.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     MODAL CANDIDATURE
+════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="candidatureModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Fermer">&times;</button>
+    <span class="label" style="display:block;margin-bottom:12px;">Postuler</span>
+    <h3 id="modalPosteTitle">Poste</h3>
+    <div style="height:1px;background:var(--border);margin:20px 0 24px;"></div>
+
+    <form id="candidatureForm" onsubmit="handleCandidature(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cand-prenom">Prénom *</label>
+          <input type="text" id="cand-prenom" name="prenom" required placeholder="Votre prénom"/>
+        </div>
+        <div class="form-group">
+          <label for="cand-nom">Nom *</label>
+          <input type="text" id="cand-nom" name="nom" required placeholder="Votre nom"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cand-email">Email professionnel *</label>
+        <input type="email" id="cand-email" name="email" required placeholder="votre@email.com"/>
+      </div>
+      <div class="form-group">
+        <label for="cand-tel">Téléphone</label>
+        <input type="tel" id="cand-tel" name="telephone" placeholder="+225 00 00 00 00 00"/>
+      </div>
+      <div class="form-group">
+        <label for="cand-poste">Poste visé *</label>
+        <select id="cand-poste" name="poste" required>
+          <option value="">Sélectionner un poste</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cand-motivation">Message de présentation *</label>
+        <textarea id="cand-motivation" name="motivation" required placeholder="Présentez-vous et expliquez votre intérêt pour TOMASTEED..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>CV (PDF ou Word, max 5 Mo) *</label>
+        <div class="file-input-wrap">
+          <div class="file-input-label" id="fileLabel">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <span id="fileName">Glissez votre CV ici ou cliquez pour parcourir</span>
+          </div>
+          <input type="file" id="cand-cv" name="cv" accept=".pdf,.doc,.docx" onchange="updateFileName(this)"/>
+        </div>
+        <div class="form-note">Formats acceptés : PDF, DOC, DOCX · Taille max : 5 Mo</div>
+      </div>
+      <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%;justify-content:center;margin-top:8px;">
+        Envoyer ma candidature
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo" style="display:block;margin-bottom:16px;">TOMAS<span>TEED</span></span>
+        <p data-i18n="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de vos projets.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-services">Services</h4>
+        <ul>
+          <li><a href="metiers.html#conseil-etats" data-i18n="card-m1-title">Conseil aux États &amp; Institutions</a></li>
+          <li><a href="metiers.html#fusions-acquisitions" data-i18n="card-m2-title">Fusions &amp; Acquisitions</a></li>
+          <li><a href="metiers.html#levee-fonds" data-i18n="card-m3-title">Levée de Fonds</a></li>
+          <li><a href="metiers.html#structuration" data-i18n="card-m4-title">Structuration Financière</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-company">Entreprise</h4>
+        <ul>
+          <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
+          <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
+          <li><a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@tomasteed.com">hello@tomasteed.com</a></li>
+          <li><a href="tel:+2250747329863">+225 07 47 32 98 63</a></li>
+          <li><a href="contact.html">Abu Dhabi · Abidjan</a></li>
+          <li><a href="legal.html">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy" data-i18n="footer-rights">&copy; 2025 TOMASTEED. Tous droits réservés.</div>
+      <div class="footer-reg" data-i18n="footer-reg">Régulée par l'Abu Dhabi Global Market (ADGM) — FSRA.</div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast">Candidature envoyée avec succès !</div>
+
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="scripts/i18n.js"></script>
+<script src="scripts/main.js"></script>
+<script>
+/* ── Dynamic Jobs System ── */
+const JOBS = [
+  {
+    id: 'associate-ma',
+    title: 'Associate M&A',
+    location: 'Abidjan',
+    type: 'CDI',
+    description: 'Conseil en fusions-acquisitions auprès d\'entreprises et d\'investisseurs en Afrique subsaharienne. Coordination des due diligences, modélisation financière DCF / LBO et suivi des transactions de bout en bout.',
+    skills: ['Modélisation financière', 'Due diligence', 'M&A', 'Droit des affaires', 'Excel / PowerPoint']
+  },
+  {
+    id: 'analyst-fs',
+    title: 'Analyst Financements Structurés',
+    location: 'Abu Dhabi',
+    type: 'CDI',
+    description: 'Structuration et suivi de financements complexes (project finance, PPP, infrastructure) depuis le siège d\'Abu Dhabi. Relation avec les investisseurs institutionnels du Golfe et d\'Asie. Régulation ADGM.',
+    skills: ['Project Finance', 'PPP', 'Modélisation', 'Investisseurs institutionnels', 'Anglais / Arabe']
+  },
+  {
+    id: 'stagiaire-analyste',
+    title: 'Stagiaire Analyste',
+    location: 'Abidjan',
+    type: 'Stage',
+    description: 'Support aux équipes sur les dossiers de levée de fonds et conseil stratégique. Idéal pour profil Grande École avec spécialisation finance. Durée : 6 mois.',
+    skills: ['Finance d\'entreprise', 'PowerPoint', 'Analyse sectorielle', 'Anglais courant']
+  },
+  {
+    id: 'analyst-lf',
+    title: 'Analyst Levée de Fonds',
+    location: 'Abidjan',
+    type: 'CDI',
+    description: 'Mobilisation de capitaux auprès de fonds souverains, DFI et investisseurs institutionnels pour des projets dans la zone UEMOA et Afrique de l\'Ouest. Développement du pipeline clients depuis Abidjan.',
+    skills: ['Levée de fonds', 'DFI / Fonds souverains', 'UEMOA', 'Pitch decks', 'Français / Anglais']
+  }
+];
+
+function getTagClass(type) {
+  if (type === 'CDI') return 'job-tag--cdi';
+  if (type.toLowerCase().includes('stage')) return 'job-tag--stage';
+  if (type === 'CDD') return 'job-tag--cdd';
+  return 'job-tag--cdi';
+}
+
+function renderJobs(filter) {
+  const grid = document.getElementById('jobsGrid');
+  const counter = document.getElementById('jobCount');
+  let filtered = JOBS;
+
+  if (filter && filter !== 'all') {
+    filtered = JOBS.filter(j =>
+      j.location === filter ||
+      j.type === filter ||
+      j.type.toLowerCase().includes(filter.toLowerCase())
+    );
+  }
+
+  counter.textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="jobs-empty">Aucun poste ne correspond à ce filtre pour le moment.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map((job, i) => `
+    <div class="job-card reveal delay-${(i % 4) + 1}">
+      <div class="job-meta">
+        <span class="job-tag job-tag--lieu">${job.location}</span>
+        <span class="job-tag ${getTagClass(job.type)}">${job.type}</span>
+      </div>
+      <h3>${job.title}</h3>
+      <p>${job.description}</p>
+      <div class="job-skills">
+        ${job.skills.map(s => `<span class="job-skill">${s}</span>`).join('')}
+      </div>
+      <button class="btn btn-primary" onclick="openModal('${job.title} — ${job.location} — ${job.type}', '${job.id}')">
+        Postuler
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  `).join('');
+
+  /* re-trigger reveal on new cards */
+  document.querySelectorAll('#jobsGrid .reveal').forEach(el => {
+    el.classList.remove('revealed');
+    requestAnimationFrame(() => {
+      setTimeout(() => el.classList.add('revealed'), 50);
+    });
+  });
+}
+
+/* Populate select dropdown */
+function populateSelect() {
+  const sel = document.getElementById('cand-poste');
+  JOBS.forEach(job => {
+    const opt = document.createElement('option');
+    opt.value = job.id;
+    opt.textContent = `${job.title} — ${job.location} — ${job.type}`;
+    sel.appendChild(opt);
+  });
+  const spont = document.createElement('option');
+  spont.value = 'spontanee';
+  spont.textContent = 'Candidature Spontanée';
+  sel.appendChild(spont);
+}
+
+/* Filter buttons */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderJobs(btn.dataset.filter);
+  });
+});
+
+/* Init */
+renderJobs('all');
+populateSelect();
+
+/* ── Modal ── */
+function openModal(title, jobId) {
+  document.getElementById('candidatureModal').classList.add('open');
+  document.getElementById('modalPosteTitle').textContent = title;
+  document.body.style.overflow = 'hidden';
+  if (jobId) {
+    const sel = document.getElementById('cand-poste');
+    for (let i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value === jobId) { sel.selectedIndex = i; break; }
+    }
+  }
+}
+
+function closeModal() {
+  document.getElementById('candidatureModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('candidatureModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function updateFileName(input) {
+  const label = document.getElementById('fileName');
+  label.textContent = input.files.length ? input.files[0].name : 'Glissez votre CV ici ou cliquez pour parcourir';
+}
+
+function handleCandidature(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.innerHTML = 'Envoi en cours...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    closeModal();
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    e.target.reset();
+    document.getElementById('fileName').textContent = 'Glissez votre CV ici ou cliquez pour parcourir';
+    btn.innerHTML = 'Envoyer ma candidature <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    btn.disabled = false;
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }, 1200);
+}
+</script>
+</body>
+</html>

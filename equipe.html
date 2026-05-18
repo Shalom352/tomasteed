@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Équipe — TOMASTEED | Banque d'Affaires Panafricaine</title>
+<meta name="description" content="L'équipe TOMASTEED : banquiers chevronnés issus de Société Générale, BOAD, Ecobank et Mazars, au service du développement financier de l'Afrique et du Moyen-Orient."/>
+<meta property="og:title" content="Équipe — TOMASTEED"/>
+<meta property="og:description" content="Des experts financiers de haut niveau, ancrés dans les marchés africains et internationaux."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles/main.css"/>
+<link rel="stylesheet" href="styles/components.css"/>
+<link rel="stylesheet" href="styles/animations.css"/>
+<style>
+/* ── Page Hero ── */
+.page-hero {
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 96px;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(26,25,24,.3) 0%, rgba(26,25,24,.75) 60%, var(--black-deep) 100%),
+    url('assets/abidjan-bg.jpg') center/cover no-repeat fixed;
+}
+.page-hero-content { position: relative; z-index: 2; }
+.page-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero-sub {
+  font-size: 1.05rem;
+  color: var(--white-soft);
+  opacity: .85;
+  max-width: 580px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* ── Team Stats Bar ── */
+.team-stats-bar {
+  background: var(--black);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 32px 0;
+}
+.team-stats-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.team-stat {
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+}
+.team-stat-value {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.team-stat-label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.team-stat-sep {
+  width: 1px;
+  height: 48px;
+  background: var(--border);
+}
+
+/* ── Rank Section ── */
+.team-rank-section {
+  padding: 96px 0 0;
+}
+.team-rank-section:last-of-type { padding-bottom: 96px; }
+
+.rank-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.rank-header-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.rank-label-tag {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--grey);
+  white-space: nowrap;
+}
+
+/* ── Member Card ── */
+.member-card {
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.member-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+.member-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity .4s;
+}
+.member-card:hover::before { opacity: 1; }
+
+/* Photo zone */
+.member-photo-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e1d1c 0%, #282726 100%);
+}
+.member-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(20%) brightness(.95);
+  transition: filter .5s ease, transform .6s ease;
+  display: block;
+}
+.member-card:hover .member-photo-wrap img {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.04);
+}
+.member-initials-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: .5;
+}
+.member-photo-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(to top, var(--black-card), transparent);
+}
+
+/* Featured card (Ben Barka) */
+.member-card--featured {
+  border-color: rgba(200,168,130,.2);
+  grid-column: span 1;
+}
+.member-card--featured .member-photo-wrap { height: 260px; }
+.featured-badge {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: rgba(200,168,130,.15);
+  border: 1px solid rgba(200,168,130,.35);
+  border-radius: 3px;
+  padding: 5px 12px;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+/* Body */
+.member-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+.member-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+.member-title {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+/* Credentials badges */
+.member-creds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.cred-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border: 1px solid rgba(200,168,130,.25);
+  border-radius: 3px;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--gold-light);
+  background: var(--gold-muted);
+  white-space: nowrap;
+}
+.cred-badge--ministry {
+  border-color: rgba(220,73,32,.3);
+  color: #e8a090;
+  background: rgba(220,73,32,.08);
+}
+.cred-badge--intl {
+  border-color: rgba(255,255,255,.12);
+  color: var(--grey-light);
+  background: rgba(255,255,255,.04);
+}
+
+/* Divider */
+.member-divider {
+  width: 32px;
+  height: 1px;
+  background: var(--border-gold);
+  margin: 16px 0;
+  opacity: .5;
+}
+
+/* Bio sections */
+.member-section-label {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 6px;
+}
+.member-info {
+  font-size: .82rem;
+  color: var(--grey-light);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+.member-info strong { color: var(--white-soft); font-weight: 600; }
+
+/* Footer contact */
+.member-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.member-email {
+  font-size: .75rem;
+  color: var(--gold);
+  transition: color .3s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.member-email:hover { color: var(--white); }
+.member-linkedin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--grey);
+  transition: var(--transition-fast);
+  flex-shrink: 0;
+}
+.member-linkedin:hover {
+  border-color: #0077B5;
+  color: #0077B5;
+  background: rgba(0,119,181,.08);
+}
+
+/* Team grids */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 0;
+}
+.directors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.analysts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Analyst card smaller */
+.member-card--analyst .member-photo-wrap { height: 210px; }
+.member-card--analyst .member-photo-wrap img { object-position: top center; }
+.member-card--analyst .member-body { padding: 20px; }
+.member-card--analyst .member-name { font-size: .92rem; }
+
+/* ── CTA Carrières ── */
+.cta-team {
+  padding: 96px 0;
+  text-align: center;
+  background: var(--black);
+  border-top: 1px solid var(--border);
+}
+.cta-team h2 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  margin-bottom: 16px;
+}
+.cta-team h2 em { font-style: italic; color: var(--gold); }
+.cta-team p {
+  color: var(--grey-light);
+  margin-bottom: 40px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.85;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .partners-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 1024px) {
+  .directors-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-stat-sep { display: none; }
+}
+@media (max-width: 768px) {
+  .partners-grid, .directors-grid, .analysts-grid { grid-template-columns: 1fr; }
+  .team-stats-inner { justify-content: center; gap: 40px; }
+}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-logo">TOMAS<span class="loader-dot">TEED</span></div></div>
+
+<div id="mobileMenu" class="mobile-menu">
+  <a href="index.html" data-i18n="nav-accueil">Accueil</a>
+  <a href="identite.html" data-i18n="nav-identite">Identité</a>
+  <a href="metiers.html" data-i18n="nav-metiers">Nos Métiers</a>
+  <a href="solutions.html" data-i18n="nav-solutions">Nos Solutions</a>
+  <a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a>
+  <a href="equipe.html" data-i18n="nav-equipe">Équipe</a>
+  <a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a>
+</div>
+
+<nav id="navbar">
+  <div class="container"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">TOMAS<span>TEED</span></a>
+    <ul class="nav-links">
+      <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
+      <li><a href="metiers.html" data-i18n="nav-metiers">Nos Métiers</a></li>
+      <li><a href="solutions.html" data-i18n="nav-solutions">Nos Solutions</a></li>
+      <li><a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a></li>
+      <li><a href="equipe.html" class="active" data-i18n="nav-equipe">Équipe</a></li>
+      <li><a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="contact.html" class="btn btn-primary nav-cta" style="padding:10px 24px;font-size:.75rem;" data-i18n="nav-contact-cta">Nous Contacter</a>
+      <button id="langToggle" class="lang-toggle">FR / EN</button>
+      <div id="burger" class="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div></div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE HERO
+════════════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+    <span class="label" style="display:block;margin-bottom:20px;" data-i18n="equipe-hero-label">Notre Équipe</span>
+    <h1 data-i18n="equipe-hero-title">Des <em>Experts</em> de Haut Niveau<br>au Service de l'Afrique</h1>
+    <p class="page-hero-sub" data-i18n="equipe-hero-sub">Banquiers chevronnés issus des plus grandes institutions financières mondiales — Société Générale, BOAD, Ecobank, Mazars — réunis autour d'une mission commune : financer le développement de l'Afrique.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     STATS BAR
+════════════════════════════════════════════════════ -->
+<div class="team-stats-bar">
+  <div class="container">
+    <div class="team-stats-inner reveal">
+      <div class="team-stat">
+        <div class="team-stat-value">7</div>
+        <div class="team-stat-label" data-i18n="equipe-stats-pros">Professionnels dédiés</div>
+      </div>
+      <div class="team-stat-sep"></div>
+      <div class="team-stat">
+        <div class="team-stat-value">2</div>
+        <div class="team-stat-label" data-i18n="equipe-stats-bureaux">Bureaux officiels</div>
+      </div>
+      <div class="team-stat-sep"></div>
+      <div class="team-stat">
+        <div class="team-stat-value">CFA · FRM<br><span style="font-size:1.4rem;">CAIA · ACCA</span></div>
+        <div class="team-stat-label" data-i18n="equipe-stats-certs">Certifications internationales</div>
+      </div>
+      <div class="team-stat-sep"></div>
+      <div class="team-stat">
+        <div class="team-stat-value">SG · BOAD</div>
+        <div class="team-stat-label" data-i18n="equipe-stats-instit">Institutions d'origine</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MANAGING PARTNERS & PARTNERS
+════════════════════════════════════════════════════ -->
+<section class="team-rank-section section--dark">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="label" data-i18n="equipe-section-label">Direction Générale</span>
+      <h2 data-i18n="equipe-section-title">Managing Partners <em>&amp; Partners</em></h2>
+      <div class="divider"></div>
+      <p data-i18n="equipe-section-sub">Quatre associés fondateurs dont les parcours combinent expertise financière internationale, mandats institutionnels au plus haut niveau, et connaissance approfondie des marchés africains.</p>
+    </div>
+
+    <div class="rank-header reveal">
+      <span class="rank-label-tag" data-i18n="equipe-rank-mp">Managing Partners</span>
+      <div class="rank-header-line"></div>
+    </div>
+
+    <div class="partners-grid" style="margin-bottom:48px;">
+
+      <!-- ─── KANE ─── -->
+      <div class="member-card reveal delay-1">
+        <div class="member-photo-wrap">
+          <img src="assets/team/kane.png" alt="Mohamed El Fadel KANE" loading="lazy"/>
+          <div class="member-photo-overlay"></div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Mohamed El Fadel KANE</div>
+          <div class="member-title">Managing Partner — Fondateur</div>
+          <div class="member-creds">
+            <span class="cred-badge--intl cred-badge">MBA American University</span>
+            <span class="cred-badge--intl cred-badge">MSc Finance · Sorbonne</span>
+          </div>
+          <div class="member-divider"></div>
+          <div class="member-section-label" data-i18n="equipe-member-exp">Expérience</div>
+          <div class="member-info">
+            Ex-Directeur <strong>Financements Structurés Afrique Sub-Saharienne</strong> chez Société Générale.<br>
+            12+ ans sur les marchés africains. A piloté la levée obligataire <strong>MTN Côte d'Ivoire — 170 Mds FCFA</strong>.
+          </div>
+          <div class="member-section-label" data-i18n="equipe-member-bureau">Bureau</div>
+          <div class="member-info">Abu Dhabi — Siège Social, Régulation ADGM</div>
+          <div class="member-footer">
+            <a href="mailto:fadel.kane@tomasteed.com" class="member-email">fadel.kane@tomasteed.com</a>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" class="member-linkedin" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── BEN BARKA — FEATURED ─── -->
+      <div class="member-card member-card--featured reveal delay-2">
+        <div class="member-photo-wrap">
+          <div class="featured-badge">Ancien Ministre · Ancien VP BOAD</div>
+          <img src="assets/team/benbarka.png" alt="Moustapha BEN BARKA" loading="lazy"/>
+          <div class="member-photo-overlay"></div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Moustapha BEN BARKA</div>
+          <div class="member-title">Managing Partner</div>
+          <div class="member-creds">
+            <span class="cred-badge--ministry cred-badge">Ancien Ministre des Investissements du Mali</span>
+            <span class="cred-badge--ministry cred-badge">Ancien Ministre de l'Industrie du Mali</span>
+            <span class="cred-badge cred-badge--intl">Ex-Vice-Président BOAD</span>
+            <span class="cred-badge cred-badge--intl">Fellow · Inst. Canadian Bankers</span>
+          </div>
+          <div class="member-divider"></div>
+          <div class="member-section-label" data-i18n="equipe-member-exp">Expérience</div>
+          <div class="member-info">
+            <strong>20+ ans</strong> à l'intersection de la finance et des affaires publiques africaines. Ancien Vice-Président de la <strong>BOAD</strong> (Banque Ouest Africaine de Développement). Double mandat ministériel au Mali — Investissements &amp; Industrie. Expert reconnu du financement souverain en Afrique de l'Ouest.
+          </div>
+          <div class="member-section-label" data-i18n="equipe-member-form">Formation</div>
+          <div class="member-info">HEC Montréal · McGill University · MBA UQAM</div>
+          <div class="member-section-label" data-i18n="equipe-member-bureau">Bureau</div>
+          <div class="member-info">Abu Dhabi · Abidjan</div>
+          <div class="member-footer">
+            <a href="mailto:mbb@tomasteed.com" class="member-email">mbb@tomasteed.com</a>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" class="member-linkedin" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rank-header reveal">
+      <span class="rank-label-tag" data-i18n="equipe-rank-p">Partners</span>
+      <div class="rank-header-line"></div>
+    </div>
+
+    <div class="partners-grid">
+
+      <!-- ─── GUILLABERT ─── -->
+      <div class="member-card reveal delay-1">
+        <div class="member-photo-wrap">
+          <img src="assets/team/guillabert.png" alt="Claude GUILLABERT" loading="lazy"/>
+          <div class="member-photo-overlay"></div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Claude GUILLABERT</div>
+          <div class="member-title">Partner</div>
+          <div class="member-creds">
+            <span class="cred-badge">CFA</span>
+            <span class="cred-badge">FRM</span>
+            <span class="cred-badge">CAIA</span>
+            <span class="cred-badge cred-badge--intl">Master 2 INSEEC</span>
+          </div>
+          <div class="member-divider"></div>
+          <div class="member-section-label" data-i18n="equipe-member-exp">Expérience</div>
+          <div class="member-info">
+            <strong>16 ans</strong> chez Société Générale — Director Financements Structurés Afrique Sub-Saharienne. Expert reconnu en structuration de dette et financement de projets énergie & infrastructures.
+          </div>
+          <div class="member-section-label" data-i18n="equipe-member-bureau">Bureau</div>
+          <div class="member-info">Abidjan — Hub Afrique de l'Ouest</div>
+          <div class="member-footer">
+            <a href="mailto:claude.guillabert@tomasteed.com" class="member-email">claude.guillabert@tomasteed.com</a>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" class="member-linkedin" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── GUEYE ─── -->
+      <div class="member-card reveal delay-2">
+        <div class="member-photo-wrap">
+          <img src="assets/team/gueye.png" alt="Rokhya GUEYE" loading="lazy"/>
+          <div class="member-photo-overlay"></div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Rokhya GUEYE</div>
+          <div class="member-title">Partner</div>
+          <div class="member-creds">
+            <span class="cred-badge cred-badge--intl">EDHEC Business School</span>
+          </div>
+          <div class="member-divider"></div>
+          <div class="member-section-label" data-i18n="equipe-member-exp">Expérience</div>
+          <div class="member-info">
+            <strong>12 ans</strong> dans la finance d'entreprise et le conseil stratégique. Ex-Directrice de Cabinet chez Société Générale Côte d'Ivoire. Ex-Ecobank Development Corporation.
+          </div>
+          <div class="member-section-label" data-i18n="equipe-member-bureau">Bureau</div>
+          <div class="member-info">Abidjan — Hub Afrique de l'Ouest</div>
+          <div class="member-footer">
+            <a href="mailto:rokhya.gueye@tomasteed.com" class="member-email">rokhya.gueye@tomasteed.com</a>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" class="member-linkedin" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     DIRECTOR & VICE-PRESIDENT
+════════════════════════════════════════════════════ -->
+<section class="team-rank-section section--mid">
+  <div class="container">
+
+    <div class="rank-header reveal">
+      <span class="rank-label-tag" data-i18n="equipe-rank-dvp">Director &amp; Vice-President</span>
+      <div class="rank-header-line"></div>
+    </div>
+
+    <div class="directors-grid">
+
+      <!-- ─── LEKEUFACK ─── -->
+      <div class="member-card reveal delay-1">
+        <div class="member-photo-wrap">
+          <img src="assets/team/lekeufack.png" alt="Stéphane LEKEUFACK" loading="lazy"/>
+          <div class="member-photo-overlay"></div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Stéphane LEKEUFACK</div>
+          <div class="member-title">Director</div>
+          <div class="member-creds">
+            <span class="cred-badge">ACCA Fellow</span>
+            <span class="cred-badge cred-badge--intl">CentraleSupélec</span>
+            <span class="cred-badge cred-badge--intl">ESSEC Business School</span>
+          </div>
+          <div class="member-divider"></div>
+          <div class="member-section-label" data-i18n="equipe-member-exp">Expérience</div>
+          <div class="member-info">
+            <strong>10+ ans</strong> chez Société Générale — Director Financements Structurés Afrique Sub-Saharienne. Opérations allant jusqu'à <strong>€500M</strong> dans les secteurs énergie, mines et infrastructures. Ex-Accenture (conseil stratégique).
+          </div>
+          <div class="member-section-label" data-i18n="equipe-member-bureau">Bureau</div>
+          <div class="member-info">Abidjan</div>
+          <div class="member-footer">
+            <a href="mailto:stephane.lekeufack@tomasteed.com" class="member-email">stephane.lekeufack@tomasteed.com</a>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" class="member-linkedin" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── ANGO ─── -->
+      <div class="member-card reveal delay-2">
+        <div class="member-photo-wrap">
+          <img src="assets/team/nazir.jpg" alt="Abd'Al Nazir ANGO" loading="lazy"/>
+          <div class="member-photo-overlay"></div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Abd'Al Nazir ANGO</div>
+          <div class="member-title">Vice-President</div>
+          <div class="member-creds">
+            <span class="cred-badge cred-badge--intl">MSc Trading &amp; Risk · INSEEC</span>
+            <span class="cred-badge cred-badge--intl">MSc Corporate Finance</span>
+          </div>
+          <div class="member-divider"></div>
+          <div class="member-section-label" data-i18n="equipe-member-exp">Expérience</div>
+          <div class="member-info">
+            <strong>8 ans</strong> de progression accélérée : Analyst → Associate → <strong>VP Structured Finance</strong> chez Société Générale Côte d'Ivoire. Ex-Mazars/Forvis Mazars (audit financier). Ex-Ecobank (Middle Office Treasury).
+          </div>
+          <div class="member-section-label" data-i18n="equipe-member-bureau">Bureau</div>
+          <div class="member-info">Abidjan — Hub Afrique de l'Ouest</div>
+          <div class="member-footer">
+            <a href="mailto:abdalnazir.ango@tomasteed.com" class="member-email">abdalnazir.ango@tomasteed.com</a>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" class="member-linkedin" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     ANALYSTS & STAGIAIRES
+════════════════════════════════════════════════════ -->
+<section class="team-rank-section section--dark" style="padding-bottom:96px;">
+  <div class="container">
+
+    <div class="rank-header reveal">
+      <span class="rank-label-tag" data-i18n="equipe-rank-analysts">Analysts &amp; Stagiaires Analystes</span>
+      <div class="rank-header-line"></div>
+    </div>
+
+    <div class="analysts-grid">
+
+      <!-- ─── AYIKOE ─── -->
+      <div class="member-card member-card--analyst reveal delay-1">
+        <div class="member-photo-wrap">
+          <img src="assets/team/ango.png" alt="Ange Emmanuel AYIKOE" loading="lazy"/>
+          <div class="member-photo-overlay"></div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Ange Emmanuel AYIKOE</div>
+          <div class="member-title">Analyst</div>
+          <div class="member-divider"></div>
+          <div class="member-section-label" data-i18n="equipe-member-exp">Expérience</div>
+          <div class="member-info">Société Générale (Financements Structurés) · NSIA Banque · AGEDI</div>
+          <div class="member-section-label" data-i18n="equipe-member-bureau">Bureau</div>
+          <div class="member-info">Abidjan — Hub Afrique de l'Ouest</div>
+          <div class="member-footer">
+            <a href="mailto:ange.ayikoe@tomasteed.com" class="member-email">ange.ayikoe@tomasteed.com</a>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" class="member-linkedin" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── KONE ─── -->
+      <div class="member-card member-card--analyst reveal delay-2">
+        <div class="member-photo-wrap">
+          <img src="assets/team/siddiq.jpg" alt="Siddiq KONE" loading="lazy"/>
+          <div class="member-photo-overlay"></div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Siddiq KONE</div>
+          <div class="member-title">Stagiaire Analyste</div>
+          <div class="member-divider"></div>
+          <div class="member-section-label" data-i18n="equipe-member-bureau">Bureau</div>
+          <div class="member-info">Abidjan — Hub Afrique de l'Ouest</div>
+          <div class="member-footer">
+            <a href="mailto:siddiq.kone@tomasteed.com" class="member-email">siddiq.kone@tomasteed.com</a>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" class="member-linkedin" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── SAMASSI ─── -->
+      <div class="member-card member-card--analyst reveal delay-3">
+        <div class="member-photo-wrap">
+          <img src="assets/team/Mahmoud.jpg" alt="Mahmoud SAMASSI" loading="lazy"/>
+          <div class="member-photo-overlay"></div>
+        </div>
+        <div class="member-body">
+          <div class="member-name">Mahmoud SAMASSI</div>
+          <div class="member-title">Stagiaire Analyste</div>
+          <div class="member-divider"></div>
+          <div class="member-section-label" data-i18n="equipe-member-bureau">Bureau</div>
+          <div class="member-info">Abidjan</div>
+          <div class="member-footer">
+            <a href="mailto:mahmoud.samassi@tomasteed.com" class="member-email">mahmoud.samassi@tomasteed.com</a>
+            <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" class="member-linkedin" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CTA CARRIÈRES
+════════════════════════════════════════════════════ -->
+<section class="cta-team">
+  <div class="container">
+    <span class="label" style="display:block;margin-bottom:20px;text-align:center;" data-i18n="equipe-cta-label">Rejoignez-nous</span>
+    <h2 class="reveal" data-i18n="equipe-cta-title">Construisez votre Carrière<br><em>avec TOMASTEED</em></h2>
+    <p class="reveal delay-1" data-i18n="equipe-cta-sub">Nous recherchons des talents passionnés par la finance africaine, désireux de contribuer à un projet ambitieux au cœur des marchés émergents.</p>
+    <div class="reveal delay-2" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
+      <a href="carrieres.html" class="btn btn-primary">
+        <span data-i18n="equipe-cta-btn1">Voir nos offres</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="contact.html" class="btn btn-outline">
+        <span data-i18n="equipe-cta-btn2">Candidature spontanée</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo" style="display:block;margin-bottom:16px;">TOMAS<span>TEED</span></span>
+        <p data-i18n="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de vos projets.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-services">Services</h4>
+        <ul>
+          <li><a href="metiers.html#conseil-etats" data-i18n="card-m1-title">Conseil aux États &amp; Institutions</a></li>
+          <li><a href="metiers.html#fusions-acquisitions" data-i18n="card-m2-title">Fusions &amp; Acquisitions</a></li>
+          <li><a href="metiers.html#levee-fonds" data-i18n="card-m3-title">Levée de Fonds</a></li>
+          <li><a href="metiers.html#structuration" data-i18n="card-m4-title">Structuration Financière</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-company">Entreprise</h4>
+        <ul>
+          <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
+          <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
+          <li><a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a></li>
+          <li><a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@tomasteed.com">hello@tomasteed.com</a></li>
+          <li><a href="tel:+2250747329863">+225 07 47 32 98 63</a></li>
+          <li><a href="contact.html">Abu Dhabi · Abidjan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy" data-i18n="footer-rights">&copy; 2025 TOMASTEED. Tous droits réservés.</div>
+      <div class="footer-reg" data-i18n="footer-reg">Régulée par l'Abu Dhabi Global Market (ADGM) — FSRA.</div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast">Message envoyé avec succès !</div>
+
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="scripts/i18n.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>

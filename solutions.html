@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Nos Solutions — TOMASTEED | Banque d'Affaires Panafricaine</title>
+<meta name="description" content="TOMASTEED adapte son expertise financière à votre profil — État, Investisseur, Entreprise ou Partenaire. Solutions sur mesure pour les marchés africains."/>
+<meta property="og:title" content="Nos Solutions — TOMASTEED"/>
+<meta property="og:description" content="Un accompagnement taillé pour votre profil. Banque d'affaires panafricaine régulée ADGM."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles/main.css"/>
+<link rel="stylesheet" href="styles/components.css"/>
+<link rel="stylesheet" href="styles/animations.css"/>
+<style>
+/* ── Page Hero ── */
+.page-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 96px;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(26,25,24,.35) 0%, rgba(26,25,24,.82) 65%, var(--black-deep) 100%),
+    url('assets/solutions-bg.jpg') center/cover no-repeat fixed;
+}
+.page-hero-content { position: relative; z-index: 2; }
+.page-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero-sub {
+  font-size: 1.05rem;
+  color: var(--white-soft);
+  opacity: .85;
+  max-width: 580px;
+  line-height: 1.8;
+}
+
+/* ── Sticky Solutions Nav ── */
+.solutions-sticky-nav {
+  position: sticky;
+  top: 72px;
+  z-index: 50;
+  background: var(--black);
+  border-bottom: 1px solid var(--border);
+}
+.solutions-sticky-nav-inner {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.solutions-sticky-nav-inner::-webkit-scrollbar { display: none; }
+.sol-nav-btn {
+  flex-shrink: 0;
+  padding: 16px 28px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+  transition: color .25s, border-color .25s;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+}
+.sol-nav-btn:hover { color: var(--white); }
+.sol-nav-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ── Solution Section ── */
+.solutions-section { padding: 100px 0; }
+.solutions-section:nth-child(even) { background: var(--black); }
+.solutions-section:nth-child(odd) { background: var(--black-deep); }
+
+.sol-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 72px;
+  align-items: start;
+}
+
+/* Left column */
+.sol-left {}
+.sol-number {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  font-weight: 300;
+  color: rgba(200,168,130,.15);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.sol-label { display: block; margin-bottom: 12px; }
+.sol-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.sol-intro {
+  font-size: .9rem;
+  color: var(--grey-light);
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+
+/* Enjeux */
+.sol-enjeux-label {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 12px;
+}
+.sol-enjeux-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.sol-enjeux-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: .86rem;
+  color: var(--grey-light);
+  line-height: 1.6;
+}
+.sol-enjeux-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: 7px;
+}
+
+/* Right column */
+.sol-right {}
+
+/* Métiers mini-cards */
+.sol-metiers-label {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 16px;
+}
+.sol-metiers-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.sol-metier-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+.sol-metier-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--red);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .3s;
+}
+.sol-metier-card:hover { border-color: var(--border-gold); transform: translateX(4px); }
+.sol-metier-card:hover::before { transform: scaleY(1); }
+.sol-metier-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(220,73,32,.08);
+  border: 1px solid rgba(220,73,32,.2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sol-metier-text {}
+.sol-metier-num {
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 2px;
+}
+.sol-metier-name {
+  font-size: .84rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.sol-metier-arrow {
+  margin-left: auto;
+  color: var(--grey);
+  transition: color .25s, transform .25s;
+}
+.sol-metier-card:hover .sol-metier-arrow { color: var(--gold); transform: translateX(4px); }
+
+/* Sector tags */
+.sol-sectors-label {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 12px;
+}
+.sol-sector-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+.sol-sector-tag {
+  display: inline-block;
+  padding: 5px 14px;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-muted);
+  border: 1px solid var(--border-gold);
+  border-radius: 3px;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+.sol-sector-tag:hover { background: rgba(200,168,130,.18); color: var(--white); }
+
+/* CTA */
+.sol-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Section divider */
+.sol-section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .sol-inner { grid-template-columns: 1fr; gap: 40px; }
+  .sol-number { font-size: 3rem; }
+}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-logo">TOMAS<span class="loader-dot">TEED</span></div></div>
+
+<div id="mobileMenu" class="mobile-menu">
+  <a href="index.html" data-i18n="nav-accueil">Accueil</a>
+  <a href="identite.html" data-i18n="nav-identite">Identité</a>
+  <a href="metiers.html" data-i18n="nav-metiers">Nos Métiers</a>
+  <a href="solutions.html" data-i18n="nav-solutions">Nos Solutions</a>
+  <a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a>
+  <a href="equipe.html" data-i18n="nav-equipe">Équipe</a>
+  <a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a>
+</div>
+
+<nav id="navbar">
+  <div class="container"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">TOMAS<span>TEED</span></a>
+    <ul class="nav-links">
+      <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
+      <li><a href="metiers.html" data-i18n="nav-metiers">Nos Métiers</a></li>
+      <li><a href="solutions.html" class="active" data-i18n="nav-solutions">Nos Solutions</a></li>
+      <li><a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a></li>
+      <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
+      <li><a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="contact.html" class="btn btn-primary nav-cta" style="padding:10px 24px;font-size:.75rem;" data-i18n="nav-contact-cta">Nous Contacter</a>
+      <button id="langToggle" class="lang-toggle">FR / EN</button>
+      <div id="burger" class="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div></div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+    <span class="label" style="display:block;margin-bottom:20px;" data-i18n="solutions-hero-label">Nos Solutions</span>
+    <h1 data-i18n="solutions-hero-title">Un accompagnement<br><em>taillé pour vous</em></h1>
+    <p class="page-hero-sub" data-i18n="solutions-hero-sub">TOMASTEED adapte son expertise à votre profil. Découvrez nos solutions par type de client.</p>
+  </div>
+</section>
+
+<!-- ── Sticky Navigation ── -->
+<nav class="solutions-sticky-nav" id="solutionsStickyNav">
+  <div class="container">
+    <div class="solutions-sticky-nav-inner">
+      <a href="#etat" class="sol-nav-btn" data-target="etat" data-i18n="solutions-nav-etat">État &amp; Institutions</a>
+      <a href="#investisseur" class="sol-nav-btn" data-target="investisseur" data-i18n="solutions-nav-invest">Investisseur</a>
+      <a href="#entreprise" class="sol-nav-btn" data-target="entreprise" data-i18n="solutions-nav-corp">Entreprises</a>
+      <a href="#partenaire" class="sol-nav-btn" data-target="partenaire" data-i18n="solutions-nav-partner">Partenaires</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     01 — ÉTAT & INSTITUTION SOUVERAINE
+════════════════════════════════════════════════════ -->
+<section class="solutions-section" id="etat">
+  <div class="container">
+    <div class="sol-inner">
+
+      <div class="sol-left reveal-left">
+        <div class="sol-number">01</div>
+        <span class="label sol-label" data-i18n="sol-etat-label">01</span>
+        <h2 class="sol-title" data-i18n="sol-etat-title">État &amp; Institution Souveraine</h2>
+        <p class="sol-intro" data-i18n="sol-etat-intro">Vous pilotez la politique économique d'un État ou d'une institution publique. Vos enjeux : mobiliser des financements à grande échelle, gérer la dette souveraine et financer des infrastructures stratégiques.</p>
+        <div class="sol-enjeux-label" data-i18n="sol-etat-enjeux">Vos enjeux clés</div>
+        <ul class="sol-enjeux-list">
+          <li data-i18n="sol-etat-e1">Accès aux marchés obligataires internationaux (Eurobonds, Sukuk)</li>
+          <li data-i18n="sol-etat-e2">Restructuration et gestion optimale de la dette souveraine</li>
+          <li data-i18n="sol-etat-e3">Financement d'infrastructures par mécanismes PPP</li>
+        </ul>
+        <a href="contact.html?profil=etat" class="btn btn-primary sol-cta-btn">
+          <span data-i18n="sol-etat-cta">Discuter de votre projet</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="sol-right reveal-right">
+        <div class="sol-metiers-label" data-i18n="sol-etat-metiers">Nos métiers mobilisés</div>
+        <div class="sol-metiers-cards">
+          <a href="metiers.html#conseil-etats" class="sol-metier-card">
+            <div class="sol-metier-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="sol-metier-text">
+              <div class="sol-metier-num">01</div>
+              <div class="sol-metier-name" data-i18n="metier-1-title">Conseil aux États &amp; Institutions</div>
+            </div>
+            <svg class="sol-metier-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="sol-sectors-label" data-i18n="sol-etat-sectors">Secteurs typiques</div>
+        <div class="sol-sector-tags">
+          <a href="secteurs.html" class="sol-sector-tag">Énergie &amp; Ressources</a>
+          <a href="secteurs.html" class="sol-sector-tag">Infrastructure</a>
+          <a href="secteurs.html" class="sol-sector-tag">Mines &amp; Ressources</a>
+          <a href="secteurs.html" class="sol-sector-tag">Finance Publique</a>
+          <a href="secteurs.html" class="sol-sector-tag">Eau &amp; Environnement</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sol-section-divider"/>
+
+<!-- ═══════════════════════════════════════════════════
+     02 — INVESTISSEUR INSTITUTIONNEL
+════════════════════════════════════════════════════ -->
+<section class="solutions-section" id="investisseur">
+  <div class="container">
+    <div class="sol-inner">
+
+      <div class="sol-left reveal-left">
+        <div class="sol-number">02</div>
+        <span class="label sol-label" data-i18n="sol-invest-label">02</span>
+        <h2 class="sol-title" data-i18n="sol-invest-title">Investisseur Institutionnel</h2>
+        <p class="sol-intro" data-i18n="sol-invest-intro">Fonds souverain, DFI, family office ou gestionnaire d'actifs — vous cherchez à accéder aux opportunités des marchés africains à haut rendement ajusté au risque.</p>
+        <div class="sol-enjeux-label" data-i18n="sol-invest-enjeux">Vos enjeux clés</div>
+        <ul class="sol-enjeux-list">
+          <li data-i18n="sol-invest-e1">Identification d'opportunités d'investissement structurantes</li>
+          <li data-i18n="sol-invest-e2">Co-investissement sur des projets bankables et bien structurés</li>
+          <li data-i18n="sol-invest-e3">Accès à des instruments financiers durables (green bonds, ESG)</li>
+        </ul>
+        <a href="contact.html?profil=investisseur" class="btn btn-primary sol-cta-btn">
+          <span data-i18n="sol-invest-cta">Discuter de votre projet</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="sol-right reveal-right">
+        <div class="sol-metiers-label" data-i18n="sol-invest-metiers">Nos métiers mobilisés</div>
+        <div class="sol-metiers-cards">
+          <a href="metiers.html#levee-fonds" class="sol-metier-card">
+            <div class="sol-metier-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="sol-metier-text">
+              <div class="sol-metier-num">03</div>
+              <div class="sol-metier-name" data-i18n="metier-3-title">Levée de Fonds</div>
+            </div>
+            <svg class="sol-metier-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="metiers.html#structuration" class="sol-metier-card">
+            <div class="sol-metier-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="sol-metier-text">
+              <div class="sol-metier-num">04</div>
+              <div class="sol-metier-name" data-i18n="metier-4-title">Structuration Financière</div>
+            </div>
+            <svg class="sol-metier-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="sol-sectors-label" data-i18n="sol-invest-sectors">Secteurs typiques</div>
+        <div class="sol-sector-tags">
+          <a href="secteurs.html" class="sol-sector-tag">Énergie &amp; Ressources</a>
+          <a href="secteurs.html" class="sol-sector-tag">Télécoms &amp; Digital</a>
+          <a href="secteurs.html" class="sol-sector-tag">Agro-Industrie</a>
+          <a href="secteurs.html" class="sol-sector-tag">Immobilier &amp; Hôtellerie</a>
+          <a href="secteurs.html" class="sol-sector-tag">Finance &amp; Banque</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sol-section-divider"/>
+
+<!-- ═══════════════════════════════════════════════════
+     03 — ENTREPRISE & GRAND COMPTE
+════════════════════════════════════════════════════ -->
+<section class="solutions-section" id="entreprise">
+  <div class="container">
+    <div class="sol-inner">
+
+      <div class="sol-left reveal-left">
+        <div class="sol-number">03</div>
+        <span class="label sol-label" data-i18n="sol-corp-label">03</span>
+        <h2 class="sol-title" data-i18n="sol-corp-title">Entreprise &amp; Grand Compte</h2>
+        <p class="sol-intro" data-i18n="sol-corp-intro">Entreprise africaine ou internationale visant à se développer sur le continent — via croissance externe, levée de capitaux ou restructuration financière.</p>
+        <div class="sol-enjeux-label" data-i18n="sol-corp-enjeux">Vos enjeux clés</div>
+        <ul class="sol-enjeux-list">
+          <li data-i18n="sol-corp-e1">Conseil en acquisition ou cession d'actifs stratégiques (M&amp;A)</li>
+          <li data-i18n="sol-corp-e2">Levée de fonds auprès d'investisseurs institutionnels et privés</li>
+          <li data-i18n="sol-corp-e3">Optimisation de la structure financière pour accélérer la croissance</li>
+        </ul>
+        <a href="contact.html?profil=entreprise" class="btn btn-primary sol-cta-btn">
+          <span data-i18n="sol-corp-cta">Discuter de votre projet</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="sol-right reveal-right">
+        <div class="sol-metiers-label" data-i18n="sol-corp-metiers">Nos métiers mobilisés</div>
+        <div class="sol-metiers-cards">
+          <a href="metiers.html#fusions-acquisitions" class="sol-metier-card">
+            <div class="sol-metier-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+            </div>
+            <div class="sol-metier-text">
+              <div class="sol-metier-num">02</div>
+              <div class="sol-metier-name" data-i18n="metier-2-title">Fusions &amp; Acquisitions</div>
+            </div>
+            <svg class="sol-metier-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="metiers.html#levee-fonds" class="sol-metier-card">
+            <div class="sol-metier-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="sol-metier-text">
+              <div class="sol-metier-num">03</div>
+              <div class="sol-metier-name" data-i18n="metier-3-title">Levée de Fonds</div>
+            </div>
+            <svg class="sol-metier-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="metiers.html#structuration" class="sol-metier-card">
+            <div class="sol-metier-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="sol-metier-text">
+              <div class="sol-metier-num">04</div>
+              <div class="sol-metier-name" data-i18n="metier-4-title">Structuration Financière</div>
+            </div>
+            <svg class="sol-metier-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="sol-sectors-label" data-i18n="sol-corp-sectors">Secteurs typiques</div>
+        <div class="sol-sector-tags">
+          <a href="secteurs.html" class="sol-sector-tag">Agro-Industrie</a>
+          <a href="secteurs.html" class="sol-sector-tag">Mines &amp; Ressources</a>
+          <a href="secteurs.html" class="sol-sector-tag">Télécoms &amp; Digital</a>
+          <a href="secteurs.html" class="sol-sector-tag">Immobilier &amp; Hôtellerie</a>
+          <a href="secteurs.html" class="sol-sector-tag">Santé &amp; Pharma</a>
+          <a href="secteurs.html" class="sol-sector-tag">Finance &amp; Banque</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sol-section-divider"/>
+
+<!-- ═══════════════════════════════════════════════════
+     04 — PARTENAIRE STRATÉGIQUE
+════════════════════════════════════════════════════ -->
+<section class="solutions-section" id="partenaire">
+  <div class="container">
+    <div class="sol-inner">
+
+      <div class="sol-left reveal-left">
+        <div class="sol-number">04</div>
+        <span class="label sol-label" data-i18n="sol-partner-label">04</span>
+        <h2 class="sol-title" data-i18n="sol-partner-title">Partenaire Stratégique</h2>
+        <p class="sol-intro" data-i18n="sol-partner-intro">Banque, cabinet de conseil, fonds d'investissement ou institution internationale — vous souhaitez co-développer des mandats ou accéder au réseau panafricain de TOMASTEED.</p>
+        <div class="sol-enjeux-label" data-i18n="sol-partner-enjeux">Vos enjeux clés</div>
+        <ul class="sol-enjeux-list">
+          <li data-i18n="sol-partner-e1">Co-développement de mandats sur des marchés complémentaires</li>
+          <li data-i18n="sol-partner-e2">Mise en relation avec notre réseau institutionnel africain</li>
+          <li data-i18n="sol-partner-e3">Partenariats sur des transactions complexes nécessitant une présence locale</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary sol-cta-btn">
+          <span data-i18n="sol-partner-cta">Prendre contact</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="sol-right reveal-right">
+        <div class="sol-metiers-label" data-i18n="sol-partner-metiers">Nos métiers mobilisés</div>
+        <div class="sol-metiers-cards">
+          <a href="metiers.html#conseil-etats" class="sol-metier-card">
+            <div class="sol-metier-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="sol-metier-text">
+              <div class="sol-metier-num">01</div>
+              <div class="sol-metier-name" data-i18n="metier-1-title">Conseil aux États &amp; Institutions</div>
+            </div>
+            <svg class="sol-metier-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="metiers.html#fusions-acquisitions" class="sol-metier-card">
+            <div class="sol-metier-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+            </div>
+            <div class="sol-metier-text">
+              <div class="sol-metier-num">02</div>
+              <div class="sol-metier-name" data-i18n="metier-2-title">Fusions &amp; Acquisitions</div>
+            </div>
+            <svg class="sol-metier-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="metiers.html#levee-fonds" class="sol-metier-card">
+            <div class="sol-metier-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="sol-metier-text">
+              <div class="sol-metier-num">03</div>
+              <div class="sol-metier-name" data-i18n="metier-3-title">Levée de Fonds</div>
+            </div>
+            <svg class="sol-metier-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="metiers.html#structuration" class="sol-metier-card">
+            <div class="sol-metier-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="sol-metier-text">
+              <div class="sol-metier-num">04</div>
+              <div class="sol-metier-name" data-i18n="metier-4-title">Structuration Financière</div>
+            </div>
+            <svg class="sol-metier-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="sol-sectors-label" data-i18n="sol-partner-sectors">Secteurs couverts</div>
+        <div class="sol-sector-tags">
+          <a href="secteurs.html" class="sol-sector-tag">Tous secteurs</a>
+          <a href="secteurs.html" class="sol-sector-tag">Afrique francophone</a>
+          <a href="secteurs.html" class="sol-sector-tag">MENA</a>
+          <a href="secteurs.html" class="sol-sector-tag">Marchés de capitaux</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo" style="display:block;margin-bottom:16px;">TOMAS<span>TEED</span></span>
+        <p data-i18n="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de vos projets.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-services">Services</h4>
+        <ul>
+          <li><a href="metiers.html#conseil-etats" data-i18n="card-m1-title">Conseil aux États &amp; Institutions</a></li>
+          <li><a href="metiers.html#fusions-acquisitions" data-i18n="card-m2-title">Fusions &amp; Acquisitions</a></li>
+          <li><a href="metiers.html#levee-fonds" data-i18n="card-m3-title">Levée de Fonds</a></li>
+          <li><a href="metiers.html#structuration" data-i18n="card-m4-title">Structuration Financière</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-company">Entreprise</h4>
+        <ul>
+          <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
+          <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
+          <li><a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a></li>
+          <li><a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a></li>
+          <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@tomasteed.com">hello@tomasteed.com</a></li>
+          <li><a href="contact.html">Abu Dhabi · Abidjan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy" data-i18n="footer-rights">&copy; 2025 TOMASTEED. Tous droits réservés.</div>
+      <div class="footer-reg" data-i18n="footer-reg">Régulée par l'Abu Dhabi Global Market (ADGM) — FSRA.</div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast">Message envoyé avec succès !</div>
+
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="scripts/i18n.js"></script>
+<script src="scripts/main.js"></script>
+<script>
+(function () {
+  const SECTIONS = ['etat', 'investisseur', 'entreprise', 'partenaire'];
+  const navBtns = document.querySelectorAll('.sol-nav-btn');
+
+  function setActive(id) {
+    navBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === id));
+  }
+
+  /* On load: activate from hash */
+  const hash = window.location.hash.replace('#', '');
+  if (SECTIONS.includes(hash)) {
+    setActive(hash);
+    setTimeout(() => {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+  } else {
+    setActive('etat');
+  }
+
+  /* IntersectionObserver */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+  SECTIONS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  /* Smooth scroll on click */
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(btn.dataset.target);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', '#' + btn.dataset.target);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

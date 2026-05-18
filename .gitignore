@@ -1,0 +1,8 @@
+node_modules/
+*.pdf
+*.pptx
+extract_charte.mjs
+test.txt
+tomasteed-git-clone/
+.DS_Store
+Thumbs.db

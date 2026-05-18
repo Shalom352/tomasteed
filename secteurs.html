@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Secteurs — TOMASTEED | Banque d'Affaires Panafricaine</title>
+<meta name="description" content="TOMASTEED intervient dans 9 secteurs stratégiques : Agro-industrie, Santé, Mines, Hôtellerie, Construction, Pétrole & Gaz, Industrie, Eau, Énergie Renouvelable."/>
+<meta property="og:title" content="Secteurs — TOMASTEED"/>
+<meta property="og:description" content="9 secteurs stratégiques qui façonnent l'économie africaine de demain."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles/main.css"/>
+<link rel="stylesheet" href="styles/components.css"/>
+<link rel="stylesheet" href="styles/animations.css"/>
+<style>
+/* ── Page Hero ── */
+.page-hero {
+  position: relative;
+  min-height: 55vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 96px;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(26,25,24,.35) 0%, rgba(26,25,24,.78) 60%, var(--black-deep) 100%),
+    url('assets/hero-bg.jpg') center/cover no-repeat;
+}
+.page-hero-content { position: relative; z-index: 2; }
+.page-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero-sub {
+  font-size: 1rem;
+  color: var(--white-soft);
+  opacity: .85;
+  max-width: 540px;
+  line-height: 1.85;
+}
+
+/* ── Sectors intro ── */
+.secteurs-intro {
+  padding: 72px 0 0;
+  background: var(--black-deep);
+}
+.secteurs-intro-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+}
+.secteurs-intro-text { flex: 1; }
+.secteurs-intro-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 380px;
+  align-self: flex-start;
+}
+.intro-stat {
+  background: var(--black-card);
+  padding: 28px 20px;
+  text-align: center;
+}
+.intro-stat-value {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.intro-stat-label {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+/* ── Sector Grid ── */
+.secteurs-grid-section { padding: 72px 0 128px; background: var(--black-deep); }
+.secteurs-full-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Sector Card ── */
+.secteur-card {
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.secteur-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--gold));
+  opacity: 0;
+  transition: opacity .4s;
+}
+.secteur-card:hover {
+  border-color: rgba(50,125,72,.3);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  background: rgba(50,125,72,.02);
+}
+.secteur-card:hover::after { opacity: 1; }
+
+.secteur-icon-wrap {
+  width: 56px;
+  height: 56px;
+  background: rgba(50,125,72,.08);
+  border: 1px solid rgba(50,125,72,.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.secteur-card:hover .secteur-icon-wrap {
+  background: rgba(50,125,72,.15);
+  border-color: rgba(50,125,72,.4);
+}
+
+.secteur-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: -.01em;
+}
+.secteur-card p {
+  font-size: .84rem;
+  color: var(--grey-light);
+  line-height: 1.8;
+  flex: 1;
+}
+.secteur-tag {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--green);
+  border: 1px solid rgba(50,125,72,.3);
+  padding: 4px 12px;
+  border-radius: 3px;
+  align-self: flex-start;
+}
+
+/* ── CTA Section ── */
+.secteurs-cta {
+  padding: 96px 0;
+  background: var(--black);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.secteurs-cta h2 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  margin-bottom: 16px;
+}
+.secteurs-cta h2 em { font-style: italic; color: var(--gold); }
+.secteurs-cta p {
+  color: var(--grey-light);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.85;
+}
+
+@media (max-width: 1024px) {
+  .secteurs-full-grid { grid-template-columns: repeat(2, 1fr); }
+  .secteurs-intro-inner { flex-direction: column; gap: 48px; }
+  .secteurs-intro-stats { width: 100%; }
+}
+@media (max-width: 768px) {
+  .secteurs-full-grid { grid-template-columns: 1fr; }
+  .secteurs-intro-stats { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 480px) {
+  .secteurs-intro-stats { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-logo">TOMAS<span class="loader-dot">TEED</span></div></div>
+
+<div id="mobileMenu" class="mobile-menu">
+  <a href="index.html" data-i18n="nav-accueil">Accueil</a>
+  <a href="identite.html" data-i18n="nav-identite">Identité</a>
+  <a href="metiers.html" data-i18n="nav-metiers">Nos Métiers</a>
+  <a href="solutions.html" data-i18n="nav-solutions">Nos Solutions</a>
+  <a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a>
+  <a href="equipe.html" data-i18n="nav-equipe">Équipe</a>
+  <a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a>
+</div>
+
+<nav id="navbar">
+  <div class="container"><div class="nav-inner">
+    <a href="index.html" class="nav-logo">TOMAS<span>TEED</span></a>
+    <ul class="nav-links">
+      <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
+      <li><a href="metiers.html" data-i18n="nav-metiers">Nos Métiers</a></li>
+      <li><a href="solutions.html" data-i18n="nav-solutions">Nos Solutions</a></li>
+      <li><a href="secteurs.html" class="active" data-i18n="nav-secteurs">Secteurs</a></li>
+      <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
+      <li><a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="contact.html" class="btn btn-primary nav-cta" style="padding:10px 24px;font-size:.75rem;" data-i18n="nav-contact-cta">Nous Contacter</a>
+      <button id="langToggle" class="lang-toggle">FR / EN</button>
+      <div id="burger" class="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div></div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     PAGE HERO
+════════════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-content">
+    <span class="label" style="display:block;margin-bottom:20px;" data-i18n="secteurs-hero-label">Domaines d'Intervention</span>
+    <h1 data-i18n="secteurs-hero-title">9 Secteurs <em>Stratégiques</em></h1>
+    <p class="page-hero-sub" data-i18n="secteurs-hero-sub">Des verticales d'expertise soigneusement sélectionnées pour couvrir les moteurs du développement économique africain.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     INTRO + STATS
+════════════════════════════════════════════════════ -->
+<section class="secteurs-intro">
+  <div class="container">
+    <div class="secteurs-intro-inner reveal">
+      <div class="secteurs-intro-text">
+        <span class="label" style="display:block;margin-bottom:20px;" data-i18n="secteurs-intro-label">Notre Approche Sectorielle</span>
+        <h2 data-i18n="secteurs-intro-title">Une Expertise<br><em>Ciblée &amp; Approfondie</em></h2>
+        <div class="divider"></div>
+        <p style="font-size:.95rem;color:var(--grey-light);line-height:1.9;margin-bottom:16px;" data-i18n="secteurs-intro-p1">
+          TOMASTEED ne se positionne pas comme un généraliste. Nous avons sélectionné les secteurs où notre expertise crée le plus de valeur pour nos clients africains et moyen-orientaux.
+        </p>
+        <p style="font-size:.95rem;color:var(--grey-light);line-height:1.9;" data-i18n="secteurs-intro-p2">
+          Chaque secteur bénéficie d'une équipe dédiée maîtrisant les standards réglementaires locaux, les dynamiques de financement international et les enjeux ESG propres à chaque vertical.
+        </p>
+      </div>
+      <div class="secteurs-intro-stats">
+        <div class="intro-stat">
+          <div class="intro-stat-value">9</div>
+          <div class="intro-stat-label">Secteurs</div>
+        </div>
+        <div class="intro-stat">
+          <div class="intro-stat-value">30+</div>
+          <div class="intro-stat-label" data-i18n="secteurs-stat-pays">Pays couverts</div>
+        </div>
+        <div class="intro-stat">
+          <div class="intro-stat-value">PPP</div>
+          <div class="intro-stat-label" data-i18n="secteurs-stat-ppp">Partenariats</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SECTORS GRID
+════════════════════════════════════════════════════ -->
+<section class="secteurs-grid-section">
+  <div class="container">
+    <div class="secteurs-full-grid">
+
+      <!-- 1 — Agro-Industrie -->
+      <div class="secteur-card reveal delay-1">
+        <div class="secteur-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22V12"/>
+            <path d="M5 12c0-3.9 3.1-7 7-7s7 3.1 7 7"/>
+            <path d="M5 12c0-1.7.7-3.2 1.8-4.3L12 5l5.2 2.7c1.1 1.1 1.8 2.6 1.8 4.3"/>
+            <path d="M2 22h20"/>
+            <path d="M9 22v-4c0-1.7 1.3-3 3-3s3 1.3 3 3v4"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s1-title">Agro-Industrie</h3>
+        <p data-i18n="s1-desc">Structuration et financement de projets agricoles et agro-industriels. Modernisation des chaînes de valeur, sécurité alimentaire et développement de capacités de transformation locale sur le continent.</p>
+        <span class="secteur-tag" data-i18n="s1-tag">Sécurité Alimentaire</span>
+      </div>
+
+      <!-- 2 — Santé & Pharmacie -->
+      <div class="secteur-card reveal delay-2">
+        <div class="secteur-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M9 12h6"/>
+            <path d="M12 9v6"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s2-title">Santé &amp; Pharmacie</h3>
+        <p data-i18n="s2-desc">Financement d'infrastructures hospitalières, de cliniques spécialisées et de projets pharmaceutiques. Accompagnement des investissements visant à améliorer l'accès aux soins dans les marchés émergents africains.</p>
+        <span class="secteur-tag" data-i18n="s2-tag">Santé Publique</span>
+      </div>
+
+      <!-- 3 — Mines & Ressources -->
+      <div class="secteur-card reveal delay-3">
+        <div class="secteur-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+            <line x1="12" y1="22" x2="12" y2="15.5"/>
+            <polyline points="22 8.5 12 15.5 2 8.5"/>
+            <polyline points="2 8.5 12 2 22 8.5"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s3-title">Mines &amp; Ressources</h3>
+        <p data-i18n="s3-desc">Solutions financières adaptées aux projets miniers — de l'exploration à la production. Sécurisation des investissements, optimisation de la rentabilité et accompagnement dans les phases de financement de projet complexes.</p>
+        <span class="secteur-tag" data-i18n="s3-tag">Ressources Naturelles</span>
+      </div>
+
+      <!-- 4 — Hôtellerie & Immobilier -->
+      <div class="secteur-card reveal delay-1">
+        <div class="secteur-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 22V9l9-7 9 7v13"/>
+            <path d="M9 22V15h6v7"/>
+            <path d="M3 13h18"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s4-title">Hôtellerie, Distribution &amp; Immobilier</h3>
+        <p data-i18n="s4-desc">Structuration de financements pour des projets immobiliers et hôteliers d'envergure. Développement des infrastructures urbaines et touristiques répondant à la demande croissante des marchés africains en pleine expansion.</p>
+        <span class="secteur-tag" data-i18n="s4-tag">Tourisme &amp; Habitat</span>
+      </div>
+
+      <!-- 5 — Construction & Infrastructures -->
+      <div class="secteur-card reveal delay-2">
+        <div class="secteur-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 22h20"/>
+            <path d="M6 22V11l6-4 6 4v11"/>
+            <path d="M2 11l10-7 10 7"/>
+            <rect x="9" y="15" width="6" height="7"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s5-title">Construction &amp; Infrastructures</h3>
+        <p data-i18n="s5-desc">Financement de projets d'infrastructures publiques et privées — routes, ponts, bâtiments industriels, zones économiques. Notre expertise en financements structurés garantit la réussite des projets complexes aux standards internationaux.</p>
+        <span class="secteur-tag" data-i18n="s5-tag">Infrastructures Publiques</span>
+      </div>
+
+      <!-- 6 — Pétrole & Gaz -->
+      <div class="secteur-card reveal delay-3">
+        <div class="secteur-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s6-title">Pétrole &amp; Gaz</h3>
+        <p data-i18n="s6-desc">Conseil aux États pétroliers africains dans la structuration et l'optimisation des revenus d'hydrocarbures. Accompagnement de la transition vers un modèle énergétique mixte intégrant les impératifs de durabilité et de gouvernance.</p>
+        <span class="secteur-tag" data-i18n="s6-tag">Énergie Fossile</span>
+      </div>
+
+      <!-- 7 — Industrie & Manufacturing -->
+      <div class="secteur-card reveal delay-1">
+        <div class="secteur-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"/>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            <circle cx="8" cy="8" r="2"/>
+            <path d="M4 14h2v2"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s7-title">Industrie &amp; Manufacturing</h3>
+        <p data-i18n="s7-desc">Financement de l'industrialisation africaine — zones économiques spéciales, chaînes de valeur régionales, transformation locale des matières premières. Nous structurons les capitaux nécessaires à la montée en puissance industrielle du continent.</p>
+        <span class="secteur-tag" data-i18n="s7-tag">Industrialisation</span>
+      </div>
+
+      <!-- 8 — Eau & Assainissement -->
+      <div class="secteur-card reveal delay-2">
+        <div class="secteur-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s8-title">Eau &amp; Assainissement</h3>
+        <p data-i18n="s8-desc">Financement d'infrastructures hydrauliques et de projets d'accès à l'eau potable via des mécanismes PPP innovants. Solutions alignées sur les ODD pour garantir l'accès universel à l'eau en Afrique subsaharienne.</p>
+        <span class="secteur-tag" data-i18n="s8-tag">ODD &amp; Impact</span>
+      </div>
+
+      <!-- 9 — Énergie Renouvelable -->
+      <div class="secteur-card reveal delay-3">
+        <div class="secteur-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2" x2="12" y2="5"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
+            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+            <line x1="2" y1="12" x2="5" y2="12"/>
+            <line x1="19" y1="12" x2="22" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
+            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+          </svg>
+        </div>
+        <h3 data-i18n="s9-title">Énergie &amp; Renouvelables</h3>
+        <p data-i18n="s9-desc">Financement de projets solaires, éoliens et hydrauliques à l'échelle du continent. Green bonds, obligations durables et financements mixtes pour accélérer la transition énergétique et l'électrification des zones rurales africaines.</p>
+        <span class="secteur-tag" data-i18n="s9-tag">Transition Énergétique</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CTA
+════════════════════════════════════════════════════ -->
+<section class="secteurs-cta">
+  <div class="container">
+    <span class="label reveal" style="display:block;margin-bottom:20px;" data-i18n="secteurs-cta-label">Votre Projet</span>
+    <h2 class="reveal delay-1" data-i18n="secteurs-cta-title">Votre secteur a des besoins<br><em>qui lui sont propres</em></h2>
+    <p class="reveal delay-2" data-i18n="secteurs-cta-p">TOMASTEED analyse chaque opportunité avec une approche sur mesure. Nos équipes s'adaptent aux spécificités de votre marché et de votre transaction.</p>
+    <div class="reveal delay-3" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">
+        <span data-i18n="secteurs-cta-btn1">Discutons de votre projet</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="metiers.html" class="btn btn-outline">
+        <span data-i18n="secteurs-cta-btn2">Nos métiers</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="nav-logo" style="display:block;margin-bottom:16px;">TOMAS<span>TEED</span></span>
+        <p data-i18n="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de vos projets.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-services">Services</h4>
+        <ul>
+          <li><a href="metiers.html#conseil-etats" data-i18n="card-m1-title">Conseil aux États</a></li>
+          <li><a href="metiers.html#fusions-acquisitions" data-i18n="card-m2-title">Fusions &amp; Acquisitions</a></li>
+          <li><a href="metiers.html#levee-fonds" data-i18n="card-m3-title">Levée de Fonds</a></li>
+          <li><a href="metiers.html#structuration" data-i18n="card-m4-title">Structuration</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-company">Entreprise</h4>
+        <ul>
+          <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
+          <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
+          <li><a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@tomasteed.com">hello@tomasteed.com</a></li>
+          <li><a href="contact.html">Abu Dhabi · Abidjan</a></li>
+          <li><a href="legal.html">Mentions Légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy" data-i18n="footer-rights">&copy; 2025 TOMASTEED. Tous droits réservés.</div>
+      <div class="footer-reg" data-i18n="footer-reg">Régulée par l'Abu Dhabi Global Market (ADGM) — FSRA. Informations destinées aux investisseurs professionnels.</div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast">Message envoyé avec succès !</div>
+
+<button class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="scripts/i18n.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>
