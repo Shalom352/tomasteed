@@ -143,6 +143,24 @@
 }
 .insight-read-link:hover { gap: 10px; }
 
+/* Filter bar */
+.filter-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+.filter-btn { padding: 8px 20px; border: 1px solid var(--border); border-radius: 3px; background: transparent; color: var(--grey-light); font-family: var(--font-body); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: var(--transition-fast); }
+.filter-btn:hover { border-color: var(--border-gold); color: var(--gold); }
+.filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--black-deep); }
+.insight-card.hidden { display: none !important; }
+
+/* Insight cover image placeholder */
+.insight-cover { height: 200px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--black-deep); flex-shrink: 0; }
+.insight-card--featured .insight-cover { height: 240px; }
+.insight-cover-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #111010 0%, #1a1d28 50%, #111010 100%); }
+.insight-cover-label { position: relative; z-index: 2; font-size: .6rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(200,168,130,.28); border: 1px dashed rgba(200,168,130,.14); padding: 6px 14px; border-radius: 3px; }
+
+/* 3-col grid for additional articles */
+.insights-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 24px; }
+@media (max-width: 1024px) { .insights-grid-3 { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 640px) { .insights-grid-3 { grid-template-columns: 1fr; } }
+
 /* Newsletter CTA */
 .newsletter-cta {
   padding: 80px 0;
@@ -251,10 +269,24 @@
 <section class="insights-section">
   <div class="container">
 
+    <!-- Filter bar -->
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">Tous</button>
+      <button class="filter-btn" data-filter="Marchés de Capitaux">Marchés</button>
+      <button class="filter-btn" data-filter="M&A Afrique">M&amp;A</button>
+      <button class="filter-btn" data-filter="ESG &amp; Transition">ESG</button>
+      <button class="filter-btn" data-filter="Finance Islamique">Finance Islamique</button>
+      <button class="filter-btn" data-filter="Infrastructure">Infrastructure</button>
+    </div>
+
     <div class="insights-featured reveal">
 
       <!-- Featured article -->
-      <div class="insight-card insight-card--featured">
+      <div class="insight-card insight-card--featured" data-category="Marchés de Capitaux">
+        <div class="insight-cover">
+          <div class="insight-cover-bg"></div>
+          <span class="insight-cover-label">Image à venir</span>
+        </div>
         <div class="insight-tag-bar">
           <span class="insight-category">Marchés de Capitaux</span>
           <span class="insight-date">Janvier 2025</span>
@@ -273,7 +305,11 @@
       </div>
 
       <!-- Side article -->
-      <div class="insight-card">
+      <div class="insight-card" data-category="M&A Afrique">
+        <div class="insight-cover">
+          <div class="insight-cover-bg"></div>
+          <span class="insight-cover-label">Image à venir</span>
+        </div>
         <div class="insight-tag-bar">
           <span class="insight-category">M&A Afrique</span>
           <span class="insight-date">Décembre 2024</span>
@@ -295,7 +331,11 @@
 
     <div class="insights-grid-2 reveal delay-1">
 
-      <div class="insight-card">
+      <div class="insight-card" data-category="Finance Islamique">
+        <div class="insight-cover">
+          <div class="insight-cover-bg"></div>
+          <span class="insight-cover-label">Image à venir</span>
+        </div>
         <div class="insight-tag-bar">
           <span class="insight-category">Finance Islamique</span>
           <span class="insight-date">Novembre 2024</span>
@@ -313,7 +353,11 @@
         </div>
       </div>
 
-      <div class="insight-card">
+      <div class="insight-card" data-category="ESG &amp; Transition">
+        <div class="insight-cover">
+          <div class="insight-cover-bg"></div>
+          <span class="insight-cover-label">Image à venir</span>
+        </div>
         <div class="insight-tag-bar">
           <span class="insight-category">ESG &amp; Transition</span>
           <span class="insight-date">Octobre 2024</span>
@@ -323,6 +367,76 @@
           <p>Les green bonds africains représentent encore moins de 1% du marché obligataire mondial. Pourtant, les besoins de financement de la transition énergétique sur le continent dépassent $3 000 milliards d'ici 2030. Comment combler ce fossé et quelles opportunités pour les émetteurs ?</p>
           <div class="insight-footer">
             <span class="insight-author">Pôle ESG — TOMASTEED</span>
+            <span class="insight-read-link">
+              Lire l'analyse
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="insights-grid-3 reveal delay-2">
+
+      <div class="insight-card" data-category="Infrastructure">
+        <div class="insight-cover">
+          <div class="insight-cover-bg"></div>
+          <span class="insight-cover-label">Image à venir</span>
+        </div>
+        <div class="insight-tag-bar">
+          <span class="insight-category">Infrastructure</span>
+          <span class="insight-date">Septembre 2024</span>
+        </div>
+        <div class="insight-body">
+          <h3>PPP en Afrique de l'Ouest : les clés d'un financement réussi en 2025</h3>
+          <p>Les partenariats public-privé restent le levier privilégié pour financer les infrastructures africaines. Analyse des conditions de succès, des garanties nécessaires et des tendances de marché pour attirer les investisseurs institutionnels.</p>
+          <div class="insight-footer">
+            <span class="insight-author">Pôle Conseil États — TOMASTEED</span>
+            <span class="insight-read-link">
+              Lire l'analyse
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight-card" data-category="Marchés de Capitaux">
+        <div class="insight-cover">
+          <div class="insight-cover-bg"></div>
+          <span class="insight-cover-label">Image à venir</span>
+        </div>
+        <div class="insight-tag-bar">
+          <span class="insight-category">Marchés de Capitaux</span>
+          <span class="insight-date">Août 2024</span>
+        </div>
+        <div class="insight-body">
+          <h3>ADGM, hub de la finance Golfe-Afrique : opportunités pour les émetteurs africains</h3>
+          <p>L'Abu Dhabi Global Market s'impose comme la plateforme de référence pour les transactions Golfe-Afrique. Comment les émetteurs souverains et corporates africains peuvent-ils diversifier leurs sources de financement via cet écosystème en pleine croissance ?</p>
+          <div class="insight-footer">
+            <span class="insight-author">TOMASTEED · Abu Dhabi</span>
+            <span class="insight-read-link">
+              Lire l'analyse
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight-card" data-category="M&A Afrique">
+        <div class="insight-cover">
+          <div class="insight-cover-bg"></div>
+          <span class="insight-cover-label">Image à venir</span>
+        </div>
+        <div class="insight-tag-bar">
+          <span class="insight-category">M&A Afrique</span>
+          <span class="insight-date">Juillet 2024</span>
+        </div>
+        <div class="insight-body">
+          <h3>Valorisation des entreprises africaines : méthodes, multiples de marché et primes de risque</h3>
+          <p>La valorisation des sociétés africaines non cotées soulève des enjeux spécifiques : absence de comparables locaux, primes de liquidité, risque de change et asymétrie d'information. Tour d'horizon des approches retenues par les praticiens du M&A africain.</p>
+          <div class="insight-footer">
+            <span class="insight-author">Pôle M&A — TOMASTEED</span>
             <span class="insight-read-link">
               Lire l'analyse
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -356,6 +470,11 @@
       <div class="footer-brand">
         <span class="nav-logo" style="display:block;margin-bottom:16px;">TOMAS<span>TEED</span></span>
         <p>Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de vos projets.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/tomasteed" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
       </div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="metiers.html">Conseil aux États</a></li><li><a href="metiers.html">M&A</a></li><li><a href="metiers.html">Levée de Fonds</a></li><li><a href="metiers.html">Structuration</a></li></ul></div>
       <div class="footer-col"><h4>Entreprise</h4><ul><li><a href="identite.html">Identité</a></li><li><a href="equipe.html">Équipe</a></li><li><a href="insights.html">Insights</a></li><li><a href="carrieres.html">Carrières</a></li></ul></div>
@@ -373,5 +492,25 @@
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 <script src="scripts/main.js"></script>
+<script>
+/* Insights filter */
+(function () {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const insightCards = document.querySelectorAll('.insight-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      insightCards.forEach(card => {
+        const category = card.dataset.category || '';
+        const matches = filter === 'all' || category === filter;
+        card.classList.toggle('hidden', !matches);
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>

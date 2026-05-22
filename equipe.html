@@ -373,6 +373,16 @@
   .partners-grid, .directors-grid, .analysts-grid { grid-template-columns: 1fr; }
   .team-stats-inner { justify-content: center; gap: 40px; }
 }
+
+/* ── Team Filter ── */
+.team-filter-bar { background: var(--black-deep); border-bottom: 1px solid var(--border); padding: 24px 0; }
+.team-filter-inner { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.filter-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.filter-group-label { font-size: .62rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--grey); white-space: nowrap; margin-right: 4px; }
+.filter-btn { padding: 8px 18px; border: 1px solid var(--border); border-radius: 3px; background: transparent; color: var(--grey-light); font-family: var(--font-body); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: var(--transition-fast); }
+.filter-btn:hover { border-color: var(--border-gold); color: var(--gold); }
+.filter-btn.active { background: var(--gold); border-color: var(--gold); color: var(--black-deep); }
+.member-card.hidden { display: none !important; }
 </style>
 </head>
 <body>
@@ -449,6 +459,20 @@
   </div>
 </div>
 
+<!-- FILTER BAR -->
+<div class="team-filter-bar">
+  <div class="container">
+    <div class="team-filter-inner">
+      <div class="filter-group">
+        <span class="filter-group-label">Bureau :</span>
+        <button class="filter-btn active" data-bureau="all">Tous</button>
+        <button class="filter-btn" data-bureau="Abu Dhabi">Abu Dhabi</button>
+        <button class="filter-btn" data-bureau="Abidjan">Abidjan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══════════════════════════════════════════════════
      MANAGING PARTNERS & PARTNERS
 ════════════════════════════════════════════════════ -->
@@ -470,7 +494,7 @@
     <div class="partners-grid" style="margin-bottom:48px;">
 
       <!-- ─── KANE ─── -->
-      <div class="member-card reveal delay-1">
+      <div class="member-card reveal delay-1" data-bureau="Abu Dhabi">
         <div class="member-photo-wrap">
           <img src="assets/team/kane.png" alt="Mohamed El Fadel KANE" loading="lazy"/>
           <div class="member-photo-overlay"></div>
@@ -500,7 +524,7 @@
       </div>
 
       <!-- ─── BEN BARKA — FEATURED ─── -->
-      <div class="member-card member-card--featured reveal delay-2">
+      <div class="member-card member-card--featured reveal delay-2" data-bureau="both">
         <div class="member-photo-wrap">
           <div class="featured-badge">Ancien Ministre · Ancien VP BOAD</div>
           <img src="assets/team/benbarka.png" alt="Moustapha BEN BARKA" loading="lazy"/>
@@ -543,7 +567,7 @@
     <div class="partners-grid">
 
       <!-- ─── GUILLABERT ─── -->
-      <div class="member-card reveal delay-1">
+      <div class="member-card reveal delay-1" data-bureau="Abidjan">
         <div class="member-photo-wrap">
           <img src="assets/team/guillabert.png" alt="Claude GUILLABERT" loading="lazy"/>
           <div class="member-photo-overlay"></div>
@@ -574,7 +598,7 @@
       </div>
 
       <!-- ─── GUEYE ─── -->
-      <div class="member-card reveal delay-2">
+      <div class="member-card reveal delay-2" data-bureau="Abidjan">
         <div class="member-photo-wrap">
           <img src="assets/team/gueye.png" alt="Rokhya GUEYE" loading="lazy"/>
           <div class="member-photo-overlay"></div>
@@ -620,7 +644,7 @@
     <div class="directors-grid">
 
       <!-- ─── LEKEUFACK ─── -->
-      <div class="member-card reveal delay-1">
+      <div class="member-card reveal delay-1" data-bureau="Abidjan">
         <div class="member-photo-wrap">
           <img src="assets/team/lekeufack.png" alt="Stéphane LEKEUFACK" loading="lazy"/>
           <div class="member-photo-overlay"></div>
@@ -650,7 +674,7 @@
       </div>
 
       <!-- ─── ANGO ─── -->
-      <div class="member-card reveal delay-2">
+      <div class="member-card reveal delay-2" data-bureau="Abidjan">
         <div class="member-photo-wrap">
           <img src="assets/team/nazir.jpg" alt="Abd'Al Nazir ANGO" loading="lazy"/>
           <div class="member-photo-overlay"></div>
@@ -697,7 +721,7 @@
     <div class="analysts-grid">
 
       <!-- ─── AYIKOE ─── -->
-      <div class="member-card member-card--analyst reveal delay-1">
+      <div class="member-card member-card--analyst reveal delay-1" data-bureau="Abidjan">
         <div class="member-photo-wrap">
           <img src="assets/team/ango.png" alt="Ange Emmanuel AYIKOE" loading="lazy"/>
           <div class="member-photo-overlay"></div>
@@ -720,7 +744,7 @@
       </div>
 
       <!-- ─── KONE ─── -->
-      <div class="member-card member-card--analyst reveal delay-2">
+      <div class="member-card member-card--analyst reveal delay-2" data-bureau="Abidjan">
         <div class="member-photo-wrap">
           <img src="assets/team/siddiq.jpg" alt="Siddiq KONE" loading="lazy"/>
           <div class="member-photo-overlay"></div>
@@ -741,7 +765,7 @@
       </div>
 
       <!-- ─── SAMASSI ─── -->
-      <div class="member-card member-card--analyst reveal delay-3">
+      <div class="member-card member-card--analyst reveal delay-3" data-bureau="Abidjan">
         <div class="member-photo-wrap">
           <img src="assets/team/Mahmoud.jpg" alt="Mahmoud SAMASSI" loading="lazy"/>
           <div class="member-photo-overlay"></div>
@@ -796,6 +820,11 @@
       <div class="footer-brand">
         <span class="nav-logo" style="display:block;margin-bottom:16px;">TOMAS<span>TEED</span></span>
         <p data-i18n="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de vos projets.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/tomasteed" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer-col-services">Services</h4>
@@ -841,5 +870,25 @@
 
 <script src="scripts/i18n.js"></script>
 <script src="scripts/main.js"></script>
+<script>
+/* Team bureau filter */
+(function () {
+  const bureauxBtns = document.querySelectorAll('[data-bureau]');
+  const memberCards = document.querySelectorAll('.member-card');
+
+  bureauxBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      bureauxBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.bureau;
+      memberCards.forEach(card => {
+        const bureau = card.dataset.bureau || '';
+        const visible = filter === 'all' || bureau === filter || bureau === 'both';
+        card.classList.toggle('hidden', !visible);
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>

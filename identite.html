@@ -179,8 +179,27 @@
   top: 0; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg, var(--gold), transparent);
-  opacity: .5;
+  opacity: .6;
 }
+.tombstone--ma::before { background: linear-gradient(90deg, var(--red), transparent); }
+.tombstone--project::before { background: linear-gradient(90deg, #2d7a5f, transparent); }
+.tombstone--structure::before { background: linear-gradient(90deg, #4a7fa5, transparent); }
+.tombstone-region {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 3px 10px;
+}
+.tombstone--ma .tombstone-region { color: rgba(220,73,32,.7); border-color: rgba(220,73,32,.2); background: rgba(220,73,32,.06); }
+.tombstone--project .tombstone-region { color: rgba(45,122,95,.9); border-color: rgba(45,122,95,.25); background: rgba(45,122,95,.07); }
+.tombstone--structure .tombstone-region { color: rgba(74,127,165,.9); border-color: rgba(74,127,165,.25); background: rgba(74,127,165,.07); }
 .tombstone:hover {
   border-color: var(--border-gold);
   transform: translateY(-4px);
@@ -632,38 +651,43 @@
         <div class="tombstone-desc">Emission obligataire sur les marchés UEMOA</div>
         <div class="tombstone-meta">MTN Côte d'Ivoire · Télécommunications<br>Marchés de capitaux UEMOA</div>
         <div class="tombstone-year">2022</div>
+        <span class="tombstone-region">Côte d'Ivoire · UEMOA</span>
       </div>
 
-      <div class="tombstone reveal delay-2">
+      <div class="tombstone tombstone--project reveal delay-2">
         <div class="tombstone-type">Financement de Projet</div>
         <div class="tombstone-amount">$500M</div>
         <div class="tombstone-desc">Financement d'infrastructure énergie</div>
         <div class="tombstone-meta">Secteur Énergie · Afrique Sub-Saharienne<br>Project Finance Senior Debt</div>
         <div class="tombstone-year">2021–2023</div>
+        <span class="tombstone-region">Afrique Sub-Saharienne</span>
       </div>
 
-      <div class="tombstone reveal delay-3">
+      <div class="tombstone tombstone--ma reveal delay-3">
         <div class="tombstone-type">M&A — Acquisition</div>
         <div class="tombstone-amount">$85M</div>
         <div class="tombstone-desc">Acquisition d'actifs miniers stratégiques</div>
         <div class="tombstone-meta">Secteur Mines &amp; Ressources<br>Afrique de l'Ouest</div>
         <div class="tombstone-year">2023</div>
+        <span class="tombstone-region">Afrique de l'Ouest</span>
       </div>
 
-      <div class="tombstone reveal delay-1">
+      <div class="tombstone tombstone--project reveal delay-1">
         <div class="tombstone-type">Levée de Fonds — PPP</div>
         <div class="tombstone-amount">$120M</div>
         <div class="tombstone-desc">Financement PPP infrastructures portuaires</div>
         <div class="tombstone-meta">Secteur Transport &amp; Logistique<br>Golfe de Guinée</div>
         <div class="tombstone-year">2024</div>
+        <span class="tombstone-region">Golfe de Guinée</span>
       </div>
 
-      <div class="tombstone reveal delay-2">
+      <div class="tombstone tombstone--structure reveal delay-2">
         <div class="tombstone-type">Financement Structuré</div>
         <div class="tombstone-amount">€65M</div>
         <div class="tombstone-desc">Restructuration de dette souveraine</div>
         <div class="tombstone-meta">État Souverain · Afrique Centrale<br>Conseil Financier Exclusif</div>
         <div class="tombstone-year">2023</div>
+        <span class="tombstone-region">Afrique Centrale</span>
       </div>
 
       <div class="tombstone reveal delay-3">
@@ -672,6 +696,7 @@
         <div class="tombstone-desc">Financement croissance agro-industrie</div>
         <div class="tombstone-meta">Secteur Agro-Industrie<br>CEDEAO · Private Equity</div>
         <div class="tombstone-year">2024</div>
+        <span class="tombstone-region">CEDEAO</span>
       </div>
 
     </div>
@@ -875,6 +900,11 @@
       <div class="footer-brand">
         <span class="nav-logo" style="display:block;margin-bottom:16px;">TOMAS<span>TEED</span></span>
         <p data-i18n="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de vos projets.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/tomasteed" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer-col-services">Services</h4>
