@@ -11,12 +11,24 @@ window.addEventListener('load', () => {
   }, 1100);
 });
 
-/* ── Navbar scroll ── */
+/* —— Navbar — transparent sur homepage, blanc sur pages intérieures —— */
 const navbar = document.getElementById('navbar');
+const isHomepage = document.body.classList.contains('homepage') ||
+                   window.location.pathname.endsWith('index.html') ||
+                   window.location.pathname === '/';
+
 if (navbar) {
+  /* Homepage hero : navbar transparente en haut */
+  if (isHomepage) {
+    navbar.classList.add('nav-transparent');
+  }
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
   }, { passive: true });
 }
 

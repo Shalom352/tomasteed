@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Nos Domaines d'Expertises — TOMASTEED</title>
-<meta name="description" content="TOMASTEED : Conseil aux États, Fusions & Acquisitions, Levée de Fonds, Structuration Financière. Banque d'affaires panafricaine régulée ADGM."/>
+<title>Nos domaines d'expertise — TOMASTEED</title>
+<meta name="description" content="TOMASTEED fournit des services de conseil financier aux États, entreprises et investisseurs opérant sur les marchés africains."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
@@ -12,812 +12,676 @@
 <link rel="stylesheet" href="styles/components.css"/>
 <link rel="stylesheet" href="styles/animations.css"/>
 <style>
+/* ══ PAGE OVERRIDE — fond blanc ══════════════════════════════ */
+body { background: var(--white); color: var(--text-dark); }
 
-/* ── Sticky sub-nav (Blackstone-style) ── */
-.metiers-subnav {
-  position: sticky;
-  top: var(--nav-h);
-  z-index: 90;
-  background: var(--white);
-  border-bottom: 1px solid rgba(46,45,44,0.10);
-  overflow: hidden;
+/* ── Hero (gris clair — fidèle à l'image) ────────────────── */
+.domaines-hero {
+  padding: calc(var(--nav-h) + 72px) 0 80px;
+  background: #eeecea;
+  text-align: center;
 }
-.metiers-subnav-inner {
+.domaines-hero h1 {
+  font-family: var(--font-body);
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: var(--red);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* ── Section intro (fond blanc + barre rouge gauche) ────────── */
+.domaines-intro {
+  background: var(--white);
+  padding: 64px 0 0;
+  border-top: none;
+}
+.domaines-intro-inner {
   display: flex;
+  gap: 0;
+}
+.domaines-intro-bar {
+  width: 3px;
+  background: var(--red);
+  flex-shrink: 0;
+  margin-right: 40px;
+  align-self: stretch;
+  min-height: 100%;
+}
+.domaines-intro-text {}
+.domaines-intro-text h2 {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.domaines-intro-text p {
+  font-size: 0.9rem;
+  color: var(--text-grey-d);
+  line-height: 1.8;
+  max-width: 900px;
+  margin-bottom: 0;
+}
+
+/* ── Tabs navigation (4 onglets) ────────────────────────────── */
+.domaines-tabs {
+  margin-top: 40px;
+  border-bottom: 1px solid rgba(46,45,44,0.12);
+  display: flex;
+  gap: 0;
   overflow-x: auto;
   scrollbar-width: none;
-  -ms-overflow-style: none;
 }
-.metiers-subnav-inner::-webkit-scrollbar { display: none; }
-.metier-subnav-btn {
-  flex-shrink: 0;
-  padding: 18px 32px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.domaines-tabs::-webkit-scrollbar { display: none; }
+
+.domaine-tab {
+  font-size: 0.78rem;
+  font-weight: 600;
   color: rgba(46,45,44,0.45);
+  padding: 14px 24px 14px 0;
+  margin-right: 32px;
   border: none;
-  border-bottom: 2px solid transparent;
   background: none;
   cursor: pointer;
-  transition: color .25s, border-color .25s;
+  position: relative;
   white-space: nowrap;
-  text-decoration: none;
+  transition: color 0.22s;
+  font-family: var(--font-body);
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+.domaine-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 0; height: 2px;
+  background: var(--red);
+  transition: width 0.25s ease;
+}
+.domaine-tab:hover { color: var(--text-dark); }
+.domaine-tab.active {
+  color: var(--red);
+  font-weight: 700;
+}
+.domaine-tab.active::after { width: 100%; }
+
+/* ── Section de contenu du service ─────────────────────────── */
+.domaine-content-section {
+  background: #f2f1ef;
+  padding: 72px 0 80px;
+}
+
+/* Panneau service */
+.domaine-panel {
+  display: none;
+}
+.domaine-panel.active {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: flex-start;
+}
+
+/* Colonne gauche */
+.domaine-panel-left {}
+
+.domaine-service-title {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--red);
+  margin-bottom: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.domaine-service-intro {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+/* Points numérotés avec cercle */
+.domaine-points {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.domaine-point {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.domaine-point-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.domaine-point-body {}
+.domaine-point-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.domaine-point-desc {
+  font-size: 0.82rem;
+  color: var(--text-grey-d);
+  line-height: 1.75;
+}
+
+/* Colonne droite — visuel / placeholder */
+.domaine-panel-right {}
+
+.domaine-visual {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #dddbd8;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.domaine-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.domaine-visual-placeholder {
+  font-size: 0.72rem;
+  color: rgba(46,45,44,0.4);
+  text-align: center;
+  padding: 24px;
+  font-style: italic;
+  line-height: 1.6;
+  background: #dddbd8;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.domaine-visual-note {
+  position: absolute;
+  bottom: 12px; right: 12px;
+  background: #F5D06A;
+  color: #333;
+  font-size: 0.68rem;
+  padding: 8px 12px;
+  border-radius: 2px;
+  max-width: 180px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ── Section CTA rouge ──────────────────────────────────────── */
+.domaines-cta {
+  background: var(--red);
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.domaines-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.15) 0%, transparent 60%);
+}
+.domaines-cta-inner { position: relative; z-index: 2; }
+.domaines-cta h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.domaines-cta p {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 36px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.75;
+}
+.btn-white {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-}
-.metier-subnav-btn:hover { color: var(--text-dark); }
-.metier-subnav-btn.active {
-  color: var(--red);
-  border-bottom-color: var(--red);
-}
-.metier-subnav-num {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: inherit;
-  opacity: 0.5;
-}
-
-/* ── Metier bloc Blackstone — pleine largeur ── */
-.metier-section {
-  padding: 0;
-}
-
-/* Bloc header de domaine (fond blanc + fond sombre alternés) */
-.metier-chapter {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 80vh;
-}
-.metier-chapter:nth-child(even) .metier-chap-left { order: 2; }
-.metier-chapter:nth-child(even) .metier-chap-right { order: 1; }
-
-.metier-chap-left {
-  background: var(--white);
-  color: var(--text-dark);
-  padding: 100px 80px 100px 0;
-  padding-left: calc((100vw - 1280px) / 2 + 2rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.metier-chap-left:first-child {
-  padding-left: calc(max((100vw - 1280px) / 2, 2rem) + 2rem);
-}
-
-.metier-chap-right {
-  background: var(--black-pure);
-  color: var(--white);
-  padding: 100px 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.metier-chap-num {
-  font-family: var(--font-serif);
-  font-size: clamp(5rem, 12vw, 10rem);
-  font-weight: 300;
-  line-height: 0.85;
-  color: rgba(220,73,32,0.08);
-  letter-spacing: -0.04em;
-  margin-bottom: 8px;
-  display: block;
-}
-.metier-chap-right .metier-chap-num { color: rgba(255,255,255,0.04); }
-
-.metier-chap-left .label-dash {
-  color: var(--red);
-  margin-bottom: 20px;
-  display: inline-flex;
-}
-.metier-chap-left .label-dash::before { background: var(--red); }
-
-.metier-chap-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
-  font-weight: 300;
-  line-height: 1.08;
-  color: var(--text-dark);
-  margin-bottom: 24px;
-}
-.metier-chap-title em { font-style: italic; color: var(--red); }
-
-.metier-chap-right .metier-chap-title { color: var(--white); }
-.metier-chap-right .label-dash { color: var(--red); margin-bottom: 20px; display: inline-flex; }
-
-.metier-chap-intro {
-  font-size: 0.95rem;
-  line-height: 1.85;
-  margin-bottom: 32px;
-  max-width: 480px;
-}
-.metier-chap-left .metier-chap-intro { color: var(--text-grey-d); }
-.metier-chap-right .metier-chap-intro { color: rgba(255,255,255,0.65); }
-
-/* Points de service — tiret rouge style Blackstone */
-.metier-points-bs {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border-top: 1px solid rgba(46,45,44,0.10);
-}
-.metier-chap-right .metier-points-bs { border-top-color: rgba(255,255,255,0.07); }
-
-.metier-point-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(46,45,44,0.07);
-  font-size: 0.86rem;
-  line-height: 1.6;
-  transition: padding-left 0.25s ease;
-  cursor: default;
-}
-.metier-point-item:hover { padding-left: 8px; }
-.metier-chap-right .metier-point-item { border-bottom-color: rgba(255,255,255,0.06); }
-.metier-chap-left .metier-point-item { color: var(--text-mid); }
-.metier-chap-right .metier-point-item { color: rgba(255,255,255,0.65); }
-
-.metier-point-dash {
-  width: 14px;
-  height: 1px;
-  background: var(--red);
-  margin-top: 11px;
-  flex-shrink: 0;
-}
-
-/* ── Section "Notre Approche" (processus) ── */
-.processus-section {
-  background: var(--black-deep);
-  padding: 120px 0;
-}
-
-.process-timeline {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  margin-top: 72px;
-}
-
-.process-step-bs {
-  background: var(--black-card);
-  padding: 48px 40px;
-  position: relative;
-  transition: background 0.25s;
-}
-.process-step-bs:hover { background: #2a2928; }
-.process-step-bs::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--red);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-  transform-origin: left;
-}
-.process-step-bs:hover::before { transform: scaleX(1); }
-
-.step-num-bs {
-  font-family: var(--font-serif);
-  font-size: 3.5rem;
-  font-weight: 300;
-  color: rgba(220,73,32,0.12);
-  line-height: 1;
-  margin-bottom: 20px;
-}
-.process-step-bs h3 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 12px;
-  letter-spacing: -0.01em;
-}
-.process-step-bs p {
-  font-size: 0.82rem;
-  color: var(--grey-light);
-  line-height: 1.8;
-}
-
-/* ── Tombstones (références) ── */
-.refs-section {
-  background: var(--white);
-  padding: 96px 0;
-}
-.refs-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: rgba(46,45,44,0.09);
-  border: 1px solid rgba(46,45,44,0.09);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  margin-top: 64px;
-}
-.ref-card {
-  background: var(--white);
-  padding: 36px 28px;
-  transition: background 0.25s;
-  position: relative;
-}
-.ref-card:hover { background: var(--white-section); }
-.ref-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--red);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.ref-card:hover::before { opacity: 1; }
-.ref-type {
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 14px;
-  display: flex; align-items: center; gap: 8px;
-}
-.ref-type::before { content: ''; width: 10px; height: 1px; background: var(--red); opacity: 0.5; }
-.ref-amount {
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  font-weight: 300;
-  color: var(--text-dark);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.ref-label { font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
-.ref-meta { font-size: 0.74rem; color: var(--text-grey-d); line-height: 1.6; }
-.ref-year { font-size: 0.6rem; color: rgba(46,45,44,0.3); margin-top: 12px; letter-spacing: 0.1em; display: block; }
-
-/* ── CTA final rouge ── */
-.cta-red {
-  background: var(--red);
-  padding: 100px 0;
-  position: relative;
-  overflow: hidden;
-}
-.cta-red::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.20) 0%, transparent 60%);
-}
-.cta-red-inner {
-  position: relative; z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 64px;
-}
-.cta-red h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  color: var(--white);
-  font-weight: 300;
-  max-width: 500px;
-  line-height: 1.1;
-}
-.cta-red p {
-  margin-top: 16px;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.82);
-  max-width: 440px;
-  line-height: 1.85;
-}
-.btn-white {
   background: var(--white);
   color: var(--red);
   font-weight: 700;
-  padding: 16px 36px;
-  border-radius: var(--radius);
+  padding: 14px 32px;
+  border-radius: 2px;
   font-size: 0.76rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: all 0.3s;
-  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-body);
 }
 .btn-white:hover {
   background: var(--white-soft);
   transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
-.btn-white-outline {
-  border: 1.5px solid rgba(255,255,255,0.5);
-  color: var(--white);
-  background: none;
-  padding: 16px 36px;
-  border-radius: var(--radius);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: all 0.3s;
-  display: inline-flex; align-items: center; gap: 10px;
-  font-family: var(--font-body);
-  cursor: pointer;
-}
-.btn-white-outline:hover {
-  border-color: var(--white);
-  background: rgba(255,255,255,0.1);
-  transform: translateY(-2px);
-}
-.cta-red-btns { display: flex; gap: 16px; flex-wrap: wrap; flex-shrink: 0; }
 
-/* ── Téléchargement (côté blanc) ── */
-.download-band {
-  background: var(--white-section);
-  border-top: 1px solid rgba(46,45,44,0.08);
-  border-bottom: 1px solid rgba(46,45,44,0.08);
-  padding: 40px 0;
+/* ── FOOTER \u2014 fidèle à l'image ─────────────────────────────── */
+.footer-doc {
+  background: var(--black);
+  color: rgba(255,255,255,0.75);
+  padding: 56px 0 0;
 }
-.download-inner {
+.footer-doc-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 64px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.footer-doc-logo {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 16px;
+  display: block;
+}
+.footer-doc-logo span { color: var(--red); }
+.footer-doc-desc {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.52);
+  line-height: 1.75;
+  max-width: 280px;
+}
+.footer-doc-col h4 {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.footer-doc-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-doc-col ul li a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.50);
+  transition: color 0.22s;
+}
+.footer-doc-col ul li a:hover { color: var(--white); }
+
+.footer-doc-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #0077B5;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  text-decoration: none;
+  transition: opacity 0.22s;
+  margin-bottom: 16px;
+}
+.footer-doc-linkedin:hover { opacity: 0.85; }
+.footer-doc-email {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+  transition: color 0.22s;
+}
+.footer-doc-email:hover { color: var(--white); }
+.footer-doc-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+  gap: 16px;
 }
-.download-text {
-  font-size: 0.85rem;
-  color: var(--text-grey-d);
-  max-width: 480px;
+.footer-doc-copy {
+  font-size: 0.70rem;
+  color: rgba(255,255,255,0.28);
 }
-.download-text strong { color: var(--text-dark); font-weight: 700; }
+.footer-doc-legal {
+  display: flex;
+  gap: 24px;
+}
+.footer-doc-legal a {
+  font-size: 0.70rem;
+  color: rgba(255,255,255,0.28);
+  transition: color 0.22s;
+}
+.footer-doc-legal a:hover { color: rgba(255,255,255,0.65); }
 
-@media(max-width:1200px) {
-  .metier-chap-left { padding-left: 2rem; }
-}
+/* ── Responsive ─────────────────────────────────────────────── */
 @media(max-width:1024px) {
-  .metier-chapter { grid-template-columns: 1fr; min-height: auto; }
-  .metier-chapter:nth-child(even) .metier-chap-left { order: 0; }
-  .metier-chapter:nth-child(even) .metier-chap-right { order: 0; }
-  .metier-chap-left { padding: 72px 2rem; }
-  .metier-chap-right { padding: 72px 2rem; }
-  .process-timeline { grid-template-columns: repeat(2, 1fr); }
-  .refs-grid { grid-template-columns: repeat(2, 1fr); }
-  .cta-red-inner { flex-direction: column; align-items: flex-start; }
-  .download-inner { flex-direction: column; align-items: flex-start; }
+  .domaine-panel.active { grid-template-columns: 1fr; gap: 40px; }
 }
 @media(max-width:768px) {
-  .process-timeline { grid-template-columns: 1fr; }
-  .refs-grid { grid-template-columns: 1fr; }
+  .footer-doc-grid { grid-template-columns: 1fr; gap: 36px; }
+  .domaines-hero h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+  .footer-doc-bottom { flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
 <body>
 
 <div id="loader"><div class="loader-logo">TOMAS<span class="loader-dot">TEED</span></div></div>
+
+<!-- Mobile menu (fond blanc) -->
 <div id="mobileMenu" class="mobile-menu">
   <a href="index.html">Accueil</a>
-  <a href="identite.html">Identité</a>
-  <a href="metiers.html" class="active">Nos Métiers</a>
-  <a href="solutions.html">Nos Solutions</a>
-  <a href="secteurs.html">Secteurs</a>
-  <a href="equipe.html">Équipe</a>
+  <a href="identite.html">Qui sommes-nous</a>
+  <a href="metiers.html" class="active">Nos domaines d'expertise</a>
+  <a href="secteurs.html">Nos secteurs d'intervention</a>
+  <a href="solutions.html">Nos clients</a>
   <a href="carrieres.html">Carrières</a>
+  <a href="contact.html">Nous contacter</a>
 </div>
 
+<!-- ── NAVBAR (fond blanc — document style) ─────────────────── -->
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
+      <!-- Logo texte, sans cadre -->
       <a href="index.html" class="nav-logo">TOMAS<span>TEED</span></a>
+
+      <!-- Liens navigation (labels du document) -->
       <ul class="nav-links">
-        <li><a href="identite.html">Identité</a></li>
-        <li><a href="metiers.html" class="active">Nos Métiers</a></li>
-        <li><a href="solutions.html">Nos Solutions</a></li>
-        <li><a href="secteurs.html">Secteurs</a></li>
-        <li><a href="equipe.html">Équipe</a></li>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="identite.html">Qui sommes-nous</a></li>
+        <li><a href="metiers.html" class="active">Nos domaines d'expertise</a></li>
+        <li><a href="secteurs.html">Nos secteurs d'intervention</a></li>
+        <li><a href="solutions.html">Nos clients</a></li>
         <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="contact.html">Nous contacter</a></li>
       </ul>
-      <div style="display:flex;align-items:center;gap:8px;margin-left:auto;">
-        <button id="langToggle" class="lang-toggle">FR / EN</button>
-        <a href="contact.html" class="btn btn-primary nav-cta" style="padding:10px 22px;font-size:.72rem;">Nous Contacter</a>
-        <span class="nav-search" aria-label="Recherche">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        </span>
-        <div id="burger" class="burger"><span></span><span></span><span></span></div>
+
+      <!-- Langue "Fr ▾" à droite -->
+      <div style="display:flex;align-items:center;gap:10px;margin-left:auto;">
+        <button id="langToggle" class="lang-select" aria-label="Langue">Fr</button>
+        <div id="burger" class="burger" aria-label="Menu"><span></span><span></span><span></span></div>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- ── PAGE HERO ── -->
-<section class="page-hero" style="min-height:70vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:0;padding-top:calc(var(--nav-h) + 80px);">
-  <div class="page-hero-bg" style="background:linear-gradient(to bottom, rgba(26,25,24,0.3) 0%, rgba(26,25,24,0.85) 70%, var(--black-pure) 100%), url('assets/metiers-bg.jpg') center/cover no-repeat;"></div>
-  <div class="container page-hero-content" style="position:relative;z-index:2;padding-bottom:0;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:flex-end;padding-bottom:80px;">
-      <div>
-        <span class="label-dash hero-eyebrow" style="margin-bottom:32px;display:inline-flex;" data-i18n="metiers-hero-label">Domaines d'Expertises</span>
-        <h1 class="hero-title" data-i18n="metiers-hero-title">
-          <strong>Nos</strong><br><em>Métiers</em>
-        </h1>
+<!-- ══ HERO (gris clair + titre rouge centré) ═══════════════ -->
+<section class="domaines-hero">
+  <div class="container">
+    <h1 data-i18n="metiers-hero-title">Nos domaines d'expertise</h1>
+  </div>
+</section>
+
+<!-- ══ INTRO (fond blanc + barre rouge gauche) ══════════════ -->
+<section class="domaines-intro">
+  <div class="container">
+    <div class="domaines-intro-inner">
+      <div class="domaines-intro-bar"></div>
+      <div class="domaines-intro-text">
+        <h2 data-i18n="metiers-intro-title">Nos domaines d'expertise</h2>
+        <p data-i18n="metiers-intro-desc">Tomasteed fournit des services de conseil financier de haut niveau aux acteurs publics et privés opérant sur les marchés africains. Notre équipe sénior intervient sur l'intégralité du cycle de financement et de transaction — du cadrage stratégique jusqu'à l'exécution.</p>
       </div>
-      <div class="hero-sub-col" style="padding-bottom:8px;">
-        <p style="font-size:1rem;color:rgba(255,255,255,0.70);line-height:1.85;max-width:420px;margin-bottom:36px;" data-i18n="metiers-hero-sub">
-          Solutions financières sur mesure, alignées sur les standards des grandes banques d'affaires internationales. Quatre domaines d'excellence au service de l'Afrique.
+    </div>
+
+    <!-- ── Tabs ── -->
+    <div class="domaines-tabs" id="domainesTabs">
+      <button class="domaine-tab active" data-panel="panel-1" data-i18n="metiers-tab-1">Conseil aux États et aux entreprises</button>
+      <button class="domaine-tab" data-panel="panel-2" data-i18n="metiers-tab-2">Structuration de financement</button>
+      <button class="domaine-tab" data-panel="panel-3" data-i18n="metiers-tab-3">Fusions &amp; Acquisitions</button>
+      <button class="domaine-tab" data-panel="panel-4" data-i18n="metiers-tab-4">Levée de fonds</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTENU SERVICES ══════════════════════════════════════ -->
+<section class="domaine-content-section" id="domaineContent">
+  <div class="container">
+
+    <!-- Panel 1 — Conseil aux États -->
+    <div class="domaine-panel active" id="panel-1">
+      <div class="domaine-panel-left reveal-left">
+        <h3 class="domaine-service-title" data-i18n="metier-1-title">Conseil aux États et aux entreprises</h3>
+        <p class="domaine-service-intro" data-i18n="metier-1-intro">
+          Tomasteed accompagne gouvernements, institutions publiques et entreprises dans leurs décisions financières et stratégiques les plus complexes. Notre connaissance des marchés africains et de leurs interfaces avec les grands centres financiers mondiaux nous permet de concevoir des solutions adaptées, robustes et alignées sur les objectifs de long terme de nos clients.
         </p>
-        <div style="display:flex;gap:20px;flex-wrap:wrap;">
-          <a href="#conseil-etats" class="btn-learn-more">
-            Découvrir
-            <span class="arrow-circle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </a>
+        <div class="domaine-points">
+          <div class="domaine-point">
+            <div class="domaine-point-num">1</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title" data-i18n="m1-pt1-title">Conseil stratégique &amp; financier</div>
+              <div class="domaine-point-desc" data-i18n="m1-pt1-desc">Accompagnement dans la définition des stratégies de financement et de croissance, évaluation des actifs et entreprises, analyse de faisabilité et conseil sur les structures de transaction les plus adaptées aux objectifs du client.</div>
+            </div>
+          </div>
+          <div class="domaine-point">
+            <div class="domaine-point-num">2</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title" data-i18n="m1-pt2-title">Financement souverain</div>
+              <div class="domaine-point-desc" data-i18n="m1-pt2-desc">Émissions obligataires souveraines (Eurobonds, Sukuk), restructuration de la dette publique, conseil auprès des banques centrales et ministères des finances.</div>
+            </div>
+          </div>
+          <div class="domaine-point">
+            <div class="domaine-point-num">3</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title" data-i18n="m1-pt3-title">Infrastructures &amp; PPP</div>
+              <div class="domaine-point-desc" data-i18n="m1-pt3-desc">Financement d'infrastructures publiques, partenariats public-privé, mobilisation de financements multilatéraux (FMI, Banque Mondiale, BAD).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="domaine-panel-right reveal-right">
+        <div class="domaine-visual">
+          <img src="assets/metiers-etats.jpg" alt="Conseil aux États" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy"/>
+          <div class="domaine-visual-placeholder" style="display:none;">
+            <div class="domaine-visual-note">Visuel du slider affiché dynamiquement en fonction du service présenté.</div>
+          </div>
         </div>
       </div>
     </div>
-    <!-- Stats bar -->
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">4</div>
-        <div class="hero-stat-label">Domaines d'expertise</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">9+</div>
-        <div class="hero-stat-label">Secteurs couverts</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">20+</div>
-        <div class="hero-stat-label">Transactions réalisées</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num" style="letter-spacing:.04em;font-size:1.6rem;">ADGM</div>
-        <div class="hero-stat-label">Régulée FSRA</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ── STICKY SUB-NAV ── -->
-<nav class="metiers-subnav" id="metiersStickyNav" aria-label="Navigation expertises">
-  <div class="container">
-    <div class="metiers-subnav-inner">
-      <a href="#conseil-etats" class="metier-subnav-btn active" data-target="conseil-etats">
-        <span class="metier-subnav-num">01</span> Conseil États &amp; Institutions
-      </a>
-      <a href="#fusions-acquisitions" class="metier-subnav-btn" data-target="fusions-acquisitions">
-        <span class="metier-subnav-num">02</span> Fusions &amp; Acquisitions
-      </a>
-      <a href="#levee-fonds" class="metier-subnav-btn" data-target="levee-fonds">
-        <span class="metier-subnav-num">03</span> Levée de Fonds
-      </a>
-      <a href="#structuration" class="metier-subnav-btn" data-target="structuration">
-        <span class="metier-subnav-num">04</span> Structuration Financière
-      </a>
-    </div>
-  </div>
-</nav>
-
-<!-- ══ DOMAINE 01 — CONSEIL ÉTATS ═══════════════════════════ -->
-<div id="conseil-etats" class="metier-section">
-  <div class="metier-chapter">
-    <!-- Gauche : fond blanc + titre -->
-    <div class="metier-chap-left reveal-left">
-      <span class="metier-chap-num" aria-hidden="true">01</span>
-      <span class="label-dash" style="display:inline-flex;margin-bottom:20px;" data-i18n="m1-label">Financement Souverain</span>
-      <h2 class="metier-chap-title" data-i18n="metier-1-title">
-        Conseil aux <em>États</em><br>&amp; Institutions
-      </h2>
-      <p class="metier-chap-intro" data-i18n="metier-1-p1">
-        TOMASTEED accompagne gouvernements et entreprises publiques dans leurs défis financiers stratégiques — financement d'infrastructures, restructuration de dettes, émissions obligataires et dialogue avec les bailleurs multilatéraux.
-      </p>
-      <a href="contact.html" class="btn-learn-more btn-learn-more--dark" style="margin-top:8px;" data-i18n="m1-cta">
-        Discuter de votre projet
-        <span class="arrow-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-    </div>
-    <!-- Droite : fond noir + points -->
-    <div class="metier-chap-right reveal-right">
-      <div class="metier-icon-lg" style="width:60px;height:60px;background:rgba(220,73,32,0.08);border:1px solid rgba(220,73,32,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:32px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
-      <p class="metier-chap-intro" data-i18n="metier-1-p2">
-        Notre maîtrise des marchés africains et internationaux nous permet de concevoir des solutions durables, accélérant la croissance et la transformation économique des États.
-      </p>
-      <ul class="metier-points-bs">
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m1-li1">Émissions obligataires souveraines (Eurobonds, Sukuk)</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m1-li2">Restructuration et gestion de la dette publique</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m1-li3">Financement d'infrastructures publiques (PPP)</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m1-li4">Conseil auprès des banques centrales et ministères</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m1-li5">Dialogue avec les bailleurs multilatéraux (FMI, Banque Mondiale, BAD)</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ══ DOMAINE 02 — FUSIONS & ACQUISITIONS ══════════════════ -->
-<div id="fusions-acquisitions" class="metier-section">
-  <div class="metier-chapter">
-    <div class="metier-chap-left reveal-left">
-      <span class="metier-chap-num" aria-hidden="true">02</span>
-      <span class="label-dash" style="display:inline-flex;margin-bottom:20px;" data-i18n="m2-label">M&amp;A Afrique</span>
-      <h2 class="metier-chap-title" data-i18n="metier-2-title">
-        Fusions &amp; <em>Acquisitions</em>
-      </h2>
-      <p class="metier-chap-intro" data-i18n="metier-2-p1">
-        TOMASTEED accompagne ses clients côté acquéreur ou vendeur dans les opérations de fusions-acquisitions, ainsi que dans les financements en fonds propres pour soutenir la croissance d'actifs existants ou de nouveaux projets.
-      </p>
-      <a href="contact.html" class="btn-learn-more btn-learn-more--dark" style="margin-top:8px;" data-i18n="m2-cta">
-        Discuter de votre opération
-        <span class="arrow-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-    </div>
-    <div class="metier-chap-right reveal-right">
-      <div class="metier-icon-lg" style="width:60px;height:60px;background:rgba(220,73,32,0.08);border:1px solid rgba(220,73,32,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:32px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
-      </div>
-      <p class="metier-chap-intro" data-i18n="metier-2-p2">
-        Notre équipe apporte une expertise de première main sur les dynamiques de consolidation sectorielle en Afrique Sub-Saharienne, en accompagnant chaque étape de la transaction.
-      </p>
-      <ul class="metier-points-bs">
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m2-li1">Identification de cibles ou de partenaires d'acquisition / cession</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m2-li2">Diagnostics stratégiques et financiers</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m2-li3">Valorisation d'actifs et modélisation financière</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m2-li4">Négociation, structuration et finalisation de la transaction</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m2-li5">Accompagnement post-acquisition et intégration</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ══ DOMAINE 03 — LEVÉE DE FONDS ══════════════════════════ -->
-<div id="levee-fonds" class="metier-section">
-  <div class="metier-chapter">
-    <div class="metier-chap-left reveal-left">
-      <span class="metier-chap-num" aria-hidden="true">03</span>
-      <span class="label-dash" style="display:inline-flex;margin-bottom:20px;" data-i18n="m3-label">Marchés de Capitaux</span>
-      <h2 class="metier-chap-title" data-i18n="metier-3-title">
-        Levée de <em>Fonds</em>
-      </h2>
-      <p class="metier-chap-intro" data-i18n="metier-3-p1">
-        TOMASTEED conçoit des stratégies de financement optimisées pour sécuriser projets et portefeuilles d'actifs, en identifiant les meilleures options de structuration pour garantir bancabilité et compétitivité.
-      </p>
-      <a href="contact.html" class="btn-learn-more btn-learn-more--dark" style="margin-top:8px;" data-i18n="m3-cta">
-        Structurer votre financement
-        <span class="arrow-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-    </div>
-    <div class="metier-chap-right reveal-right">
-      <div class="metier-icon-lg" style="width:60px;height:60px;background:rgba(220,73,32,0.08);border:1px solid rgba(220,73,32,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:32px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      </div>
-      <p class="metier-chap-intro" data-i18n="metier-3-p2">
-        Accès aux investisseurs institutionnels africains, du Golfe et européens. Finance islamique, green bonds et instruments ESG — mobilisés pour vos projets à fort impact.
-      </p>
-      <ul class="metier-points-bs">
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m3-li1">Recherche et mobilisation d'investisseurs institutionnels et privés</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m3-li2">Structuration des instruments (dette senior, equity, convertibles)</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m3-li3">Préparation des documents de présentation (teaser, pitch deck, business plan)</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m3-li4">Green bonds &amp; obligations durables ESG</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m3-li5">Accès aux marchés de capitaux MENA, Europe et Afrique</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ══ DOMAINE 04 — STRUCTURATION ═══════════════════════════ -->
-<div id="structuration" class="metier-section">
-  <div class="metier-chapter">
-    <div class="metier-chap-left reveal-left">
-      <span class="metier-chap-num" aria-hidden="true">04</span>
-      <span class="label-dash" style="display:inline-flex;margin-bottom:20px;" data-i18n="m4-label">Ingénierie Financière</span>
-      <h2 class="metier-chap-title" data-i18n="metier-4-title">
-        Structuration <em>Financière</em>
-      </h2>
-      <p class="metier-chap-intro" data-i18n="metier-4-p1">
-        TOMASTEED conçoit des structures financières adaptées — dettes, fonds propres, quasi-fonds propres — assurant la viabilité et la pérennité des opérations complexes pour clients corporate, institutionnels et projets d'infrastructures.
-      </p>
-      <a href="contact.html" class="btn-learn-more btn-learn-more--dark" style="margin-top:8px;" data-i18n="m4-cta">
-        Explorer les solutions
-        <span class="arrow-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span>
-      </a>
-    </div>
-    <div class="metier-chap-right reveal-right">
-      <div class="metier-icon-lg" style="width:60px;height:60px;background:rgba(220,73,32,0.08);border:1px solid rgba(220,73,32,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:32px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      </div>
-      <p class="metier-chap-intro" data-i18n="metier-4-p2">
-        Notre expertise couvre les opérations complexes de structuration, incluant la finance islamique et les sukuk — une spécialité rare en Afrique de l'Ouest.
-      </p>
-      <ul class="metier-points-bs">
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m4-li1">Analyse de la structure actuelle de la dette et des capitaux propres</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m4-li2">Définition de la structure financière adaptée aux besoins</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m4-li3">Optimisation des conditions de financement</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m4-li4">Financements islamiques et sukuk — expertise Afrique de l'Ouest</span></li>
-        <li class="metier-point-item"><span class="metier-point-dash"></span><span data-i18n="m4-li5">Partenariats stratégiques et joint-ventures</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ══ NOTRE APPROCHE ════════════════════════════════════════ -->
-<section class="processus-section">
-  <div class="container">
-    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:0;">
-      <div>
-        <span class="label-dash" style="display:inline-flex;margin-bottom:20px;" data-i18n="metiers-process-label">Notre Approche</span>
-        <h2 style="font-family:var(--font-serif);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:var(--white);line-height:1.1;" data-i18n="metiers-process-title">
-          Processus d'<em style="font-style:italic;color:var(--red);">Accompagnement</em>
-        </h2>
-      </div>
-      <div style="padding-bottom:8px;">
-        <p style="font-size:0.9rem;color:var(--grey-light);line-height:1.85;" data-i18n="metiers-process-sub">
-          6 étapes rigoureuses pour garantir l'excellence de chaque transaction, de l'analyse initiale au closing financier.
+    <!-- Panel 2 — Structuration de financement -->
+    <div class="domaine-panel" id="panel-2">
+      <div class="domaine-panel-left reveal-left">
+        <h3 class="domaine-service-title" data-i18n="metier-4-title">Structuration de financement</h3>
+        <p class="domaine-service-intro" data-i18n="metier-4-intro">
+          Tomasteed conçoit des structures financières adaptées — dettes, fonds propres, quasi-fonds propres — assurant la viabilité et la pérennité des opérations complexes. Notre expertise couvre les financements islamiques et sukuk, une spécialité rare sur les marchés africains.
         </p>
-      </div>
-    </div>
-    <div class="process-timeline">
-      <div class="process-step-bs reveal delay-1">
-        <div class="step-num-bs">01</div>
-        <h3 data-i18n="metiers-step1-title">Due Diligence</h3>
-        <p data-i18n="metiers-step1-desc">Analyse détaillée des dimensions financières, techniques, juridiques et environnementales. Identification et mitigation des risques.</p>
-      </div>
-      <div class="process-step-bs reveal delay-2">
-        <div class="step-num-bs">02</div>
-        <h3 data-i18n="metiers-step2-title">Modélisation Financière</h3>
-        <p data-i18n="metiers-step2-desc">Conception de modèles financiers adaptés. Simulation de scénarios pour évaluer rentabilité, viabilité et sensibilité.</p>
-      </div>
-      <div class="process-step-bs reveal delay-3">
-        <div class="step-num-bs">03</div>
-        <h3 data-i18n="metiers-step3-title">Structuration</h3>
-        <p data-i18n="metiers-step3-desc">Définition de la structure financière la plus adaptée. Intégration des contraintes réglementaires, fiscales et opérationnelles.</p>
-      </div>
-      <div class="process-step-bs reveal delay-1">
-        <div class="step-num-bs">04</div>
-        <h3 data-i18n="metiers-step4-title">Mémorandum d'Information</h3>
-        <p data-i18n="metiers-step4-desc">Rédaction de documents de présentation pour les investisseurs. Mise en avant du potentiel de création de valeur.</p>
-      </div>
-      <div class="process-step-bs reveal delay-2">
-        <div class="step-num-bs">05</div>
-        <h3 data-i18n="metiers-step5-title">Partenariats Stratégiques</h3>
-        <p data-i18n="metiers-step5-desc">Identification et approche d'investisseurs pertinents. Négociation des termes et des conditions.</p>
-      </div>
-      <div class="process-step-bs reveal delay-3">
-        <div class="step-num-bs">06</div>
-        <h3 data-i18n="metiers-step6-title">Closing Financier</h3>
-        <p data-i18n="metiers-step6-desc">Finalisation des accords et signature des contrats. Coordination pour la libération effective des fonds.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ TRACK RECORD / RÉFÉRENCES ════════════════════════════ -->
-<section class="refs-section">
-  <div class="container">
-    <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:0;">
-      <div>
-        <span class="label-dash label-dash--dark" style="display:inline-flex;margin-bottom:20px;" data-i18n="refs-label">Track Record</span>
-        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--text-dark);line-height:1.1;" data-i18n="refs-title">
-          Transactions <em style="font-style:italic;color:var(--red);">de Référence</em>
-        </h2>
-        <p style="margin-top:16px;font-size:0.82rem;color:var(--text-grey-d);font-style:italic;max-width:560px;line-height:1.7;" data-i18n="refs-note">Track record des fondateurs réalisé au sein de leurs institutions d'origine avant la création de TOMASTEED.</p>
-      </div>
-      <div style="text-align:right;flex-shrink:0;">
-        <div style="font-family:var(--font-serif);font-size:clamp(3.5rem,8vw,6rem);font-weight:300;color:var(--text-dark);line-height:0.9;letter-spacing:-0.03em;">$1<em style="font-style:italic;color:var(--red);">Md</em>+</div>
-        <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-grey-d);margin-top:8px;" data-i18n="refs-volume">Volume total de transactions</div>
-      </div>
-    </div>
-    <div class="refs-grid reveal delay-1">
-      <div class="ref-card">
-        <div class="ref-type">Émission Obligataire Souveraine</div>
-        <div class="ref-amount">$1,5 Md</div>
-        <div class="ref-label">Émission Eurobond Souverain</div>
-        <div class="ref-meta">Accompagnement d'un État d'Afrique Subsaharienne sur les marchés internationaux.</div>
-        <span class="ref-year">Transaction Fondateurs</span>
-      </div>
-      <div class="ref-card">
-        <div class="ref-type">Financement Infrastructures</div>
-        <div class="ref-amount">$350 M</div>
-        <div class="ref-label">Project Finance Énergie</div>
-        <div class="ref-meta">Structuration d'un financement de projet pour une centrale d'énergie renouvelable.</div>
-        <span class="ref-year">Transaction Fondateurs</span>
-      </div>
-      <div class="ref-card">
-        <div class="ref-type">M&amp;A</div>
-        <div class="ref-amount">$120 M</div>
-        <div class="ref-label">Acquisition Institutionnelle</div>
-        <div class="ref-meta">Conseil buy-side pour l'acquisition d'un groupe financier régional.</div>
-        <span class="ref-year">Transaction Fondateurs</span>
-      </div>
-      <div class="ref-card">
-        <div class="ref-type">Finance Islamique</div>
-        <div class="ref-amount">$200 M</div>
-        <div class="ref-label">Émission Sukuk Souverain</div>
-        <div class="ref-meta">Structuration et placement d'un sukuk souverain pour un État d'Afrique de l'Ouest.</div>
-        <span class="ref-year">Transaction Fondateurs</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CTA FINAL ═════════════════════════════════════════════ -->
-<section class="cta-red">
-  <div class="container">
-    <div class="cta-red-inner reveal">
-      <div>
-        <span style="font-size:0.62rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.6);display:block;margin-bottom:20px;" data-i18n="metiers-cta-label">Votre Projet</span>
-        <h2 data-i18n="metiers-cta-title">Besoin d'un conseil<br>financier expert ?</h2>
-        <p data-i18n="metiers-cta-sub">Notre équipe de banquiers d'affaires est disponible pour analyser votre situation et concevoir la solution adaptée.</p>
-      </div>
-      <div class="cta-red-btns">
-        <a href="contact.html" class="btn-white" data-i18n="metiers-cta-btn1">
-          Nous Contacter
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="solutions.html" class="btn-white-outline" data-i18n="metiers-cta-btn2">Nos Solutions</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ FOOTER ═════════════════════════════════════════════════ -->
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo-block">
-          <span class="footer-logo-tag">Construire avec</span>
-          <span class="footer-logo-name">TOMAS<span>TEED</span></span>
-        </div>
-        <p class="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de la concrétisation de vos projets.</p>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/tomasteed" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn TOMASTEED">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
+        <div class="domaine-points">
+          <div class="domaine-point">
+            <div class="domaine-point-num">1</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title">Ingénierie financière</div>
+              <div class="domaine-point-desc">Définition de la structure financière optimale, optimisation des conditions de financement, intégration des contraintes réglementaires et fiscales.</div>
+            </div>
+          </div>
+          <div class="domaine-point">
+            <div class="domaine-point-num">2</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title">Finance islamique &amp; Sukuk</div>
+              <div class="domaine-point-desc">Structuration et placement de sukuk souverains et corporates. Expertise rare et reconnue en Afrique de l'Ouest francophone.</div>
+            </div>
+          </div>
+          <div class="domaine-point">
+            <div class="domaine-point-num">3</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title">Project Finance</div>
+              <div class="domaine-point-desc">Financements de projets d'infrastructures, énergie, mines. Structuration d'instruments mixtes dette/equity sur mesure.</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="identite.html">La Firme</a></li>
-          <li><a href="equipe.html">Notre Équipe</a></li>
-          <li><a href="insights.html">Insights</a></li>
-          <li><a href="carrieres.html">Carrières</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Réseaux Sociaux</h4>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/tomasteed" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Nous Contacter</h4>
-        <ul>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="contact.html">Nos Bureaux</a></li>
-          <li><a href="legal.html">Mentions légales</a></li>
-          <li><a href="legal.html#privacy">Confidentialité</a></li>
-        </ul>
+      <div class="domaine-panel-right reveal-right">
+        <div class="domaine-visual">
+          <img src="assets/metiers-structuration.jpg" alt="Structuration" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy"/>
+          <div class="domaine-visual-placeholder" style="display:none;">
+            <div class="domaine-visual-note">Visuel du slider affiché dynamiquement en fonction du service présenté.</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025 TOMASTEED. Tous droits réservés.</div>
-      <div class="footer-legal">
-        <a href="legal.html">Mentions légales</a>
-        <a href="legal.html#privacy">Politique de confidentialité</a>
+
+    <!-- Panel 3 — Fusions & Acquisitions -->
+    <div class="domaine-panel" id="panel-3">
+      <div class="domaine-panel-left reveal-left">
+        <h3 class="domaine-service-title" data-i18n="metier-2-title">Fusions &amp; Acquisitions</h3>
+        <p class="domaine-service-intro" data-i18n="metier-2-intro">
+          Tomasteed accompagne ses clients côté acquéreur ou vendeur dans les opérations de fusions-acquisitions en Afrique et dans les marchés émergents. Notre réseau panafricain et notre connaissance sectorielle permettent d'identifier les meilleures opportunités et de mener les transactions jusqu'au closing.
+        </p>
+        <div class="domaine-points">
+          <div class="domaine-point">
+            <div class="domaine-point-num">1</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title">Conseil buy-side &amp; sell-side</div>
+              <div class="domaine-point-desc">Identification de cibles, diagnostics stratégiques et financiers, valorisation d'actifs, négociation, structuration et finalisation des transactions.</div>
+            </div>
+          </div>
+          <div class="domaine-point">
+            <div class="domaine-point-num">2</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title">Modélisation financière</div>
+              <div class="domaine-point-desc">Conception de modèles financiers adaptés, simulation de scénarios, due diligence et analyse de sensibilité.</div>
+            </div>
+          </div>
+          <div class="domaine-point">
+            <div class="domaine-point-num">3</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title">Post-acquisition</div>
+              <div class="domaine-point-desc">Accompagnement post-acquisition, intégration opérationnelle et optimisation de la structure post-closing.</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="footer-reg">Régulée par l'Abu Dhabi Global Market (ADGM) — Financial Services Regulatory Authority (FSRA). Les informations présentées sont destinées exclusivement aux investisseurs professionnels.</div>
+      <div class="domaine-panel-right reveal-right">
+        <div class="domaine-visual">
+          <img src="assets/metiers-ma.jpg" alt="M&A" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy"/>
+          <div class="domaine-visual-placeholder" style="display:none;">
+            <div class="domaine-visual-note">Visuel du slider affiché dynamiquement en fonction du service présenté.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4 — Levée de fonds -->
+    <div class="domaine-panel" id="panel-4">
+      <div class="domaine-panel-left reveal-left">
+        <h3 class="domaine-service-title" data-i18n="metier-3-title">Levée de fonds</h3>
+        <p class="domaine-service-intro" data-i18n="metier-3-intro">
+          Tomasteed conçoit des stratégies de financement optimisées pour sécuriser projets et portefeuilles d'actifs. Notre réseau d'investisseurs institutionnels — africains, du Golfe et européens — nous permet de mobiliser des capitaux compétitifs et durables.
+        </p>
+        <div class="domaine-points">
+          <div class="domaine-point">
+            <div class="domaine-point-num">1</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title">Mobilisation d'investisseurs</div>
+              <div class="domaine-point-desc">Recherche et mise en relation avec des investisseurs institutionnels et privés, préparation des documents de présentation (teaser, pitch deck, business plan).</div>
+            </div>
+          </div>
+          <div class="domaine-point">
+            <div class="domaine-point-num">2</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title">Green bonds &amp; ESG</div>
+              <div class="domaine-point-desc">Émissions d'obligations vertes et durables. Accès aux marchés de capitaux MENA, Europe et Afrique pour des projets à fort impact.</div>
+            </div>
+          </div>
+          <div class="domaine-point">
+            <div class="domaine-point-num">3</div>
+            <div class="domaine-point-body">
+              <div class="domaine-point-title">Marchés de capitaux</div>
+              <div class="domaine-point-desc">Structuration d'instruments financiers (dette senior, equity, convertibles) et accès aux marchés primaires africains et internationaux.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="domaine-panel-right reveal-right">
+        <div class="domaine-visual">
+          <img src="assets/metiers-levee.jpg" alt="Levée de fonds" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy"/>
+          <div class="domaine-visual-placeholder" style="display:none;">
+            <div class="domaine-visual-note">Visuel du slider affiché dynamiquement en fonction du service présenté.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CTA ════════════════════════════════════════════════════ -->
+<section class="domaines-cta">
+  <div class="container domaines-cta-inner">
+    <h2 data-i18n="metiers-cta-title">Parlons de votre projet</h2>
+    <p data-i18n="metiers-cta-sub">Notre équipe de banquiers d'affaires est disponible pour analyser votre situation et concevoir la solution adaptée.</p>
+    <a href="contact.html" class="btn-white" data-i18n="metiers-cta-btn">
+      Nous contacter
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ══ FOOTER (fidèle à l'image) ═════════════════════════════ -->
+<footer class="footer-doc">
+  <div class="container">
+    <div class="footer-doc-grid">
+      <!-- Colonne 1 : Logo + tagline -->
+      <div>
+        <span class="footer-doc-logo">TOMAS<span>TEED</span></span>
+        <p class="footer-doc-desc" data-i18n="footer-tagline">Banque d'affaires indépendante spécialisée dans la structuration de financement et le conseil en investissements sur les marchés africains et à l'international.</p>
+      </div>
+
+      <!-- Colonne 2 : Navigation -->
+      <div class="footer-doc-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="solutions.html" data-i18n="footer-nav-clients">Nos clients</a></li>
+          <li><a href="identite.html" data-i18n="footer-nav-identite">Notre identité</a></li>
+          <li><a href="equipe.html" data-i18n="footer-nav-equipe">Notre équipe</a></li>
+          <li><a href="carrieres.html" data-i18n="footer-nav-carrieres">Nous rejoindre</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3 : Réseaux + email -->
+      <div class="footer-doc-col">
+        <h4>Suivez-nous :</h4>
+        <a href="https://www.linkedin.com/company/tomasteed" target="_blank" rel="noopener" class="footer-doc-linkedin" aria-label="LinkedIn TOMASTEED">in</a>
+        <br>
+        <a href="mailto:contact@tomasteed.com" class="footer-doc-email">contact@tomasteed.com</a>
+      </div>
+    </div>
+
+    <!-- Barre bas -->
+    <div class="footer-doc-bottom">
+      <span class="footer-doc-copy" data-i18n="footer-rights">Copyright 2026 Tomasteed — Tous droits réservés</span>
+      <div class="footer-doc-legal">
+        <a href="legal.html#privacy" data-i18n="footer-privacy">Politique de confidentialité</a>
+        <a href="legal.html" data-i18n="footer-legal">Mentions légales</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -830,41 +694,39 @@
 <script src="scripts/i18n.js"></script>
 <script src="scripts/main.js"></script>
 <script>
-/* ── Sub-nav active on scroll ── */
+/* ── Tabs switching ── */
 (function () {
-  const BLOCKS  = ['conseil-etats','fusions-acquisitions','levee-fonds','structuration'];
-  const navBtns = document.querySelectorAll('.metier-subnav-btn');
+  const tabs   = document.querySelectorAll('.domaine-tab');
+  const panels = document.querySelectorAll('.domaine-panel');
 
-  function setActive(id) {
-    navBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.target === id));
+  function activate(panelId) {
+    panels.forEach(p => p.classList.remove('active'));
+    tabs.forEach(t => t.classList.remove('active'));
+    const panel = document.getElementById(panelId);
+    const tab   = document.querySelector(`[data-panel="${panelId}"]`);
+    if (panel) panel.classList.add('active');
+    if (tab)   tab.classList.add('active');
+
+    /* Re-trigger reveal animations */
+    panel && panel.querySelectorAll('.reveal-left, .reveal-right, .reveal').forEach(el => {
+      el.classList.remove('revealed');
+      setTimeout(() => el.classList.add('revealed'), 60);
+    });
   }
 
-  const hash = window.location.hash.replace('#','');
-  if (BLOCKS.includes(hash)) {
-    setActive(hash);
-    setTimeout(() => {
-      const el = document.getElementById(hash);
-      if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
-    }, 300);
-  } else { setActive('conseil-etats'); }
-
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
-  }, { rootMargin: '-30% 0px -65% 0px', threshold: 0 });
-
-  BLOCKS.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
-
-  navBtns.forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.getElementById(btn.dataset.target);
-      if (target) {
-        const offset = target.getBoundingClientRect().top + window.scrollY - 150;
-        window.scrollTo({ top: offset, behavior: 'smooth' });
-        history.pushState(null, '', '#' + btn.dataset.target);
-      }
-    });
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activate(tab.dataset.panel));
   });
+
+  /* Activate from URL hash */
+  const hashMap = {
+    '#conseil-etats': 'panel-1',
+    '#structuration': 'panel-2',
+    '#fusions-acquisitions': 'panel-3',
+    '#levee-fonds': 'panel-4'
+  };
+  const hash = window.location.hash;
+  if (hashMap[hash]) activate(hashMap[hash]);
 })();
 </script>
 </body>
