@@ -1,6 +1,6 @@
-/* ============================================================
-   TOMASTEED — Design System
-   Refonte 2025 — Inspiration Blackstone × Charte TOMASTEED
+﻿/* ============================================================
+   TOMASTEED - Design System
+   Refonte 2025 - Inspiration Blackstone × Charte TOMASTEED
    Couleurs officielles charte : #2E2D2C (noir 95%), #DC4920 (rouge), #327D48 (vert)
    ============================================================ */
 
@@ -33,7 +33,7 @@
   --green-dark:   #266038;
   --green-muted:  rgba(50,125,72,0.10);
 
-  /* Or — accent premium (non charte mais cohérent avec le positionnement) */
+  /* Or - accent premium (non charte mais cohérent avec le positionnement) */
   --gold:         #C8A882;
   --gold-light:   #DFC4A0;
   --gold-dark:    #b8923a;
@@ -46,7 +46,7 @@
   --border-white: rgba(46,45,44,0.10);
   --border-red:   rgba(220,73,32,0.20);
 
-  /* ── Typographie — Avenir (charte) / Cormorant Garamond (serif institutionnel) ── */
+  /* ── Typographie - Avenir (charte) / Cormorant Garamond (serif institutionnel) ── */
   /* Note: Avenir n'est pas sur Google Fonts, on utilise Nunito Sans comme alternative web */
   --font-body:    'Nunito Sans', 'Avenir', 'Century Gothic', sans-serif;
   --font-serif:   'Cormorant Garamond', Georgia, serif;

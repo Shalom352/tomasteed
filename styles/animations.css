@@ -1,6 +1,6 @@
-/* ============================================================
-   TOMASTEED — Animations
-   Refonte 2025 — Inspiration Blackstone
+﻿/* ============================================================
+   TOMASTEED - Animations
+   Refonte 2025 - Inspiration Blackstone
    ============================================================ */
 
 /* ── Keyframes ── */
@@ -179,11 +179,11 @@
   position: absolute;
   bottom: -4px; left: 0;
   height: 1px;
-  background: var(--gold);
+  background: var(--red);
   animation: lineGrow 1.2s ease forwards;
 }
 .loader-dot {
-  color: var(--gold);
+  color: var(--red);
   position: relative;
   padding-left: 10px;
 }
@@ -195,5 +195,5 @@
   transform: translateY(-50%);
   width: 1px;
   height: 11px;
-  background: rgba(200,168,130,0.55);
+  background: rgba(220,73,32,0.55);
 }

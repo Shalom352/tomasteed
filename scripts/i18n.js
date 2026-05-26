@@ -1,5 +1,5 @@
-/* ============================================================
-   TOMASTEED — Système i18n FR / EN
+﻿/* ============================================================
+   TOMASTEED - Système i18n FR / EN
    Persiste la langue dans localStorage, applique via data-i18n
    ============================================================ */
 
@@ -120,13 +120,13 @@ const TRANSLATIONS = {
     'm4-li4': 'Financements mixtes et instruments de quasi-fonds propres',
     'm4-li5': 'Partenariats stratégiques et joint-ventures',
 
-    /* ── Métiers — Sticky Nav ── */
-    'metiers-nav-1':          '01 — Conseil États',
-    'metiers-nav-2':          '02 — F&A',
-    'metiers-nav-3':          '03 — Levée de Fonds',
-    'metiers-nav-4':          '04 — Structuration',
+    /* ── Métiers - Sticky Nav ── */
+    'metiers-nav-1':          '01 - Conseil États',
+    'metiers-nav-2':          '02 - F&A',
+    'metiers-nav-3':          '03 - Levée de Fonds',
+    'metiers-nav-4':          '04 - Structuration',
 
-    /* ── Métiers — Processus ── */
+    /* ── Métiers - Processus ── */
     'metiers-process-label':  'Notre Approche',
     'metiers-process-title':  "Processus d'<em>Accompagnement</em>",
     'metiers-process-sub':    '6 étapes rigoureuses pour garantir l\'excellence de chaque transaction.',
@@ -143,7 +143,7 @@ const TRANSLATIONS = {
     'metiers-step6-title':    'Closing Financier',
     'metiers-step6-desc':     'Finalisation des accords et signature des contrats. Coordination pour la mise en œuvre des conditions préalables et libération effective des fonds.',
 
-    /* ── Métiers — CTA ── */
+    /* ── Métiers - CTA ── */
     'metiers-cta-label':      'Parlons de votre projet',
     'metiers-cta-title':      'Besoin d\'un Conseil Financier Expert ?',
     'metiers-cta-sub':        'Notre équipe de banquiers d\'affaires est disponible pour analyser votre situation.',
@@ -152,11 +152,11 @@ const TRANSLATIONS = {
     /* ── Page Identité ── */
     'identite-hero-label': 'Qui sommes-nous',
     'identite-hero-title': "L'Innovation Financière<br>au Service de <em>l'Afrique</em>",
-    'identite-hero-sub':   "Banque d'affaires panafricaine fondée en 2025, régulée par l'Abu Dhabi Global Market — au service du développement économique du continent africain et du Moyen-Orient.",
+    'identite-hero-sub':   "Banque d'affaires panafricaine fondée en 2025, régulée par l'Abu Dhabi Global Market - au service du développement économique du continent africain et du Moyen-Orient.",
     'identite-who-label':  'Notre Mission',
     'identite-who-title':  "Mobiliser les capitaux mondiaux<br><em>pour l'Afrique de demain</em>",
     'identite-who-p1':     "TOMASTEED se positionne comme un acteur spécialisé du financement en Afrique, couvrant un large éventail d'opérations pour les États souverains, les entreprises, les investisseurs institutionnels et les institutions financières internationales.",
-    'identite-who-p2':     "Notre approche conjugue la rigueur des standards internationaux avec une connaissance approfondie des marchés africains — francophone, anglophone et arabophone. Nous facilitons la mobilisation de financements stratégiques pour concrétiser vos projets à grande échelle.",
+    'identite-who-p2':     "Notre approche conjugue la rigueur des standards internationaux avec une connaissance approfondie des marchés africains - francophone, anglophone et arabophone. Nous facilitons la mobilisation de financements stratégiques pour concrétiser vos projets à grande échelle.",
     'identite-who-p3':     "Forte de son expertise en financements structurés, M&amp;A et levée de fonds, TOMASTEED contribue à bâtir une croissance durable et inclusive sur le continent.",
     'identite-proof-label':"Crédibilité institutionnelle",
     'identite-stat-bureaux':"Bureaux Officiels",
@@ -165,7 +165,7 @@ const TRANSLATIONS = {
     'identite-va-label':   'Pourquoi TOMASTEED',
     'identite-va-title':   'Notre <em>Valeur Ajoutée</em>',
     'identite-va1-title':  'Accès Privilégié aux Capitaux',
-    'identite-va1-desc':   "Forts de notre connaissance approfondie des investisseurs mondiaux — fonds souverains, DFI, family offices — et de leurs standards, nous facilitons la mobilisation de financements internationaux pour concrétiser vos projets.",
+    'identite-va1-desc':   "Forts de notre connaissance approfondie des investisseurs mondiaux - fonds souverains, DFI, family offices - et de leurs standards, nous facilitons la mobilisation de financements internationaux pour concrétiser vos projets.",
     'identite-va2-title':  'Solutions Financières Sur Mesure',
     'identite-va2-desc':   "Notre expertise en financements structurés, développée au sein de Société Générale, BOAD et grandes institutions africaines, nous permet d'apporter des réponses précises aux besoins de chaque transaction.",
     'identite-va3-title':  'Réseau Institutionnel Exceptionnel',
@@ -225,19 +225,19 @@ const TRANSLATIONS = {
     's2-desc':  "Financement d'infrastructures hospitalières, de cliniques spécialisées et de projets pharmaceutiques. Accompagnement des investissements visant à améliorer l'accès aux soins dans les marchés émergents africains.",
     's2-tag':   "Santé Publique",
     's3-title': "Mines &amp; Ressources",
-    's3-desc':  "Solutions financières adaptées aux projets miniers — de l'exploration à la production. Sécurisation des investissements, optimisation de la rentabilité et accompagnement dans les phases de financement de projet complexes.",
+    's3-desc':  "Solutions financières adaptées aux projets miniers - de l'exploration à la production. Sécurisation des investissements, optimisation de la rentabilité et accompagnement dans les phases de financement de projet complexes.",
     's3-tag':   "Ressources Naturelles",
     's4-title': "Hôtellerie, Distribution &amp; Immobilier",
     's4-desc':  "Structuration de financements pour des projets immobiliers et hôteliers d'envergure. Développement des infrastructures urbaines et touristiques répondant à la demande croissante des marchés africains en pleine expansion.",
     's4-tag':   "Tourisme &amp; Habitat",
     's5-title': "Construction &amp; Infrastructures",
-    's5-desc':  "Financement de projets d'infrastructures publiques et privées — routes, ponts, bâtiments industriels, zones économiques. Notre expertise en financements structurés garantit la réussite des projets complexes aux standards internationaux.",
+    's5-desc':  "Financement de projets d'infrastructures publiques et privées - routes, ponts, bâtiments industriels, zones économiques. Notre expertise en financements structurés garantit la réussite des projets complexes aux standards internationaux.",
     's5-tag':   "Infrastructures Publiques",
     's6-title': "Pétrole &amp; Gaz",
     's6-desc':  "Conseil aux États pétroliers africains dans la structuration et l'optimisation des revenus d'hydrocarbures. Accompagnement de la transition vers un modèle énergétique mixte intégrant les impératifs de durabilité et de gouvernance.",
     's6-tag':   "Énergie Fossile",
     's7-title': "Industrie &amp; Manufacturing",
-    's7-desc':  "Financement de l'industrialisation africaine — zones économiques spéciales, chaînes de valeur régionales, transformation locale des matières premières. Nous structurons les capitaux nécessaires à la montée en puissance industrielle du continent.",
+    's7-desc':  "Financement de l'industrialisation africaine - zones économiques spéciales, chaînes de valeur régionales, transformation locale des matières premières. Nous structurons les capitaux nécessaires à la montée en puissance industrielle du continent.",
     's7-tag':   "Industrialisation",
     's8-title': "Eau &amp; Assainissement",
     's8-desc':  "Financement d'infrastructures hydrauliques et de projets d'accès à l'eau potable via des mécanismes PPP innovants. Solutions alignées sur les ODD pour garantir l'accès universel à l'eau en Afrique subsaharienne.",
@@ -254,7 +254,7 @@ const TRANSLATIONS = {
     /* ── Page Équipe ── */
     'equipe-hero-label':   'Notre Équipe',
     'equipe-hero-title':   "Des <em>Experts</em> de Haut Niveau<br>au Service de l'Afrique",
-    'equipe-hero-sub':     "Banquiers chevronnés issus des plus grandes institutions financières mondiales — Société Générale, BOAD, Ecobank, Mazars — réunis autour d'une mission commune : financer le développement de l'Afrique.",
+    'equipe-hero-sub':     "Banquiers chevronnés issus des plus grandes institutions financières mondiales - Société Générale, BOAD, Ecobank, Mazars - réunis autour d'une mission commune : financer le développement de l'Afrique.",
     'equipe-stats-pros':   "Professionnels dédiés",
     'equipe-stats-bureaux':"Présence",
     'equipe-stats-certs':  "Certifications internationales",
@@ -287,7 +287,7 @@ const TRANSLATIONS = {
     'carrieres-why2-title':"Impact Continental",
     'carrieres-why2-desc': "Chaque mission que vous menez contribue directement au financement de projets structurants pour les 30+ pays africains où TOMASTEED est présent.",
     'carrieres-why3-title':"Excellence &amp; Rigueur",
-    'carrieres-why3-desc': "Standards internationaux, équipe issue des meilleures institutions financières mondiales — Société Générale, BOAD, Ecobank, Mazars — culture de l'excellence.",
+    'carrieres-why3-desc': "Standards internationaux, équipe issue des meilleures institutions financières mondiales - Société Générale, BOAD, Ecobank, Mazars - culture de l'excellence.",
     'carrieres-offres-label':"Postes Ouverts",
     'carrieres-offres-title':"Nos <em>Offres</em>",
     'carrieres-filter-all':"Tous les postes",
@@ -321,7 +321,7 @@ const TRANSLATIONS = {
     'contact-sujet-part':  "Partenariat",
     'contact-sujet-autre': "Autre demande",
     'contact-submit':      "Envoyer le message",
-    'contact-ad-role':     "Siège Social — ADGM",
+    'contact-ad-role':     "Siège Social - ADGM",
     'contact-abj-role':    "Hub Afrique de l'Ouest",
     'contact-hello-label': "Contact général",
     'contact-hello-title': "Une question ? Écrivez-nous directement",
@@ -351,7 +351,7 @@ const TRANSLATIONS = {
     'sol-etat-cta':        "Discuter de votre projet",
     'sol-invest-label':    "02",
     'sol-invest-title':    "Investisseur Institutionnel",
-    'sol-invest-intro':    "Fonds souverain, DFI, family office ou gestionnaire d'actifs — vous cherchez à accéder aux opportunités des marchés africains à haut rendement ajusté au risque.",
+    'sol-invest-intro':    "Fonds souverain, DFI, family office ou gestionnaire d'actifs - vous cherchez à accéder aux opportunités des marchés africains à haut rendement ajusté au risque.",
     'sol-invest-enjeux':   "Vos enjeux clés",
     'sol-invest-e1':       "Identification d'opportunités d'investissement structurantes",
     'sol-invest-e2':       "Co-investissement sur des projets bankables et bien structurés",
@@ -361,7 +361,7 @@ const TRANSLATIONS = {
     'sol-invest-cta':      "Discuter de votre projet",
     'sol-corp-label':      "03",
     'sol-corp-title':      "Entreprise &amp; Grand Compte",
-    'sol-corp-intro':      "Entreprise africaine ou internationale visant à se développer sur le continent — via croissance externe, levée de capitaux ou restructuration financière.",
+    'sol-corp-intro':      "Entreprise africaine ou internationale visant à se développer sur le continent - via croissance externe, levée de capitaux ou restructuration financière.",
     'sol-corp-enjeux':     "Vos enjeux clés",
     'sol-corp-e1':         "Conseil en acquisition ou cession d'actifs stratégiques (M&amp;A)",
     'sol-corp-e2':         "Levée de fonds auprès d'investisseurs institutionnels et privés",
@@ -371,7 +371,7 @@ const TRANSLATIONS = {
     'sol-corp-cta':        "Discuter de votre projet",
     'sol-partner-label':   "04",
     'sol-partner-title':   "Partenaire Stratégique",
-    'sol-partner-intro':   "Banque, cabinet de conseil, fonds d'investissement ou institution internationale — vous souhaitez co-développer des mandats ou accéder au réseau panafricain de TOMASTEED.",
+    'sol-partner-intro':   "Banque, cabinet de conseil, fonds d'investissement ou institution internationale - vous souhaitez co-développer des mandats ou accéder au réseau panafricain de TOMASTEED.",
     'sol-partner-enjeux':  "Vos enjeux clés",
     'sol-partner-e1':      "Co-développement de mandats sur des marchés complémentaires",
     'sol-partner-e2':      "Mise en relation avec notre réseau institutionnel africain",
@@ -386,7 +386,7 @@ const TRANSLATIONS = {
     'footer-col-company':  'Entreprise',
     'footer-col-contact':  'Contact',
     'footer-rights':    '© 2025 TOMASTEED. Tous droits réservés.',
-    'footer-reg':       "Régulée par l'Abu Dhabi Global Market (ADGM) — FSRA. Informations destinées aux investisseurs professionnels.",
+    'footer-reg':       "Régulée par l'Abu Dhabi Global Market (ADGM) - FSRA. Informations destinées aux investisseurs professionnels.",
 
     /* ── CTA Final ── */
     'cta-label':  'Votre Projet',
@@ -518,13 +518,13 @@ const TRANSLATIONS = {
     'm4-li4': 'Blended finance and quasi-equity instruments',
     'm4-li5': 'Strategic partnerships and joint ventures',
 
-    /* ── Métiers — Sticky Nav ── */
-    'metiers-nav-1':          '01 — Sovereign Advisory',
-    'metiers-nav-2':          '02 — M&A',
-    'metiers-nav-3':          '03 — Capital Raising',
-    'metiers-nav-4':          '04 — Structuring',
+    /* ── Métiers - Sticky Nav ── */
+    'metiers-nav-1':          '01 - Sovereign Advisory',
+    'metiers-nav-2':          '02 - M&A',
+    'metiers-nav-3':          '03 - Capital Raising',
+    'metiers-nav-4':          '04 - Structuring',
 
-    /* ── Métiers — Process ── */
+    /* ── Métiers - Process ── */
     'metiers-process-label':  'Our Approach',
     'metiers-process-title':  '<em>Advisory</em> Process',
     'metiers-process-sub':    '6 rigorous steps to guarantee excellence in every transaction.',
@@ -541,7 +541,7 @@ const TRANSLATIONS = {
     'metiers-step6-title':    'Financial Closing',
     'metiers-step6-desc':     'Finalisation of agreements and signing of contracts. Coordination to implement conditions precedent and effective release of funds.',
 
-    /* ── Métiers — CTA ── */
+    /* ── Métiers - CTA ── */
     'metiers-cta-label':      'Let\'s talk about your project',
     'metiers-cta-title':      'Need Expert Financial Advisory?',
     'metiers-cta-sub':        'Our team of investment bankers is available to analyse your situation.',
@@ -550,11 +550,11 @@ const TRANSLATIONS = {
     /* ── Page Identité ── */
     'identite-hero-label': 'Who we are',
     'identite-hero-title': "Financial Innovation<br>Serving <em>Africa</em>",
-    'identite-hero-sub':   'Pan-African investment bank founded in 2025, regulated by the Abu Dhabi Global Market — serving the economic development of the African continent and the Middle East.',
+    'identite-hero-sub':   'Pan-African investment bank founded in 2025, regulated by the Abu Dhabi Global Market - serving the economic development of the African continent and the Middle East.',
     'identite-who-label':  'Our Mission',
     'identite-who-title':  "Mobilising global capital<br><em>for tomorrow's Africa</em>",
     'identite-who-p1':     "TOMASTEED positions itself as a specialist financing actor in Africa, covering a broad range of operations for sovereign states, corporates, institutional investors and international financial institutions.",
-    'identite-who-p2':     "Our approach combines the rigour of international standards with a deep knowledge of African markets — Francophone, Anglophone and Arabophone. We facilitate the mobilisation of strategic financing to bring your large-scale projects to fruition.",
+    'identite-who-p2':     "Our approach combines the rigour of international standards with a deep knowledge of African markets - Francophone, Anglophone and Arabophone. We facilitate the mobilisation of strategic financing to bring your large-scale projects to fruition.",
     'identite-who-p3':     "Drawing on its expertise in structured finance, M&amp;A and capital raising, TOMASTEED contributes to building sustainable and inclusive growth across the continent.",
     'identite-proof-label':"Institutional credibility",
     'identite-stat-bureaux':"Official Offices",
@@ -563,7 +563,7 @@ const TRANSLATIONS = {
     'identite-va-label':   'Why TOMASTEED',
     'identite-va-title':   'Our <em>Added Value</em>',
     'identite-va1-title':  'Privileged Access to Capital',
-    'identite-va1-desc':   "Leveraging our deep knowledge of global investors — sovereign funds, DFIs, family offices — and their standards, we facilitate the mobilisation of international financing to bring your projects to life.",
+    'identite-va1-desc':   "Leveraging our deep knowledge of global investors - sovereign funds, DFIs, family offices - and their standards, we facilitate the mobilisation of international financing to bring your projects to life.",
     'identite-va2-title':  'Tailored Financial Solutions',
     'identite-va2-desc':   "Our structured finance expertise, built within Société Générale, BOAD and major African institutions, enables us to deliver precise answers to the needs of each transaction.",
     'identite-va3-title':  'Exceptional Institutional Network',
@@ -623,19 +623,19 @@ const TRANSLATIONS = {
     's2-desc':  "Financing hospital infrastructure, specialist clinics and pharmaceutical projects. Supporting investments to improve access to healthcare in African emerging markets.",
     's2-tag':   "Public Health",
     's3-title': "Mining &amp; Resources",
-    's3-desc':  "Financial solutions tailored to mining projects — from exploration to production. Securing investments, optimising profitability and supporting complex project finance phases.",
+    's3-desc':  "Financial solutions tailored to mining projects - from exploration to production. Securing investments, optimising profitability and supporting complex project finance phases.",
     's3-tag':   "Natural Resources",
     's4-title': "Hospitality, Distribution &amp; Real Estate",
     's4-desc':  "Structuring financing for major real estate and hotel projects. Development of urban and tourism infrastructure meeting the growing demand of rapidly expanding African markets.",
     's4-tag':   "Tourism &amp; Housing",
     's5-title': "Construction &amp; Infrastructure",
-    's5-desc':  "Financing public and private infrastructure projects — roads, bridges, industrial buildings, economic zones. Our expertise in structured finance ensures the success of complex projects to international standards.",
+    's5-desc':  "Financing public and private infrastructure projects - roads, bridges, industrial buildings, economic zones. Our expertise in structured finance ensures the success of complex projects to international standards.",
     's5-tag':   "Public Infrastructure",
     's6-title': "Oil &amp; Gas",
     's6-desc':  "Advisory to African oil-producing states on structuring and optimising hydrocarbon revenues. Supporting the transition to a mixed energy model integrating sustainability and governance imperatives.",
     's6-tag':   "Fossil Energy",
     's7-title': "Industry &amp; Manufacturing",
-    's7-desc':  "Financing African industrialisation — special economic zones, regional value chains, local transformation of raw materials. We structure the capital needed for the industrial rise of the continent.",
+    's7-desc':  "Financing African industrialisation - special economic zones, regional value chains, local transformation of raw materials. We structure the capital needed for the industrial rise of the continent.",
     's7-tag':   "Industrialisation",
     's8-title': "Water &amp; Sanitation",
     's8-desc':  "Financing water infrastructure and access-to-clean-water projects via innovative PPP mechanisms. SDG-aligned solutions to guarantee universal water access in sub-Saharan Africa.",
@@ -652,7 +652,7 @@ const TRANSLATIONS = {
     /* ── Page Équipe ── */
     'equipe-hero-label':   'Our Team',
     'equipe-hero-title':   "Senior <em>Experts</em><br>Serving Africa",
-    'equipe-hero-sub':     "Seasoned investment bankers from the world's leading financial institutions — Société Générale, BOAD, Ecobank, Mazars — united around a shared mission: financing Africa's development.",
+    'equipe-hero-sub':     "Seasoned investment bankers from the world's leading financial institutions - Société Générale, BOAD, Ecobank, Mazars - united around a shared mission: financing Africa's development.",
     'equipe-stats-pros':   "Dedicated professionals",
     'equipe-stats-bureaux':"Presence",
     'equipe-stats-certs':  "International certifications",
@@ -685,7 +685,7 @@ const TRANSLATIONS = {
     'carrieres-why2-title':"Continental Impact",
     'carrieres-why2-desc': "Every mission you lead directly contributes to financing structural projects across the 30+ African countries where TOMASTEED is present.",
     'carrieres-why3-title':"Excellence &amp; Rigour",
-    'carrieres-why3-desc': "International standards, a team from the world's best financial institutions — Société Générale, BOAD, Ecobank, Mazars — a culture of excellence.",
+    'carrieres-why3-desc': "International standards, a team from the world's best financial institutions - Société Générale, BOAD, Ecobank, Mazars - a culture of excellence.",
     'carrieres-offres-label':"Open Positions",
     'carrieres-offres-title':"Our <em>Openings</em>",
     'carrieres-filter-all':"All positions",
@@ -719,7 +719,7 @@ const TRANSLATIONS = {
     'contact-sujet-part':  "Partnership",
     'contact-sujet-autre': "Other enquiry",
     'contact-submit':      "Send message",
-    'contact-ad-role':     "Headquarters — ADGM",
+    'contact-ad-role':     "Headquarters - ADGM",
     'contact-abj-role':    "West Africa Hub",
     'contact-hello-label': "General contact",
     'contact-hello-title': "A question? Write to us directly",
@@ -749,7 +749,7 @@ const TRANSLATIONS = {
     'sol-etat-cta':        "Discuss your project",
     'sol-invest-label':    "02",
     'sol-invest-title':    "Institutional Investor",
-    'sol-invest-intro':    "Sovereign fund, DFI, family office or asset manager — you seek access to high risk-adjusted return opportunities in African markets.",
+    'sol-invest-intro':    "Sovereign fund, DFI, family office or asset manager - you seek access to high risk-adjusted return opportunities in African markets.",
     'sol-invest-enjeux':   "Your key challenges",
     'sol-invest-e1':       "Sourcing bankable, high-impact investment opportunities",
     'sol-invest-e2':       "Co-investment on well-structured, bankable projects",
@@ -759,7 +759,7 @@ const TRANSLATIONS = {
     'sol-invest-cta':      "Discuss your project",
     'sol-corp-label':      "03",
     'sol-corp-title':      "Corporate &amp; Large Account",
-    'sol-corp-intro':      "African or international company seeking growth on the continent — through M&amp;A, capital raising or financial restructuring.",
+    'sol-corp-intro':      "African or international company seeking growth on the continent - through M&amp;A, capital raising or financial restructuring.",
     'sol-corp-enjeux':     "Your key challenges",
     'sol-corp-e1':         "M&amp;A advisory for strategic asset acquisitions or disposals",
     'sol-corp-e2':         "Capital raising from institutional and private investors",
@@ -769,7 +769,7 @@ const TRANSLATIONS = {
     'sol-corp-cta':        "Discuss your project",
     'sol-partner-label':   "04",
     'sol-partner-title':   "Strategic Partner",
-    'sol-partner-intro':   "Bank, advisory firm, investment fund or international institution — you wish to co-develop mandates or access TOMASTEED's pan-African network.",
+    'sol-partner-intro':   "Bank, advisory firm, investment fund or international institution - you wish to co-develop mandates or access TOMASTEED's pan-African network.",
     'sol-partner-enjeux':  "Your key challenges",
     'sol-partner-e1':      "Co-development of mandates in complementary markets",
     'sol-partner-e2':      "Introductions to our African institutional network",
@@ -784,7 +784,7 @@ const TRANSLATIONS = {
     'footer-col-company':  'Company',
     'footer-col-contact':  'Contact',
     'footer-rights':    '© 2025 TOMASTEED. All rights reserved.',
-    'footer-reg':       'Regulated by the Abu Dhabi Global Market (ADGM) — FSRA. Information intended for professional investors.',
+    'footer-reg':       'Regulated by the Abu Dhabi Global Market (ADGM) - FSRA. Information intended for professional investors.',
 
     /* ── CTA Final ── */
     'cta-label':  'Your Project',

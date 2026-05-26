@@ -1,15 +1,15 @@
-/* ============================================================
-   TOMASTEED — Components CSS
-   Refonte 2025 — Inspiration Blackstone
+﻿/* ============================================================
+   TOMASTEED - Components CSS
+   Refonte 2025 - Inspiration Blackstone
    ============================================================ */
 
-/* ══ NAVBAR — Document TOMASTEED style ═══════════════════════════════════════ */
+/* ══ NAVBAR - Document TOMASTEED style ═══════════════════════════════════════ */
 #navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
   z-index: 1000;
-  /* Fond blanc permanent — conforme au document */
+  /* Fond blanc permanent - conforme au document */
   background: rgba(255,255,255,0.97);
   border-bottom: 1px solid rgba(46,45,44,0.09);
   display: flex;
@@ -50,7 +50,7 @@
 #navbar.nav-transparent.scrolled .nav-links a::after { background: var(--red); }
 #navbar.nav-transparent.scrolled .lang-select { color: rgba(46,45,44,0.55); }
 
-/* Scrolled : fond blanc — logo noir (respect charte: logo noir sur fond clair) */
+/* Scrolled : fond blanc - logo noir (respect charte: logo noir sur fond clair) */
 #navbar.scrolled {
   background: rgba(255,255,255,0.97);
   backdrop-filter: blur(24px);
@@ -91,7 +91,7 @@
   width: 100%;
 }
 
-/* Logo — texte seul, sans cadre (conforme doc) */
+/* Logo - texte seul, sans cadre (conforme doc) */
 .nav-logo {
   display: inline-flex;
   align-items: center;
@@ -268,7 +268,7 @@
 
 .nav-cta { margin-left: 12px; }
 
-/* Langue — style document (Fr ▾) */
+/* Langue - style document (Fr ▾) */
 .lang-select {
   font-size: 0.72rem;
   font-weight: 600;
@@ -1211,31 +1211,28 @@ footer {
 .footer-logo-block {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
   margin-bottom: 20px;
 }
 .footer-logo-tag {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.04em;
+  display: none;
 }
 .footer-logo-name {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--white);
-  border: 1.5px solid rgba(255,255,255,0.25);
-  padding: 7px 14px;
-  border-radius: 2px;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  opacity: 0.9;
 }
-.footer-logo-name span { color: var(--gold); padding-left: 6px; }
+.footer-logo-name:hover { opacity: 0.7; }
+.footer-logo-name span { color: var(--red); padding-left: 2px; }
 .footer-tagline {
   font-size: 0.82rem;
   color: var(--grey-light);

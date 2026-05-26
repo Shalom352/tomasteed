@@ -1,6 +1,6 @@
-/* ============================================================
-   TOMASTEED — Main JavaScript
-   Refonte 2025 — Inspiration Blackstone
+﻿/* ============================================================
+   TOMASTEED - Main JavaScript
+   Refonte 2025 - Inspiration Blackstone
    ============================================================ */
 
 /* ── Loader ── */
@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
   }, 1100);
 });
 
-/* —— Navbar — transparent sur homepage, blanc sur pages intérieures —— */
+/* -- Navbar - transparent sur homepage, blanc sur pages intérieures -- */
 const navbar = document.getElementById('navbar');
 const isHomepage = document.body.classList.contains('homepage') ||
                    window.location.pathname.endsWith('index.html') ||
@@ -48,6 +48,41 @@ mobileLinks.forEach(link => {
     mobileMenu.classList.remove('open');
     document.body.style.overflow = '';
   });
+});
+
+/* ── Nav Dropdowns - accessibility & click-outside ── */
+document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+  const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+  const menu   = dropdown.querySelector('.nav-dropdown-menu');
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = menu.style.opacity === '1';
+    // Close all others
+    document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
+      m.style.opacity = '0';
+      m.style.pointerEvents = 'none';
+      m.style.transform = 'translateX(-50%) translateY(-6px)';
+    });
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(t => t.setAttribute('aria-expanded', 'false'));
+    if (!isOpen) {
+      menu.style.opacity = '1';
+      menu.style.pointerEvents = 'all';
+      menu.style.transform = 'translateX(-50%) translateY(0)';
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// Close dropdowns on outside click
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown-menu').forEach(m => {
+    m.style.opacity = '';
+    m.style.pointerEvents = '';
+    m.style.transform = '';
+  });
+  document.querySelectorAll('.nav-dropdown-toggle').forEach(t => t.setAttribute('aria-expanded', 'false'));
 });
 
 /* ── Intersection Observer (scroll reveal) ── */
