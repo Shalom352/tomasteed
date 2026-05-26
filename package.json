@@ -1,5 +1,10 @@
 {
   "devDependencies": {
-    "pdf-parse": "^2.4.5"
+    "pdf-parse": "^1.1.1"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.17",
+    "canvas": "^3.2.3",
+    "pdfjs-dist": "^5.7.284"
   }
 }
