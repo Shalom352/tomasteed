@@ -1,20 +1,21 @@
 /* ============================================================
    TOMASTEED — Animations
+   Refonte 2025 — Inspiration Blackstone
    ============================================================ */
 
-/* ── Fade In Up ── */
+/* ── Keyframes ── */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
+  from { opacity: 0; transform: translateY(50px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
+  from { opacity: 0; transform: translateX(-50px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(40px); }
+  from { opacity: 0; transform: translateX(50px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
@@ -24,7 +25,7 @@
 }
 
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.92); }
+  from { opacity: 0; transform: scale(0.94); }
   to   { opacity: 1; transform: scale(1); }
 }
 
@@ -48,18 +49,24 @@
   50%       { transform: translateY(-10px); }
 }
 
-@keyframes counterUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* ── Marquee (texte défilant Blackstone) ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-/* ── Scroll-triggered (AOS-like with IntersectionObserver) ── */
+@keyframes marqueeReverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* ── Scroll Reveal ── */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(48px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
 .reveal.revealed {
   opacity: 1;
   transform: translateY(0);
@@ -67,8 +74,9 @@
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateX(-48px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal-left.revealed {
   opacity: 1;
@@ -77,8 +85,9 @@
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateX(48px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal-right.revealed {
   opacity: 1;
@@ -87,8 +96,9 @@
 
 .reveal-scale {
   opacity: 0;
-  transform: scale(0.93);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: scale(0.94);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal-scale.revealed {
   opacity: 1;
@@ -96,21 +106,21 @@
 }
 
 /* Delay helpers */
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
-.delay-4 { transition-delay: 0.4s; }
-.delay-5 { transition-delay: 0.5s; }
-.delay-6 { transition-delay: 0.6s; }
+.delay-1 { transition-delay: 0.08s; }
+.delay-2 { transition-delay: 0.18s; }
+.delay-3 { transition-delay: 0.28s; }
+.delay-4 { transition-delay: 0.38s; }
+.delay-5 { transition-delay: 0.48s; }
+.delay-6 { transition-delay: 0.58s; }
 
 /* ── Hero animations ── */
-.hero-content .hero-label   { animation: fadeInUp 0.8s ease 0.2s both; }
-.hero-content h1            { animation: fadeInUp 0.8s ease 0.4s both; }
-.hero-content .hero-sub     { animation: fadeInUp 0.8s ease 0.6s both; }
-.hero-content .hero-actions { animation: fadeInUp 0.8s ease 0.8s both; }
-.hero-stats                 { animation: fadeInUp 0.8s ease 1.0s both; }
+.hero-eyebrow  { animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
+.hero-title    { animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both; }
+.hero-sub-col  { animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both; }
+.hero-actions  { animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both; }
+.hero-stats    { animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both; }
 
-/* ── Shimmer on gold ── */
+/* ── Shimmer or ── */
 .shimmer-gold {
   background: linear-gradient(
     90deg,
@@ -125,7 +135,7 @@
   animation: shimmer 3s linear infinite;
 }
 
-/* ── Hover line underline ── */
+/* ── Hover underline ── */
 .hover-line {
   position: relative;
   display: inline-block;
@@ -144,21 +154,22 @@
 #loader {
   position: fixed;
   inset: 0;
-  background: var(--black-deep);
+  background: var(--black);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
 }
 #loader.hidden {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
 }
 .loader-logo {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 800;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--white);
   position: relative;

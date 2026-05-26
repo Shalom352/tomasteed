@@ -1,43 +1,59 @@
 /* ============================================================
    TOMASTEED — Design System
-   Charte Graphique 2024 — Refonte 2025
+   Refonte 2025 — Inspiration Blackstone
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
 
 /* ── Variables ── */
 :root {
-  --black:        #2E2D2C;
-  --black-deep:   #1A1918;
-  --black-card:   #222120;
-  --black-hover:  #2a2928;
-  --white:        #F5F3F0;
-  --white-soft:   #E8E5E0;
+  /* Fonds */
+  --black:        #0a0a0a;
+  --black-pure:   #000000;
+  --black-deep:   #111110;
+  --black-card:   #181716;
+  --black-hover:  #1f1e1d;
+  --white:        #ffffff;
+  --white-soft:   #f0ede8;
+  --white-section:#fafaf8;
+  --off-white:    #F5F3F0;
+
+  /* Texte sur fond blanc */
+  --text-dark:    #0a0a0a;
+  --text-mid:     #3a3835;
+  --text-grey-d:  #6b6866;
+
+  /* Accent */
   --red:          #DC4920;
   --red-dark:     #B83A18;
-  --red-muted:    rgba(220,73,32,0.12);
+  --red-muted:    rgba(220,73,32,0.10);
   --green:        #327D48;
-  --green-dark:   #255C35;
   --gold:         #C8A882;
   --gold-light:   #DFC4A0;
-  --gold-muted:   rgba(200,168,130,0.15);
+  --gold-dark:    #b8923a;
+  --gold-muted:   rgba(200,168,130,0.12);
+
+  /* Neutres */
   --grey:         #6B6966;
   --grey-light:   #9B9896;
   --border:       rgba(255,255,255,0.07);
-  --border-gold:  rgba(200,168,130,0.2);
+  --border-white: rgba(0,0,0,0.09);
+  --border-gold:  rgba(200,168,130,0.20);
 
+  /* Typo */
   --font-body:    'Nunito Sans', 'Avenir', sans-serif;
   --font-serif:   'Cormorant Garamond', Georgia, serif;
 
+  /* UI */
   --nav-h:        80px;
-  --radius:       3px;
-  --radius-lg:    8px;
-  --radius-xl:    16px;
+  --radius:       2px;
+  --radius-lg:    4px;
+  --radius-xl:    8px;
   --transition:   0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --transition-fast: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-fast: 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --shadow:       0 12px 48px rgba(0,0,0,0.35);
   --shadow-lg:    0 24px 80px rgba(0,0,0,0.55);
-  --shadow-gold:  0 8px 32px rgba(200,168,130,0.15);
+  --shadow-gold:  0 8px 32px rgba(200,168,130,0.12);
 }
 
 /* ── Reset ── */
@@ -50,7 +66,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--black-deep);
+  background-color: var(--black);
   color: var(--white);
   line-height: 1.7;
   overflow-x: hidden;
@@ -63,11 +79,11 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
-/* ── Typography — SERIF sur les grands titres ── */
+/* ── Typography ── */
 h1, h2 {
   font-family: var(--font-serif);
   font-weight: 300;
-  line-height: 1.15;
+  line-height: 1.1;
   letter-spacing: -0.01em;
 }
 
@@ -81,8 +97,39 @@ h3, h4, h5 {
 .serif { font-family: var(--font-serif); font-weight: 300; }
 .serif-italic { font-family: var(--font-serif); font-style: italic; font-weight: 300; }
 
+/* ── Label style Blackstone ── */
+/* Usage: <span class="label-dash">NOM SECTION</span> */
+.label-dash {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.label-dash::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+/* Version sur fond blanc */
+.label-dash--dark {
+  color: var(--gold-dark);
+}
+.label-dash--dark::before {
+  background: var(--gold-dark);
+}
+
+/* Ancien label (rétrocompat) */
 .label {
-  font-size: 0.68rem;
+  font-size: 0.63rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -96,29 +143,76 @@ h3, h4, h5 {
   padding: 0 2rem;
 }
 
+/* ── Sections : noir (défaut) et blanc (alternance Blackstone) ── */
 .section {
   padding: 128px 0;
 }
 
-.section--dark { background: var(--black-deep); }
-.section--card { background: var(--black); }
-.section--mid  { background: #1f1e1d; }
+/* Fond noir pur (hero, marquee, certaines sections) */
+.section--black {
+  background: var(--black);
+  color: var(--white);
+}
+.section--black-deep {
+  background: var(--black-deep);
+  color: var(--white);
+}
+
+/* Fond blanc (rupture visuelle forte — style Blackstone) */
+.section--white {
+  background: var(--white);
+  color: var(--text-dark);
+}
+.section--white .section-header h2 {
+  color: var(--text-dark);
+}
+.section--white .section-header h2 em {
+  color: var(--gold-dark);
+  font-style: italic;
+}
+.section--white .section-header p {
+  color: var(--text-grey-d);
+}
+.section--white .label-dash {
+  color: var(--gold-dark);
+}
+.section--white .label-dash::before {
+  background: var(--gold-dark);
+}
+.section--white .label {
+  color: var(--gold-dark);
+}
+.section--white .divider {
+  background: var(--gold-dark);
+}
+
+/* Fond crème doux */
+.section--offwhite {
+  background: var(--white-section);
+  color: var(--text-dark);
+}
+.section--offwhite .section-header h2 { color: var(--text-dark); }
+.section--offwhite .section-header h2 em { color: var(--gold-dark); }
+.section--offwhite .section-header p { color: var(--text-grey-d); }
+.section--offwhite .label-dash { color: var(--gold-dark); }
+.section--offwhite .label-dash::before { background: var(--gold-dark); }
 
 /* ── Section Header ── */
 .section-header {
   margin-bottom: 72px;
 }
 
-.section-header .label {
+.section-header .label,
+.section-header .label-dash {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .section-header h2 {
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
   color: var(--white);
   max-width: 640px;
-  line-height: 1.1;
+  line-height: 1.08;
 }
 
 .section-header h2 em {
@@ -128,7 +222,7 @@ h3, h4, h5 {
 
 .section-header p {
   margin-top: 24px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--grey-light);
   max-width: 520px;
   line-height: 1.85;
@@ -139,13 +233,22 @@ h3, h4, h5 {
   width: 40px;
   height: 1px;
   background: var(--gold);
-  margin: 28px 0;
-  opacity: 0.6;
+  margin: 24px 0;
+  opacity: 0.5;
 }
-
-.divider--center { margin: 28px auto; }
+.divider--center { margin: 24px auto; }
 .divider--red { background: var(--red); }
 .divider--wide { width: 80px; }
+.divider--white { background: rgba(255,255,255,0.15); }
+
+/* ── Section line ── */
+.section-line {
+  height: 1px;
+  background: var(--border);
+}
+.section-line--white {
+  background: var(--border-white);
+}
 
 /* ── Buttons ── */
 .btn {
@@ -153,9 +256,9 @@ h3, h4, h5 {
   align-items: center;
   gap: 10px;
   padding: 14px 32px;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   border-radius: var(--radius);
   transition: var(--transition);
@@ -167,17 +270,17 @@ h3, h4, h5 {
 .btn-primary {
   background: var(--red);
   color: var(--white);
-  box-shadow: 0 4px 20px rgba(220,73,32,0.25);
+  box-shadow: 0 4px 20px rgba(220,73,32,0.22);
 }
 .btn-primary:hover {
   background: var(--red-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(220,73,32,0.35);
+  box-shadow: 0 8px 32px rgba(220,73,32,0.32);
 }
 
 .btn-outline {
-  border: 1px solid var(--border);
-  color: var(--white-soft);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
   background: transparent;
 }
 .btn-outline:hover {
@@ -185,6 +288,59 @@ h3, h4, h5 {
   color: var(--gold);
   transform: translateY(-2px);
   background: var(--gold-muted);
+}
+
+/* Bouton "Learn More →" style Blackstone — sobre, avec cercle flèche */
+.btn-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  transition: gap 0.3s ease, color 0.3s ease;
+  padding: 0;
+  background: none;
+  border: none;
+  text-transform: none;
+  border-radius: 0;
+}
+.btn-learn-more:hover {
+  gap: 20px;
+  color: var(--gold);
+  transform: none;
+}
+.btn-learn-more .arrow-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  flex-shrink: 0;
+}
+.btn-learn-more:hover .arrow-circle {
+  border-color: var(--gold);
+  background: var(--gold-muted);
+}
+.btn-learn-more svg { width: 14px; height: 14px; }
+
+/* Version sombre (sur fond blanc) */
+.btn-learn-more--dark {
+  color: var(--text-dark);
+}
+.btn-learn-more--dark .arrow-circle {
+  border-color: rgba(0,0,0,0.25);
+}
+.btn-learn-more--dark:hover {
+  color: var(--gold-dark);
+}
+.btn-learn-more--dark:hover .arrow-circle {
+  border-color: var(--gold-dark);
+  background: rgba(184,146,58,0.08);
 }
 
 .btn-gold {
@@ -200,12 +356,12 @@ h3, h4, h5 {
 }
 
 .btn-dark {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.05);
   color: var(--white);
   border: 1px solid var(--border);
 }
 .btn-dark:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.09);
   transform: translateY(-2px);
 }
 
@@ -222,7 +378,6 @@ h3, h4, h5 {
   position: relative;
   overflow: hidden;
 }
-
 .card::after {
   content: '';
   position: absolute;
@@ -232,14 +387,23 @@ h3, h4, h5 {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-
 .card:hover {
   border-color: var(--border-gold);
   transform: translateY(-6px);
   box-shadow: var(--shadow);
 }
-
 .card:hover::after { opacity: 1; }
+
+/* Card sur fond blanc */
+.card--white {
+  background: var(--white);
+  border-color: var(--border-white);
+  color: var(--text-dark);
+}
+.card--white:hover {
+  border-color: rgba(184,146,58,0.3);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.1);
+}
 
 /* ── Grid Layouts ── */
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
@@ -248,34 +412,61 @@ h3, h4, h5 {
 
 /* ── Glassmorphism ── */
 .glass {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.03);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.07);
 }
 
 /* ── Badge ── */
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 6px 16px;
+  padding: 5px 14px;
   border: 1px solid var(--border-gold);
   border-radius: 20px;
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.68rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--gold);
   background: var(--gold-muted);
 }
 
+/* ── Stat box ── */
+.stat-box {
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+  transition: var(--transition-fast);
+}
+.stat-box:hover { border-color: var(--border-gold); }
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-number .accent { color: var(--gold); }
+.stat-desc {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
 /* ── Scrollbar ── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--black-deep); }
-::-webkit-scrollbar-thumb { background: var(--grey); border-radius: 4px; }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
 /* ── Selection ── */
-::selection { background: rgba(220,73,32,0.3); color: var(--white); }
+::selection { background: rgba(220,73,32,0.28); color: var(--white); }
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
@@ -288,7 +479,7 @@ h3, h4, h5 {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .container { padding: 0 1.25rem; }
   .section-header { margin-bottom: 48px; }
-  .section-header h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  .section-header h2 { font-size: clamp(1.9rem, 6vw, 2.8rem); }
 }
 
 @media (max-width: 480px) {

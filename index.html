@@ -10,159 +10,269 @@
 <meta property="og:type" content="website"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles/main.css"/>
 <link rel="stylesheet" href="styles/components.css"/>
 <link rel="stylesheet" href="styles/animations.css"/>
 <style>
-/* ── Homepage-specific ── */
-
-/* KPI Band */
-.kpi-band {
-  background: var(--black-deep);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 40px 0;
-}
-.kpi-band-grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-}
-.kpi-band-item {
-  flex: 1;
-  text-align: center;
-  padding: 8px 32px;
-}
-.kpi-band-sep {
-  width: 1px;
-  height: 48px;
-  background: var(--border);
-  flex-shrink: 0;
-}
-.kpi-band-num {
-  font-family: var(--font-serif);
-  font-size: 2.6rem;
-  font-weight: 300;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.kpi-band-label {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--grey-light);
-}
-@media(max-width: 768px) {
-  .kpi-band-grid { flex-wrap: wrap; gap: 24px; }
-  .kpi-band-sep { display: none; }
-  .kpi-band-item { flex: 1 1 40%; }
-}
+/* ── Homepage overrides ── */
 
 /* Presence section */
-.presence { padding: 96px 0; background: var(--black); }
-.bureaux-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.presence { padding: 96px 0; background: var(--black-deep); }
+.bureaux-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
 
 /* Métiers aperçu */
-.metiers-apercu { padding: 128px 0; }
-.metiers-apercu-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 48px; }
-.metier-apercu-card { background: var(--black-card); padding: 40px 32px; transition: var(--transition-fast); display: flex; flex-direction: column; }
+.metiers-apercu { padding: 96px 0; background: var(--black-deep); }
+.metiers-apercu-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+.metier-apercu-card {
+  background: var(--black-card);
+  padding: 40px 32px;
+  transition: var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
 .metier-apercu-card:hover { background: var(--black-hover); }
 .metier-apercu-icon { width: 40px; height: 40px; color: var(--gold); opacity: 0.7; margin-bottom: 24px; }
 .metier-apercu-icon svg { width: 100%; height: 100%; }
-.metier-apercu-card h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 12px; line-height: 1.3; }
-.metier-apercu-card p { font-size: 0.82rem; color: var(--grey-light); line-height: 1.75; flex: 1; }
-.metier-apercu-link { margin-top: 24px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 8px; transition: gap 0.3s; opacity: 0.7; }
+.metier-apercu-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.35; }
+.metier-apercu-card p { font-size: 0.8rem; color: var(--grey-light); line-height: 1.75; flex: 1; }
+.metier-apercu-link {
+  margin-top: 24px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.3s;
+  opacity: 0.7;
+}
 .metier-apercu-card:hover .metier-apercu-link { gap: 14px; opacity: 1; }
 
-/* Chiffres clés */
-.chiffres { padding: 128px 0; background: var(--black-deep); position: relative; overflow: hidden; }
-.chiffres::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(200,168,130,0.04) 0%, transparent 60%); }
-.chiffres-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: var(--font-serif); font-size: clamp(8rem,20vw,18rem); font-weight: 300; color: rgba(255,255,255,0.02); pointer-events: none; white-space: nowrap; letter-spacing: -0.04em; }
-.chiffres-content { position: relative; z-index: 2; }
-.chiffres-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
-
 /* Equipe teaser */
-.equipe-teaser { padding: 128px 0; background: var(--black); }
-.equipe-teaser-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 48px; }
-.equipe-teaser-card { background: var(--black-card); padding: 40px 32px; transition: var(--transition-fast); display: flex; align-items: center; gap: 24px; }
+.equipe-teaser { padding: 96px 0; background: var(--black); }
+.equipe-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+.equipe-teaser-card {
+  background: var(--black-card);
+  padding: 40px 32px;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
 .equipe-teaser-card:hover { background: var(--black-hover); }
-.equipe-teaser-photo { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 1px solid var(--border-gold); }
+.equipe-teaser-photo {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--border-gold);
+}
 .equipe-teaser-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(15%); }
-.equipe-teaser-initials { width: 64px; height: 64px; border-radius: 50%; background: var(--gold-muted); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1.4rem; font-weight: 300; color: var(--gold); flex-shrink: 0; }
-.equipe-teaser-name { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-.equipe-teaser-role { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); }
+.equipe-teaser-initials {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--gold-muted);
+  border: 1px solid var(--border-gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.equipe-teaser-name { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.equipe-teaser-role { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); }
 
-/* Audience section */
-.audience-section { padding: 128px 0; background: var(--black-deep); }
+/* About section (fond blanc — style Blackstone) */
+.about-section {
+  background: var(--white);
+  padding: 120px 0;
+  color: var(--text-dark);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+.about-text { }
+.about-text h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 300;
+  color: var(--text-dark);
+  line-height: 1.08;
+  margin: 20px 0 28px;
+}
+.about-text h2 em { font-style: italic; color: var(--gold-dark); }
+.about-text p {
+  font-size: 0.92rem;
+  color: var(--text-grey-d);
+  line-height: 1.85;
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.about-stat-big {
+  font-family: var(--font-serif);
+  font-size: clamp(5rem, 10vw, 9rem);
+  font-weight: 300;
+  color: var(--text-dark);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+.about-stat-big em { font-style: italic; color: var(--gold-dark); }
+.about-stat-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-grey-d);
+  margin-top: 8px;
+}
+.about-stat-note {
+  font-size: 0.68rem;
+  color: rgba(0,0,0,0.35);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Press band (fond blanc) */
+.press-band-white {
+  padding: 56px 0;
+  background: var(--white-section);
+  border-top: 1px solid rgba(0,0,0,0.07);
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.press-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.press-logo-item {
+  padding: 10px 22px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 2px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.22);
+  transition: var(--transition-fast);
+  white-space: nowrap;
+  cursor: default;
+}
+.press-logo-item:hover { border-color: var(--gold-dark); color: var(--gold-dark); }
+
+/* Testimonials */
+.testimonials-section { padding: 96px 0; background: var(--black-deep); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; margin-top: 56px; }
+.testimonial-card {
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-left: 2px solid rgba(200,168,130,0.3);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  transition: var(--transition);
+}
+.testimonial-card:hover {
+  border-color: var(--border-gold);
+  border-left-color: var(--gold);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-4px);
+}
+.testimonial-quote-mark {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.2;
+  line-height: 0.7;
+  margin-bottom: 14px;
+  display: block;
+}
+.testimonial-text { font-size: 0.9rem; color: var(--white-soft); line-height: 1.85; font-style: italic; margin-bottom: 28px; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid var(--border); }
+.testimonial-initials {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--gold-muted);
+  border: 1px solid var(--border-gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.testimonial-name { font-size: 0.82rem; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+.testimonial-role { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); }
+
+/* Audience */
+.audience-section { padding: 96px 0; background: var(--black); }
 
 /* Section divider */
-.section-line { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+.section-line { height: 1px; background: var(--border); }
+
+/* Impact / marquee accent */
+.impact-accent {
+  padding: 80px 0;
+  background: var(--black-deep);
+  overflow: hidden;
+  position: relative;
+}
+.impact-accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(200,168,130,0.04) 0%, transparent 65%);
+}
 
 @media(max-width:1024px) {
+  .about-grid { grid-template-columns: 1fr; gap: 56px; }
   .bureaux-grid,.metiers-apercu-grid { grid-template-columns: repeat(2,1fr); }
-  .chiffres-grid { grid-template-columns: repeat(2,1fr); }
   .equipe-teaser-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
 }
 @media(max-width:768px) {
   .bureaux-grid,.metiers-apercu-grid,.chiffres-grid { grid-template-columns: 1fr; }
-}
-
-/* ── Impact Statement ── */
-.impact-statement { padding: 128px 0; background: var(--black-deep); position: relative; overflow: hidden; }
-.impact-statement::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 100%, rgba(200,168,130,0.05) 0%, transparent 60%); }
-.impact-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: var(--font-serif); font-size: clamp(8rem,22vw,20rem); font-weight: 300; color: rgba(255,255,255,0.018); pointer-events: none; white-space: nowrap; letter-spacing: -0.04em; }
-.impact-inner { position: relative; z-index: 2; text-align: center; }
-.impact-num-giant { font-family: var(--font-serif); font-size: clamp(5.5rem,14vw,11rem); font-weight: 300; color: var(--white); line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 24px; }
-.impact-num-giant em { font-style: italic; color: var(--gold); }
-.impact-main-label { font-size: .88rem; color: var(--grey-light); max-width: 520px; margin: 0 auto 56px; line-height: 1.75; }
-.impact-sub-row { display: flex; align-items: stretch; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; max-width: 780px; margin: 0 auto; background: var(--border); gap: 2px; }
-.impact-sub-item { flex: 1; background: var(--black-card); padding: 28px 16px; text-align: center; display: flex; flex-direction: column; gap: 8px; }
-.impact-sub-num { font-family: var(--font-serif); font-size: 2rem; font-weight: 300; color: var(--gold); line-height: 1; }
-.impact-sub-label { font-size: .62rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--grey); }
-
-/* ── Press Band ── */
-.press-band { padding: 56px 0; background: var(--black); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.press-logos { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 32px; }
-.press-logo-item { padding: 12px 24px; border: 1px solid var(--border); border-radius: var(--radius); font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.22); transition: var(--transition-fast); white-space: nowrap; cursor: default; }
-.press-logo-item:hover { border-color: var(--border-gold); color: var(--gold-light); }
-
-/* ── Testimonials ── */
-.testimonials-section { padding: 96px 0; background: var(--black-deep); }
-.testimonials-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 56px; }
-.testimonial-card { background: var(--black-card); border: 1px solid var(--border); border-left: 3px solid rgba(200,168,130,.4); border-radius: var(--radius-lg); padding: 40px 36px; transition: var(--transition); }
-.testimonial-card:hover { border-color: var(--border-gold); border-left-color: var(--gold); box-shadow: var(--shadow-gold); transform: translateY(-4px); }
-.testimonial-quote-mark { font-family: var(--font-serif); font-size: 4rem; font-weight: 300; color: var(--gold); opacity: .25; line-height: .7; margin-bottom: 16px; display: block; }
-.testimonial-text { font-size: .92rem; color: var(--white-soft); line-height: 1.85; font-style: italic; margin-bottom: 28px; }
-.testimonial-author { display: flex; align-items: center; gap: 16px; padding-top: 20px; border-top: 1px solid var(--border); }
-.testimonial-initials { width: 44px; height: 44px; border-radius: 50%; background: var(--gold-muted); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1rem; font-weight: 300; color: var(--gold); flex-shrink: 0; }
-.testimonial-name { font-size: .85rem; font-weight: 700; color: var(--white); margin-bottom: 2px; }
-.testimonial-role { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--grey); }
-
-/* ── Insights Teaser ── */
-.insights-teaser { padding: 96px 0; background: var(--black); }
-.insights-teaser-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 56px; margin-bottom: 48px; }
-.insight-teaser-card { background: var(--black-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; transition: var(--transition); }
-.insight-teaser-card:hover { border-color: var(--border-gold); transform: translateY(-4px); box-shadow: var(--shadow); }
-.insight-teaser-img { height: 180px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.insight-teaser-img-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #141312 0%, #1e2030 50%, #141312 100%); }
-.insight-teaser-img-label { position: relative; z-index: 2; font-size: .6rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(200,168,130,.28); border: 1px dashed rgba(200,168,130,.14); padding: 6px 14px; border-radius: 3px; }
-.insight-teaser-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-.insight-teaser-tag { font-size: .6rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-.insight-teaser-title { font-size: .95rem; font-weight: 700; color: var(--white); line-height: 1.4; margin-bottom: 10px; flex: 1; }
-.insight-teaser-meta { font-size: .7rem; color: var(--grey); margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); }
-
-/* ── Social Footer ── */
-.footer-social { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
-.footer-social-link { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--border); border-radius: 4px; color: var(--grey); transition: var(--transition-fast); }
-.footer-social-link:hover { border-color: #0077B5; color: #0077B5; background: rgba(0,119,181,.08); }
-
-@media (max-width: 768px) {
-  .impact-num-giant { font-size: clamp(4rem,16vw,6rem); }
-  .impact-sub-row { flex-direction: column; }
-  .testimonials-grid, .insights-teaser-grid { grid-template-columns: 1fr; }
+  .about-stat-big { font-size: clamp(4rem, 16vw, 6rem); }
 }
 </style>
 </head>
@@ -191,9 +301,12 @@
         <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
         <li><a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a></li>
       </ul>
-      <div style="display:flex;align-items:center;gap:12px;">
-        <a href="contact.html" class="btn btn-primary nav-cta" style="padding:10px 22px;font-size:.72rem;" data-i18n="nav-contact-cta">Nous Contacter</a>
+      <div style="display:flex;align-items:center;gap:8px;margin-left:auto;">
         <button id="langToggle" class="lang-toggle">FR / EN</button>
+        <a href="contact.html" class="btn btn-primary nav-cta" style="padding:10px 22px;font-size:.72rem;" data-i18n="nav-contact-cta">Nous Contacter</a>
+        <span class="nav-search" aria-label="Recherche">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </span>
         <div id="burger" class="burger"><span></span><span></span><span></span></div>
       </div>
     </div>
@@ -202,92 +315,151 @@
 
 <!-- ══ HERO ══════════════════════════════════════════════════ -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
+  <div class="hero-bg" id="heroBg"></div>
   <div class="container">
-    <div class="hero-content">
-      <h1 data-i18n="hero-title">L'Innovation Financière<br><em>au Service de l'Afrique</em></h1>
-      <p class="hero-sub" data-i18n="hero-sub">Conseil de haut niveau pour les États, institutions et entreprises d'Afrique et du Moyen-Orient. Ancrage local, standards internationaux.</p>
-      <div class="hero-actions">
-        <a href="metiers.html" class="btn btn-primary" data-i18n="hero-cta1">Nos Expertises <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="contact.html" class="btn btn-outline" data-i18n="hero-cta2">Prendre Contact</a>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-eyebrow" data-i18n="hero-eyebrow">Banque d'Affaires Panafricaine · Régulée ADGM</div>
+        <h1 class="hero-title" data-i18n="hero-title">
+          <strong>Construire</strong> avec<br>TOMASTEED
+        </h1>
+      </div>
+      <div class="hero-right">
+        <p class="hero-sub" data-i18n="hero-sub">TOMASTEED est la banque d'affaires panafricaine de référence — conseil de haut niveau pour les États, institutions et entreprises d'Afrique et du Moyen-Orient.</p>
+        <div class="hero-actions">
+          <a href="metiers.html" class="btn-learn-more" data-i18n="hero-cta1">
+            Nos Expertises
+            <span class="arrow-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+          <a href="contact.html" class="btn btn-outline" style="font-size:.74rem;" data-i18n="hero-cta2">Prendre Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span data-counter="12" data-suffix="+">12+</span></div>
+        <div class="hero-stat-label" data-i18n="stat-exp">Ans d'expérience moyenne</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2</div>
+        <div class="hero-stat-label" data-i18n="stat-bureaux">Bureaux officiels</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><span data-counter="15" data-suffix="+">15+</span></div>
+        <div class="hero-stat-label" data-i18n="stat-pays">Pays & marchés couverts</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" style="letter-spacing:.04em;font-size:1.6rem;">ADGM</div>
+        <div class="hero-stat-label">Régulée FSRA</div>
       </div>
     </div>
   </div>
   <div class="scroll-indicator">Scroll</div>
 </section>
 
-<!-- ══ KPI BAND ══════════════════════════════════════════════ -->
-<section class="kpi-band">
+<!-- ══ MARQUEE ════════════════════════════════════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track" aria-hidden="true">
+    <!-- Double pour boucle infinie -->
+    <div class="marquee-item">
+      <span class="marquee-text">Construire</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">avec</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">TOMASTEED</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Afrique</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Finance</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Impact</span>
+      <span class="marquee-dot"></span>
+    </div>
+    <div class="marquee-item">
+      <span class="marquee-text">Construire</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">avec</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">TOMASTEED</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Afrique</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Finance</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Impact</span>
+      <span class="marquee-dot"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT THE FIRM (Fond blanc — style Blackstone) ════════ -->
+<section class="about-section">
   <div class="container">
-    <div class="kpi-band-grid">
-      <div class="kpi-band-item">
-        <div class="kpi-band-num"><span data-counter="12" data-suffix="+">12+</span></div>
-        <div class="kpi-band-label" data-i18n="stat-exp">Ans d'expérience moyenne</div>
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <span class="label-dash label-dash--dark" data-i18n="about-label">À Propos de la Firme</span>
+        <h2 data-i18n="about-title">Mobiliser les capitaux mondiaux <em>pour l'Afrique</em></h2>
+        <div class="divider" style="background:var(--gold-dark);opacity:.5;"></div>
+        <p data-i18n="about-p1">TOMASTEED se positionne comme un acteur spécialisé du conseil financier en Afrique, couvrant un large éventail d'opérations pour les États souverains, les entreprises et les investisseurs institutionnels.</p>
+        <p data-i18n="about-p2">Notre approche conjugue la rigueur des standards internationaux avec une connaissance approfondie des marchés africains — francophone, anglophone et arabophone.</p>
+        <div style="margin-top:36px;">
+          <a href="identite.html" class="btn-learn-more btn-learn-more--dark" data-i18n="about-cta">
+            En savoir plus
+            <span class="arrow-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
       </div>
-      <div class="kpi-band-sep"></div>
-      <div class="kpi-band-item">
-        <div class="kpi-band-num"><span data-counter="2" data-suffix="">2</span></div>
-        <div class="kpi-band-label" data-i18n="stat-bureaux">Bureaux officiels</div>
+
+      <div class="about-right reveal-right">
+        <div>
+          <div class="about-stat-big">$1<em>Md</em>+</div>
+          <div class="about-stat-label" data-i18n="about-stat-label">Volume de transactions — Track Record Fondateurs</div>
+          <div class="about-stat-note" data-i18n="about-stat-note">Track record personnel des fondateurs, réalisé au sein de leurs institutions d'origine avant la création de TOMASTEED.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.08);border-radius:4px;overflow:hidden;margin-top:8px;">
+          <div style="padding:24px 20px;background:var(--white-section);">
+            <div style="font-family:var(--font-serif);font-size:2rem;font-weight:300;color:var(--text-dark);line-height:1;margin-bottom:6px;">20+</div>
+            <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-grey-d);" data-i18n="about-sub1">Transactions</div>
+          </div>
+          <div style="padding:24px 20px;background:var(--white-section);">
+            <div style="font-family:var(--font-serif);font-size:2rem;font-weight:300;color:var(--text-dark);line-height:1;margin-bottom:6px;">9</div>
+            <div style="font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-grey-d);" data-i18n="about-sub2">Secteurs couverts</div>
+          </div>
+        </div>
       </div>
-      <div class="kpi-band-sep"></div>
-      <div class="kpi-band-item">
-        <div class="kpi-band-num"><span data-counter="9" data-suffix="">9</span></div>
-        <div class="kpi-band-label" data-i18n="stat-experts">Experts & Partners</div>
-      </div>
-      <div class="kpi-band-sep"></div>
-      <div class="kpi-band-item">
-        <div class="kpi-band-num"><span data-counter="15" data-suffix="+">15+</span></div>
-        <div class="kpi-band-label" data-i18n="stat-pays">Pays & marchés couverts</div>
-      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRESSE (Fond blanc) ════════════════════════════════════ -->
+<section class="press-band-white">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="label-dash label-dash--dark" style="justify-content:center;" data-i18n="press-label">Médias & Références</span>
+    </div>
+    <div class="press-logos reveal delay-1">
+      <div class="press-logo-item">Jeune Afrique</div>
+      <div class="press-logo-item">Financial Afrik</div>
+      <div class="press-logo-item">Les Echos Afrique</div>
+      <div class="press-logo-item">Africa Business+</div>
+      <div class="press-logo-item">Bloomberg Africa</div>
     </div>
   </div>
 </section>
 
 <div class="section-line"></div>
 
-<!-- ══ PRÉSENCE — 4 BUREAUX ══════════════════════════════════ -->
-<section class="presence">
-  <div class="container">
-    <div class="section-header reveal" style="text-align:center;max-width:560px;margin:0 auto 64px;">
-      <span class="label" data-i18n="presence-label">Notre Présence</span>
-      <h2 style="margin-top:20px;" data-i18n="presence-title">2 Bureaux au Cœur <em>des Marchés</em></h2>
-      <div class="divider divider--center"></div>
-      <p data-i18n="presence-sub">Ancrés dans les places financières stratégiques d'Afrique et du Moyen-Orient.</p>
-    </div>
-    <div class="bureaux-grid">
-      <div class="bureau-card reveal delay-1">
-        <div class="bureau-flag">🇦🇪</div>
-        <div class="bureau-city">Abu Dhabi</div>
-        <div class="bureau-pays" data-i18n="bureau-1-pays">Émirats Arabes Unis</div>
-        <div class="bureau-role" data-i18n="bureau-1-role">Siège Social · Régulation ADGM<br>Hub Moyen-Orient & Golfe</div>
-        <a href="mailto:fadel.kane@tomasteed.com" class="bureau-contact">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span data-i18n="bureau-contact-btn">Contacter ce bureau</span>
-        </a>
-      </div>
-      <div class="bureau-card reveal delay-2">
-        <div class="bureau-flag">🇨🇮</div>
-        <div class="bureau-city">Abidjan</div>
-        <div class="bureau-pays" data-i18n="bureau-2-pays">Côte d'Ivoire</div>
-        <div class="bureau-role" data-i18n="bureau-2-role">Hub Afrique de l'Ouest<br>Réseau CEDEAO & UEMOA</div>
-        <a href="mailto:hello@tomasteed.com" class="bureau-contact">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span data-i18n="bureau-contact-btn">Contacter ce bureau</span>
-        </a>
-      </div>
-    </div>
-    <p style="text-align:center;font-size:0.75rem;color:var(--grey);margin-top:24px;letter-spacing:0.06em;" data-i18n="presence-network">Réseau partenaires · Dakar · Libreville · Conakry · Bamako · Cotonou</p>
-  </div>
-</section>
-
-<div class="section-line"></div>
-
-<!-- ══ NOS MÉTIERS — Aperçu ══════════════════════════════════ -->
+<!-- ══ NOS MÉTIERS ════════════════════════════════════════════ -->
 <section class="metiers-apercu">
   <div class="container">
     <div class="section-header reveal">
-      <span class="label" data-i18n="metiers-label">Expertises</span>
+      <span class="label-dash" data-i18n="metiers-label">Expertises</span>
       <h2 data-i18n="metiers-title">Nos <em>Métiers</em></h2>
       <div class="divider"></div>
       <p data-i18n="metiers-sub">Solutions financières sur mesure, alignées sur les standards des grandes banques d'affaires internationales.</p>
@@ -334,44 +506,117 @@
 
 <div class="section-line"></div>
 
-<!-- ══ IMPACT STATEMENT ══════════════════════════════════════ -->
-<section class="impact-statement">
-  <div class="impact-watermark">$1Md+</div>
+<!-- ══ CAROUSEL — Nos Analyses ════════════════════════════════ -->
+<section class="carousel-section">
   <div class="container">
-    <div class="impact-inner reveal">
-      <span class="label" style="display:block;margin-bottom:24px;" data-i18n="impact-label">Track Record Fondateurs</span>
-      <div class="impact-num-giant">$1<em>Md</em>+</div>
-      <p class="impact-main-label" data-i18n="impact-desc">Volume de transactions sur le track record cumulé des fondateurs — financement d'États souverains, d'infrastructures, de projets énergie et de transactions M&amp;A à travers l'Afrique et le Moyen-Orient.</p>
-      <div class="impact-sub-row">
-        <div class="impact-sub-item">
-          <span class="impact-sub-num"><span data-counter="20" data-suffix="+">20+</span></span>
-          <span class="impact-sub-label" data-i18n="impact-sub1">Transactions</span>
+    <div class="carousel-layout">
+      <div class="carousel-left reveal-left">
+        <span class="label-dash" data-i18n="carousel-label">Thought Leadership</span>
+        <h2 class="carousel-title" data-i18n="carousel-title">Nos <em>Analyses</em></h2>
+      </div>
+      <div class="carousel-right reveal-right">
+        <div class="carousel-slides">
+          <div class="carousel-slide active">
+            <p class="carousel-sub">Les marchés de dette africains en 2025 : mutation structurelle ou simple ajustement cyclique ? Analyse de l'équipe marchés de TOMASTEED.</p>
+            <a href="insights.html" class="btn-learn-more">
+              En savoir plus
+              <span class="arrow-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+          </div>
+          <div class="carousel-slide">
+            <p class="carousel-sub">Dynamique M&A en Afrique Sub-Saharienne : secteurs en consolidation et valorisations. Perspectives du pôle M&A de TOMASTEED.</p>
+            <a href="insights.html" class="btn-learn-more">
+              En savoir plus
+              <span class="arrow-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+          </div>
+          <div class="carousel-slide">
+            <p class="carousel-sub">Finance islamique & sukuk en Afrique de l'Ouest : état des lieux et opportunités pour les émetteurs souverains et corporates.</p>
+            <a href="insights.html" class="btn-learn-more">
+              En savoir plus
+              <span class="arrow-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+          </div>
         </div>
-        <div class="impact-sub-item">
-          <span class="impact-sub-num"><span data-counter="9" data-suffix="">9</span></span>
-          <span class="impact-sub-label" data-i18n="impact-sub2">Secteurs couverts</span>
-        </div>
-        <div class="impact-sub-item">
-          <span class="impact-sub-num"><span data-counter="15" data-suffix="+">15+</span></span>
-          <span class="impact-sub-label" data-i18n="impact-sub3">Pays & marchés</span>
-        </div>
-        <div class="impact-sub-item">
-          <span class="impact-sub-num" style="font-size:1.6rem;letter-spacing:.04em;">ADGM</span>
-          <span class="impact-sub-label" data-i18n="impact-sub4">Régulée FSRA</span>
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="prevSlide" aria-label="Précédent">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-slide="0"></button>
+            <button class="carousel-dot" data-slide="1"></button>
+            <button class="carousel-dot" data-slide="2"></button>
+          </div>
+          <button class="carousel-btn" id="nextSlide" aria-label="Suivant">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
       </div>
-      <p style="margin-top:24px;font-size:.68rem;color:var(--grey);font-style:italic;" data-i18n="impact-disclaimer">Track record personnel des fondateurs, réalisé au sein de leurs institutions d'origine avant la création de TOMASTEED.</p>
     </div>
   </div>
 </section>
 
-<div class="section-line"></div>
+<!-- ══ FEATURED STORIES (Fond blanc) ════════════════════════ -->
+<section style="background:var(--white);padding:96px 0;">
+  <div class="container">
+    <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;gap:24px;">
+      <div>
+        <span class="label-dash label-dash--dark" data-i18n="featured-label">Actualités & Insights</span>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--text-dark);margin-top:16px;line-height:1.1;" data-i18n="featured-title">Nos Dernières <em style="font-style:italic;color:var(--gold-dark);">Publications</em></h2>
+      </div>
+      <a href="insights.html" class="btn-learn-more btn-learn-more--dark" style="flex-shrink:0;" data-i18n="featured-all">
+        Toutes nos analyses
+        <span class="arrow-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+    </div>
+    <div class="featured-grid reveal delay-1">
+      <a href="insights.html" class="featured-card">
+        <div class="featured-img">
+          <div class="featured-img-placeholder">Marchés</div>
+        </div>
+        <div class="featured-tag">Marchés de Capitaux</div>
+        <div class="featured-title">Les marchés de dette africains en 2025 : mutation structurelle ou ajustement cyclique ?</div>
+      </a>
+      <a href="insights.html" class="featured-card">
+        <div class="featured-img">
+          <div class="featured-img-placeholder">M&A</div>
+        </div>
+        <div class="featured-tag">M&A Afrique</div>
+        <div class="featured-title">Dynamique M&A en Afrique Sub-Saharienne : secteurs en consolidation et valorisations</div>
+      </a>
+      <a href="insights.html" class="featured-card">
+        <div class="featured-img">
+          <div class="featured-img-placeholder">Finance Islamique</div>
+        </div>
+        <div class="featured-tag">Finance Islamique</div>
+        <div class="featured-title">Sukuk & finance islamique en Afrique de l'Ouest : état des lieux et opportunités</div>
+      </a>
+      <a href="insights.html" class="featured-card">
+        <div class="featured-img">
+          <div class="featured-img-placeholder">Infrastructure</div>
+        </div>
+        <div class="featured-tag">Infrastructure</div>
+        <div class="featured-title">Financement des infrastructures africaines : PPP et fonds souverains au premier plan</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-line" style="background:rgba(0,0,0,0.07);"></div>
 
 <!-- ══ ÉQUIPE TEASER ══════════════════════════════════════════ -->
 <section class="equipe-teaser">
   <div class="container">
     <div class="section-header reveal">
-      <span class="label" data-i18n="equipe-label">Notre Équipe</span>
+      <span class="label-dash" data-i18n="equipe-label">Notre Équipe</span>
       <h2 data-i18n="equipe-title">Des <em>Experts</em> Reconnus</h2>
       <div class="divider"></div>
       <p data-i18n="equipe-sub">Banquiers d'affaires issus de Société Générale, BOAD, Ecobank et Accenture, avec en moyenne plus de 12 ans d'expérience internationale.</p>
@@ -411,34 +656,20 @@
   </div>
 </section>
 
-<!-- ══ PRESSE & PARTENAIRES ══════════════════════════════════ -->
-<section class="press-band">
-  <div class="container">
-    <div class="reveal" style="text-align:center;">
-      <span class="label" data-i18n="press-label">Médias & Références</span>
-    </div>
-    <div class="press-logos reveal delay-1">
-      <div class="press-logo-item">Jeune Afrique</div>
-      <div class="press-logo-item">Financial Afrik</div>
-      <div class="press-logo-item">Les Echos Afrique</div>
-      <div class="press-logo-item">Africa Business+</div>
-      <div class="press-logo-item">Bloomberg Africa</div>
-    </div>
-  </div>
-</section>
+<div class="section-line"></div>
 
-<!-- ══ TÉMOIGNAGES ══════════════════════════════════════════ -->
+<!-- ══ TÉMOIGNAGES ════════════════════════════════════════════ -->
 <section class="testimonials-section">
   <div class="container">
     <div class="section-header reveal" style="text-align:center;max-width:560px;margin:0 auto 0;">
-      <span class="label" data-i18n="testimonials-label">Ils nous font confiance</span>
+      <span class="label-dash" style="justify-content:center;" data-i18n="testimonials-label">Ils nous font confiance</span>
       <h2 data-i18n="testimonials-title">La <em>Confiance</em> de nos Partenaires</h2>
       <div class="divider divider--center"></div>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card reveal delay-1">
         <span class="testimonial-quote-mark">"</span>
-        <p class="testimonial-text" data-i18n="testimonial-1-text">La rigueur et la profondeur d'analyse de l'équipe TOMASTEED nous ont permis de structurer une opération complexe en un temps record. Leur connaissance des marchés africains et leur réseau institutionnel sont de véritables atouts pour un acteur comme nous.</p>
+        <p class="testimonial-text" data-i18n="testimonial-1-text">La rigueur et la profondeur d'analyse de l'équipe TOMASTEED nous ont permis de structurer une opération complexe en un temps record. Leur connaissance des marchés africains et leur réseau institutionnel sont de véritables atouts.</p>
         <div class="testimonial-author">
           <div class="testimonial-initials">D.S.</div>
           <div>
@@ -449,7 +680,7 @@
       </div>
       <div class="testimonial-card reveal delay-2">
         <span class="testimonial-quote-mark">"</span>
-        <p class="testimonial-text" data-i18n="testimonial-2-text">TOMASTEED a su mobiliser des investisseurs institutionnels internationaux autour de notre projet d'infrastructure, en apportant une expertise rare en finance islamique et en structuration de dette senior. Un partenaire de confiance pour des marchés exigeants.</p>
+        <p class="testimonial-text" data-i18n="testimonial-2-text">TOMASTEED a su mobiliser des investisseurs institutionnels internationaux autour de notre projet d'infrastructure, en apportant une expertise rare en finance islamique et en structuration de dette senior.</p>
         <div class="testimonial-author">
           <div class="testimonial-initials">K.A.</div>
           <div>
@@ -462,52 +693,13 @@
   </div>
 </section>
 
-<!-- ══ INSIGHTS TEASER ════════════════════════════════════════ -->
-<section class="insights-teaser">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="label" data-i18n="insights-label">Thought Leadership</span>
-      <h2 data-i18n="insights-title">Nos <em>Analyses</em></h2>
-      <div class="divider"></div>
-      <p data-i18n="insights-sub">Perspectives de nos experts sur la finance africaine, les marchés de capitaux et les transactions M&amp;A.</p>
-    </div>
-    <div class="insights-teaser-grid reveal delay-1">
-      <a href="insights.html" class="insight-teaser-card">
-        <div class="insight-teaser-img">
-          <div class="insight-teaser-img-bg"></div>
-          <span class="insight-teaser-img-label">Image à venir</span>
-        </div>
-        <div class="insight-teaser-body">
-          <div class="insight-teaser-tag">Marchés de Capitaux</div>
-          <div class="insight-teaser-title">Les marchés de dette africains en 2025 : mutation structurelle ou simple ajustement cyclique ?</div>
-          <div class="insight-teaser-meta">Équipe Marchés · Janvier 2025</div>
-        </div>
-      </a>
-      <a href="insights.html" class="insight-teaser-card">
-        <div class="insight-teaser-img">
-          <div class="insight-teaser-img-bg"></div>
-          <span class="insight-teaser-img-label">Image à venir</span>
-        </div>
-        <div class="insight-teaser-body">
-          <div class="insight-teaser-tag">M&amp;A Afrique</div>
-          <div class="insight-teaser-title">Dynamique M&A en Afrique Sub-Saharienne : secteurs en consolidation et valorisations</div>
-          <div class="insight-teaser-meta">Pôle M&A · Décembre 2024</div>
-        </div>
-      </a>
-    </div>
-    <div style="text-align:center;">
-      <a href="insights.html" class="btn btn-outline" data-i18n="btn-all-insights">Toutes nos analyses <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;vertical-align:middle;margin-left:6px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-  </div>
-</section>
-
 <div class="section-line"></div>
 
 <!-- ══ SEGMENTATION AUDIENCE ══════════════════════════════════ -->
 <section class="audience-section">
   <div class="container">
     <div class="section-header reveal" style="text-align:center;max-width:560px;margin:0 auto 64px;">
-      <span class="label" data-i18n="audience-label">Vos Enjeux</span>
+      <span class="label-dash" style="justify-content:center;" data-i18n="audience-label">Vos Enjeux</span>
       <h2 data-i18n="audience-title">Comment pouvons-nous<br><em>vous accompagner ?</em></h2>
       <div class="divider divider--center"></div>
     </div>
@@ -561,7 +753,7 @@
   <div class="container">
     <div class="cta-final-inner reveal">
       <div>
-        <span class="label" style="display:block;margin-bottom:20px;" data-i18n="cta-label">Votre Projet</span>
+        <span class="label-dash" style="display:inline-flex;margin-bottom:20px;" data-i18n="cta-label">Votre Projet</span>
         <h2 data-i18n="cta-title">Discutons de <em>votre projet</em></h2>
         <p data-i18n="cta-sub">Notre équipe d'experts est disponible pour analyser vos besoins et concevoir la solution financière adaptée à vos objectifs.</p>
       </div>
@@ -573,56 +765,58 @@
   </div>
 </section>
 
+<!-- ══ FOOTER (Blackstone-style) ═══════════════════════════ -->
 <footer>
   <div class="container">
-    <div class="footer-grid">
+    <div class="footer-top">
       <div class="footer-brand">
-        <span class="nav-logo" style="display:block;margin-bottom:20px;font-size:1.1rem;">TOMAS<span>TEED</span></span>
-        <p data-i18n="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de la concrétisation de vos projets.</p>
+        <div class="footer-logo-block">
+          <span class="footer-logo-tag">Construire avec</span>
+          <span class="footer-logo-name">TOMAS<span>TEED</span></span>
+        </div>
+        <p class="footer-tagline" data-i18n="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de la concrétisation de vos projets.</p>
         <div class="footer-social">
           <a href="https://www.linkedin.com/company/tomasteed" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn TOMASTEED">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
         </div>
       </div>
+
       <div class="footer-col">
-        <h4 data-i18n="footer-col-services">Services</h4>
+        <h4 data-i18n="footer-col-links">Quick Links</h4>
         <ul>
-          <li><a href="metiers.html">Conseil aux États</a></li>
-          <li><a href="metiers.html">Fusions & Acquisitions</a></li>
-          <li><a href="metiers.html">Levée de Fonds</a></li>
-          <li><a href="metiers.html">Structuration Financière</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer-col-company">Entreprise</h4>
-        <ul>
-          <li><a href="identite.html">Identité</a></li>
-          <li><a href="equipe.html">Équipe</a></li>
-          <li><a href="secteurs.html">Secteurs</a></li>
+          <li><a href="identite.html">La Firme</a></li>
+          <li><a href="equipe.html">Notre Équipe</a></li>
           <li><a href="insights.html">Insights</a></li>
           <li><a href="carrieres.html">Carrières</a></li>
-          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
-        <h4 data-i18n="footer-col-contact">Contact</h4>
+        <h4 data-i18n="footer-col-social">Réseaux Sociaux</h4>
         <ul>
-          <li><a href="mailto:hello@tomasteed.com">hello@tomasteed.com</a></li>
-          <li><a href="tel:+2250747329863">+225 07 47 32 98 63</a></li>
-          <li><a href="contact.html">Abu Dhabi · Abidjan</a></li>
+          <li><a href="https://www.linkedin.com/company/tomasteed" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer-col-contact">Nous Contacter</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Nos Bureaux</a></li>
           <li><a href="legal.html">Mentions légales</a></li>
           <li><a href="legal.html#privacy">Confidentialité</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
-      <div class="footer-copy" data-i18n="footer-rights">&copy; 2025 TOMASTEED. Tous droits réservés.</div>
+      <div class="footer-copy" data-i18n="footer-rights">© 2025 TOMASTEED. Tous droits réservés.</div>
       <div class="footer-legal">
         <a href="legal.html">Mentions légales</a>
         <a href="legal.html#privacy">Politique de confidentialité</a>
       </div>
-      <div class="footer-reg" data-i18n="footer-reg">Régulée par l'Abu Dhabi Global Market (ADGM) — Financial Services Regulatory Authority (FSRA). Les informations et services présentés sur ce site sont destinés exclusivement aux investisseurs professionnels.</div>
+      <div class="footer-reg" data-i18n="footer-reg">Régulée par l'Abu Dhabi Global Market (ADGM) — Financial Services Regulatory Authority (FSRA). Les informations présentées sont destinées exclusivement aux investisseurs professionnels.</div>
     </div>
   </div>
 </footer>
@@ -633,17 +827,30 @@
 
 <div id="toast"></div>
 
-<!-- Cookie Banner -->
-<div class="cookie-banner" id="cookieBanner">
-  <div class="cookie-title">Gestion des cookies</div>
-  <div class="cookie-text">Nous utilisons des cookies pour améliorer votre expérience. Vous pouvez accepter tous les cookies ou personnaliser vos préférences.</div>
-  <div class="cookie-actions">
-    <button class="btn btn-primary" style="padding:8px 20px;font-size:.72rem;" onclick="acceptCookies()">Tout accepter</button>
-    <button class="btn btn-outline" style="padding:8px 20px;font-size:.72rem;" onclick="rejectCookies()">Refuser</button>
-  </div>
-</div>
-
 <script src="scripts/i18n.js"></script>
 <script src="scripts/main.js"></script>
+<script>
+/* ── Carousel ── */
+(function() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots   = document.querySelectorAll('.carousel-dot');
+  let current  = 0;
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  document.getElementById('nextSlide')?.addEventListener('click', () => goTo(current + 1));
+  document.getElementById('prevSlide')?.addEventListener('click', () => goTo(current - 1));
+  dots.forEach(dot => dot.addEventListener('click', () => goTo(parseInt(dot.dataset.slide))));
+
+  // Auto-play
+  setInterval(() => goTo(current + 1), 6000);
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.dariengroup.com)",
+      "WebFetch(domain:reallygooddesigns.com)",
+      "WebFetch(domain:blog.revnium.com)",
+      "WebFetch(domain:mvpdesign.com)",
+      "Bash(Get-ChildItem *)",
+      "Bash(python -c ' *)",
+      "Bash(powershell -Command ' *)",
+      "Bash(dir C:\\\\Users\\\\ShalomFOLY\\\\OneDrive - TOMASTEED\\\\Bureau\\\\tomasteed-site-web\\\\assets\\\\team *)",
+      "Bash(powershell *)",
+      "Bash(python3 -c ' *)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "WebFetch(domain:www.blackstone.com)",
+      "WebFetch(domain:www.blackrock.com)",
+      "Bash(Select-Object -Property FullName)",
+      "Bash(ConvertTo-Csv -NoTypeInformation)",
+      "Bash(Out-String)"
+    ]
+  }
+}

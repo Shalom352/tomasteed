@@ -95,28 +95,33 @@
   <a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a>
 </div>
 <nav id="navbar">
-  <div class="container"><div class="nav-inner">
-    <a href="index.html" class="nav-logo">TOMAS<span>TEED</span></a>
-    <ul class="nav-links">
-      <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
-      <li><a href="metiers.html" class="active" data-i18n="nav-metiers">Nos Métiers</a></li>
-      <li><a href="solutions.html" data-i18n="nav-solutions">Nos Solutions</a></li>
-      <li><a href="secteurs.html" data-i18n="nav-secteurs">Secteurs</a></li>
-      <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
-      <li><a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a></li>
-    </ul>
-    <div style="display:flex;align-items:center;gap:16px;">
-      <a href="contact.html" class="btn btn-primary nav-cta" style="padding:10px 24px;font-size:.75rem;" data-i18n="nav-contact-cta">Nous Contacter</a>
-      <button id="langToggle" class="lang-toggle">FR / EN</button>
-      <div id="burger" class="burger"><span></span><span></span><span></span></div>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">TOMAS<span>TEED</span></a>
+      <ul class="nav-links">
+        <li><a href="identite.html">Identité</a></li>
+        <li><a href="metiers.html" class="active">Nos Métiers</a></li>
+        <li><a href="solutions.html">Nos Solutions</a></li>
+        <li><a href="secteurs.html">Secteurs</a></li>
+        <li><a href="equipe.html">Équipe</a></li>
+        <li><a href="carrieres.html">Carrières</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:8px;margin-left:auto;">
+        <button id="langToggle" class="lang-toggle">FR / EN</button>
+        <a href="contact.html" class="btn btn-primary nav-cta" style="padding:10px 22px;font-size:.72rem;">Nous Contacter</a>
+        <span class="nav-search" aria-label="Recherche">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </span>
+        <div id="burger" class="burger"><span></span><span></span><span></span></div>
+      </div>
     </div>
-  </div></div>
+  </div>
 </nav>
 
 <section class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="container page-hero-content">
-    <span class="label" style="display:block;margin-bottom:16px;" data-i18n="metiers-hero-label">Expertises</span>
+    <span class="label-dash" style="display:block;margin-bottom:16px;" data-i18n="metiers-hero-label">Expertises</span>
     <h1 data-i18n="metiers-hero-title">Nos <em style="font-style:normal;color:var(--red);">Métiers</em></h1>
     <p style="color:var(--white-soft);opacity:.85;max-width:560px;font-size:1.05rem;" data-i18n="metiers-hero-sub">Des solutions financières sur mesure, alignées sur les standards des grandes banques d'affaires internationales.</p>
   </div>
@@ -139,7 +144,7 @@
 
     <div class="metier-block" id="conseil-etats">
       <div class="metier-left reveal-left">
-        <span class="label">01</span>
+        <span class="label-dash">01</span>
         <div class="metier-icon-lg">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
@@ -160,7 +165,7 @@
 
     <div class="metier-block" id="fusions-acquisitions">
       <div class="metier-left reveal-left">
-        <span class="label">02</span>
+        <span class="label-dash">02</span>
         <div class="metier-icon-lg">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
         </div>
@@ -180,7 +185,7 @@
 
     <div class="metier-block" id="levee-fonds">
       <div class="metier-left reveal-left">
-        <span class="label">03</span>
+        <span class="label-dash">03</span>
         <div class="metier-icon-lg">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
@@ -200,7 +205,7 @@
 
     <div class="metier-block" id="structuration">
       <div class="metier-left reveal-left">
-        <span class="label">04</span>
+        <span class="label-dash">04</span>
         <div class="metier-icon-lg">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
@@ -224,7 +229,7 @@
 <section class="processus">
   <div class="container">
     <div class="section-header reveal" style="margin-bottom:0;">
-      <span class="label" data-i18n="metiers-process-label">Notre Approche</span>
+      <span class="label-dash" data-i18n="metiers-process-label">Notre Approche</span>
       <h2 data-i18n="metiers-process-title">Processus d'<em>Accompagnement</em></h2>
       <div class="divider"></div>
       <p data-i18n="metiers-process-sub">6 étapes rigoureuses pour garantir l'excellence de chaque transaction.</p>
@@ -267,7 +272,7 @@
 <section style="padding:80px 0;text-align:center;background:var(--red);position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.25) 0%,transparent 60%);"></div>
   <div class="container" style="position:relative;z-index:2;">
-    <span class="label" style="color:rgba(255,255,255,.7);display:block;margin-bottom:16px;" data-i18n="metiers-cta-label">Parlons de votre projet</span>
+    <span class="label-dash" style="color:rgba(255,255,255,.7);display:block;margin-bottom:16px;" data-i18n="metiers-cta-label">Parlons de votre projet</span>
     <h2 style="font-size:clamp(1.8rem,4vw,3rem);color:var(--white);margin-bottom:20px;" data-i18n="metiers-cta-title">Besoin d'un Conseil Financier Expert ?</h2>
     <p style="color:rgba(255,255,255,.85);margin-bottom:36px;font-size:1rem;" data-i18n="metiers-cta-sub">Notre équipe de banquiers d'affaires est disponible pour analyser votre situation.</p>
     <a href="contact.html" class="btn" style="background:var(--white);color:var(--red);font-weight:700;">
@@ -279,40 +284,51 @@
 
 <footer>
   <div class="container">
-    <div class="footer-grid">
+    <div class="footer-top">
       <div class="footer-brand">
-        <span class="nav-logo" style="display:block;margin-bottom:16px;">TOMAS<span>TEED</span></span>
-        <p data-i18n="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de vos projets.</p>
+        <div class="footer-logo-block">
+          <span class="footer-logo-tag">Construire avec</span>
+          <span class="footer-logo-name">TOMAS<span>TEED</span></span>
+        </div>
+        <p class="footer-tagline">Banque d'affaires panafricaine régulée ADGM. L'innovation financière au service de la concrétisation de vos projets.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/tomasteed" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn TOMASTEED">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer-col-services">Services</h4>
+        <h4>Quick Links</h4>
         <ul>
-          <li><a href="metiers.html#conseil-etats" data-i18n="card-m1-title">Conseil aux États &amp; Institutions</a></li>
-          <li><a href="metiers.html#fusions-acquisitions" data-i18n="card-m2-title">Fusions &amp; Acquisitions</a></li>
-          <li><a href="metiers.html#levee-fonds" data-i18n="card-m3-title">Levée de Fonds</a></li>
-          <li><a href="metiers.html#structuration" data-i18n="card-m4-title">Structuration Financière</a></li>
+          <li><a href="identite.html">La Firme</a></li>
+          <li><a href="equipe.html">Notre Équipe</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="carrieres.html">Carrières</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer-col-company">Entreprise</h4>
+        <h4>Réseaux Sociaux</h4>
         <ul>
-          <li><a href="identite.html" data-i18n="nav-identite">Identité</a></li>
-          <li><a href="equipe.html" data-i18n="nav-equipe">Équipe</a></li>
-          <li><a href="carrieres.html" data-i18n="nav-carrieres">Carrières</a></li>
-          <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+          <li><a href="https://www.linkedin.com/company/tomasteed" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer-col-contact">Contact</h4>
+        <h4>Nous Contacter</h4>
         <ul>
-          <li><a href="mailto:hello@tomasteed.com">hello@tomasteed.com</a></li>
-          <li><a href="contact.html">Abu Dhabi · Abidjan</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Nos Bureaux</a></li>
+          <li><a href="legal.html">Mentions légales</a></li>
+          <li><a href="legal.html#privacy">Confidentialité</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy" data-i18n="footer-rights">&copy; 2025 TOMASTEED. Tous droits réservés.</div>
-      <div class="footer-reg" data-i18n="footer-reg">Régulée par l'Abu Dhabi Global Market (ADGM) — FSRA.</div>
+      <div class="footer-copy">© 2025 TOMASTEED. Tous droits réservés.</div>
+      <div class="footer-legal">
+        <a href="legal.html">Mentions légales</a>
+        <a href="legal.html#privacy">Politique de confidentialité</a>
+      </div>
+      <div class="footer-reg">Régulée par l'Abu Dhabi Global Market (ADGM) — Financial Services Regulatory Authority (FSRA). Les informations présentées sont destinées exclusivement aux investisseurs professionnels.</div>
     </div>
   </div>
 </footer>
