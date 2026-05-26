@@ -175,6 +175,22 @@
   align-self: flex-start;
 }
 
+.secteur-card--white {
+  background: var(--white) !important;
+  color: var(--text-dark) !important;
+  border-color: rgba(46,45,44,0.08) !important;
+}
+.secteur-card--white h3 {
+  color: var(--text-dark) !important;
+}
+.secteur-card--white p {
+  color: var(--text-grey-d) !important;
+}
+.secteur-card--white .secteur-tag {
+  border-color: rgba(50,125,72,.2) !important;
+  background: rgba(50,125,72,.04) !important;
+}
+
 /* ── CTA Section ── */
 .secteurs-cta {
   padding: 96px 0;
@@ -313,137 +329,94 @@
   <div class="container">
     <div class="secteurs-full-grid">
 
-      <!-- 1 Agro-Industrie -->
+      <!-- 1 Agro-Industrie (Sombre) -->
       <div class="secteur-card reveal delay-1">
         <div class="secteur-icon-wrap">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22V12"/>
-            <path d="M5 12c0-3.9 3.1-7 7-7s7 3.1 7 7"/>
-            <path d="M5 12c0-1.7.7-3.2 1.8-4.3L12 5l5.2 2.7c1.1 1.1 1.8 2.6 1.8 4.3"/>
-            <path d="M2 22h20"/>
-            <path d="M9 22v-4c0-1.7 1.3-3 3-3s3 1.3 3 3v4"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M12 22V12"/><path d="M12 12C12 7 16 4 21 3c0 5-2 9-9 9z"/><path d="M12 12C12 7 8 4 3 3c0 5 2 9 9 9z"/></svg>
         </div>
         <h3>Agro-Industrie &amp; Agroalimentaire</h3>
         <p>Nous accompagnons les acteurs de l'agro-industrie dans la structuration et le financement de leurs chaînes de valeur agricoles, et la création d'infrastructures durables.</p>
         <span class="secteur-tag">Sécurité Alimentaire</span>
       </div>
 
-      <!-- 2 Santé & Pharmacie -->
-      <div class="secteur-card reveal delay-2">
+      <!-- 2 Santé & Pharmacie (Blanc) -->
+      <div class="secteur-card secteur-card--white reveal delay-2">
         <div class="secteur-icon-wrap">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M9 12h6"/>
-            <path d="M12 9v6"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M9 3h6v5h5v6h-5v5H9v-5H4V8h5V3z"/></svg>
         </div>
-        <h3>Santé</h3>
+        <h3>Santé &amp; Pharmacie</h3>
         <p>Nous facilitons le financement de cliniques, d'hôpitaux et de projets innovants, améliorant de l'accès à la santé et la promotion de solutions médicales de qualité adaptées aux réalités du continent.</p>
         <span class="secteur-tag">Santé Publique</span>
       </div>
 
-      <!-- 3 Mines & Ressources -->
+      <!-- 3 Mines & Ressources (Sombre) -->
       <div class="secteur-card reveal delay-3">
         <div class="secteur-icon-wrap">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
-            <line x1="12" y1="22" x2="12" y2="15.5"/>
-            <polyline points="22 8.5 12 15.5 2 8.5"/>
-            <polyline points="2 8.5 12 2 22 8.5"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M3 18l4-8 4 5 3-5 4 8H3z"/><path d="M3 21h18"/></svg>
         </div>
         <h3>Mines &amp; Industries extractives</h3>
         <p>Solutions financières adaptées aux projets miniers, pétroliers et extractifs. Connaissance approfondie des standards internationaux et des spécificités réglementaires locales.</p>
         <span class="secteur-tag">Ressources Naturelles</span>
       </div>
 
-      <!-- 4 Hôtellerie & Immobilier -->
-      <div class="secteur-card reveal delay-1">
+      <!-- 4 Hôtellerie & Immobilier (Blanc) -->
+      <div class="secteur-card secteur-card--white reveal delay-1">
         <div class="secteur-icon-wrap">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 22V9l9-7 9 7v13"/>
-            <path d="M9 22V15h6v7"/>
-            <path d="M3 13h18"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M3 21V5a2 2 0 012-2h14a2 2 0 012 2v16M3 21h18M9 21v-6h6v6M9 7h2M13 7h2M9 11h2M13 11h2"/></svg>
         </div>
         <h3>Hôtellerie, Distribution &amp; Immobilier</h3>
         <p>Structuration de financements pour des projets hôteliers, de distribution et immobiliers résidentiels et tertiaires à l'échelle africaine.</p>
         <span class="secteur-tag">Tourisme &amp; Habitat</span>
       </div>
 
-      <!-- 5 Construction & Infrastructures -->
+      <!-- 5 Construction & Infrastructures (Sombre) -->
       <div class="secteur-card reveal delay-2">
         <div class="secteur-icon-wrap">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M2 22h20"/>
-            <path d="M6 22V11l6-4 6 4v11"/>
-            <path d="M2 11l10-7 10 7"/>
-            <rect x="9" y="15" width="6" height="7"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M2 18h20M4 18V9a8 8 0 0116 0v9M8 18v-6M12 18V9M16 18v-6"/></svg>
         </div>
         <h3>Infrastructures &amp; Construction</h3>
         <p>Nous proposons des financements pour les projets de construction, qu'il s'agisse d'infrastructures publiques ou privées, en respectant les plus hauts standards de qualité et les exigences locales.</p>
         <span class="secteur-tag">Infrastructures Publiques</span>
       </div>
 
-      <!-- 6 Pétrole & Gaz -->
-      <div class="secteur-card reveal delay-3">
+      <!-- 6 Pétrole & Gaz (Blanc) -->
+      <div class="secteur-card secteur-card--white reveal delay-3">
         <div class="secteur-icon-wrap">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M12 2c0 0-7 7-7 13a7 7 0 0014 0c0-6-7-13-7-13z"/><path d="M10 17a2 2 0 004 0"/></svg>
         </div>
         <h3>Pétrole &amp; Gaz</h3>
         <p>Nous accompagnons les entreprises du secteur pétrolier et guidons dans la mobilisation du capital pour la production, la distribution et la sécurisation de projets énergétiques complexes.</p>
         <span class="secteur-tag">Énergie Fossile</span>
       </div>
 
-      <!-- 7 Industrie & Manufacturing -->
+      <!-- 7 Industrie & Manufacturing (Sombre) -->
       <div class="secteur-card reveal delay-1">
         <div class="secteur-icon-wrap">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 20h9"/>
-            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-            <circle cx="8" cy="8" r="2"/>
-            <path d="M4 14h2v2"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
         </div>
         <h3>Industrie Manufacturière</h3>
         <p>Nous soutenons le développement de l'industrie manufacturière en Afrique, en favorisant la modernisation des usines et l'augmentation des capacités productives et la valeur ajoutée locale.</p>
         <span class="secteur-tag">Industrialisation</span>
       </div>
 
-      <!-- 8 Eau & Assainissement -->
-      <div class="secteur-card reveal delay-2">
+      <!-- 8 Eau & Assainissement (Blanc) -->
+      <div class="secteur-card secteur-card--white reveal delay-2">
         <div class="secteur-icon-wrap">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M12 2l7 11a7 7 0 11-14 0L12 2z"/></svg>
         </div>
         <h3>Eau &amp; Assainissement</h3>
         <p>Nous structurons des financements pour des projets d'accès à l'eau potable et l'assainissement, contribuant au développement humain et à la croissance durable en Afrique.</p>
         <span class="secteur-tag">ODD &amp; Impact</span>
       </div>
 
-      <!-- 9 Énergie Renouvelable -->
+      <!-- 9 Télécommunications, Médias & Technologies (Sombre) -->
       <div class="secteur-card reveal delay-3">
         <div class="secteur-icon-wrap">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="4"/>
-            <line x1="12" y1="2" x2="12" y2="5"/>
-            <line x1="12" y1="19" x2="12" y2="22"/>
-            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
-            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
-            <line x1="2" y1="12" x2="5" y2="12"/>
-            <line x1="19" y1="12" x2="22" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
-            <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M1.42 9a16 16 0 0121.16 0M5 12.55a11 11 0 0114.08 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
         </div>
-        <h3>Énergie Renouvelable</h3>
-        <p>Nous mobilisons des capitaux pour la transition énergétique africaine solaire, éolien, hydraulique afin de développer des infrastructures à impact positif et durables.</p>
-        <span class="secteur-tag">Transition Énergétique</span>
+        <h3>Télécommunications, Médias &amp; Technologies</h3>
+        <p>Nous structurons des solutions de financement innovantes pour les acteurs du secteur TMT, soutenant le développement des infrastructures numériques et de la connectivité sur le continent.</p>
+        <span class="secteur-tag">Infrastructures Numériques</span>
       </div>
 
     </div>
