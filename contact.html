@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -35,18 +35,34 @@
 /* Infos bureaux */
 .bureaux-info{display:flex;flex-direction:column;gap:20px;}
 .bureau-info-card{background:var(--black-card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-lg);padding:28px 32px;transition:var(--transition);position:relative;overflow:hidden;}
-.bureau-info-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .4s;}
-.bureau-info-card:hover{border-color:var(--border-gold);transform:translateX(4px);}
+.bureau-info-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;transform:scaleY(0);transform-origin:top;transition:transform .4s;}
 .bureau-info-card:hover::before{transform:scaleY(1);}
 .bureau-info-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
 .bureau-flag-text{font-size:1.4rem;}
 .bureau-info-city{font-size:1rem;font-weight:800;color:var(--white);}
-.bureau-info-country{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:2px;}
+.bureau-info-country{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-top:2px;}
 .bureau-info-details{display:grid;gap:8px;}
 .bureau-info-row{display:flex;align-items:flex-start;gap:10px;font-size:.8rem;color:var(--grey-light);}
-.bureau-info-row svg{flex-shrink:0;margin-top:2px;color:var(--gold);}
+.bureau-info-row svg{flex-shrink:0;margin-top:2px;}
 .bureau-info-row a{color:var(--grey-light);transition:color .3s;}
-.bureau-info-row a:hover{color:var(--gold);}
+/* Variante or (Abu Dhabi) */
+.bureau--gold::before{background:var(--gold);}
+.bureau--gold:hover{border-color:rgba(201,168,76,.3);}
+.bureau--gold .bureau-info-country{color:var(--gold);}
+.bureau--gold .bureau-info-row svg{color:var(--gold);}
+.bureau--gold .bureau-info-row a:hover{color:var(--gold);}
+/* Variante vert (Afrique de l'Ouest) */
+.bureau--green::before{background:var(--green);}
+.bureau--green:hover{border-color:rgba(50,125,72,.3);}
+.bureau--green .bureau-info-country{color:var(--green);}
+.bureau--green .bureau-info-row svg{color:var(--green);}
+.bureau--green .bureau-info-row a:hover{color:var(--green);}
+/* Variante bleu-ardoise (Europe/Paris) */
+.bureau--blue::before{background:#4A7FA5;}
+.bureau--blue:hover{border-color:rgba(74,127,165,.3);}
+.bureau--blue .bureau-info-country{color:#4A7FA5;}
+.bureau--blue .bureau-info-row svg{color:#4A7FA5;}
+.bureau--blue .bureau-info-row a:hover{color:#4A7FA5;}
 
 .hello-band{padding:64px 0;background:var(--black);text-align:center;border-top:1px solid rgba(255,255,255,.05);}
 .hello-band h3{font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:var(--white);margin-bottom:12px;}
@@ -188,7 +204,7 @@
       <!-- Infos bureaux -->
       <div class="bureaux-info reveal-right">
 
-        <div class="bureau-info-card">
+        <div class="bureau-info-card bureau--gold">
           <div class="bureau-info-head">
             <span class="bureau-flag-text">🇦🇪</span>
             <div>
@@ -197,22 +213,10 @@
             </div>
           </div>
           <div class="bureau-info-details">
-            <div class="bureau-info-row">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>ADGM Square, Abu Dhabi, UAE</span>
             </div>
-            <div class="bureau-info-row">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <a href="mailto:fadel.kane@tomasteed.com">fadel.kane@tomasteed.com</a>
-            </div>
-            <div class="bureau-info-row">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <a href="tel:+2250747329863">+225 07 47 32 98 63</a>
-            </div>
-          </div>
         </div>
 
-        <div class="bureau-info-card">
+        <div class="bureau-info-card bureau--green">
           <div class="bureau-info-head">
             <span class="bureau-flag-text">🇨🇮</span>
             <div>
@@ -221,22 +225,10 @@
             </div>
           </div>
           <div class="bureau-info-details">
-            <div class="bureau-info-row">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>Plateau, Abidjan, Côte d'Ivoire</span>
             </div>
-            <div class="bureau-info-row">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <a href="mailto:stephane.lekeufack@tomasteed.com">stephane.lekeufack@tomasteed.com</a>
-            </div>
-            <div class="bureau-info-row">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <a href="tel:+2250797375312">+225 07 97 37 53 12</a>
-            </div>
-          </div>
         </div>
 
-        <div class="bureau-info-card">
+        <div class="bureau-info-card bureau--green">
           <div class="bureau-info-head">
             <span class="bureau-flag-text">🇸🇳</span>
             <div>
@@ -251,12 +243,12 @@
             </div>
             <div class="bureau-info-row">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <a href="mailto:rokhya.gueye@tomasteed.com">rokhya.gueye@tomasteed.com</a>
+              <a href="mailto:contact@tomasteed.com">contact@tomasteed.com</a>
             </div>
           </div>
         </div>
 
-        <div class="bureau-info-card">
+        <div class="bureau-info-card bureau--blue">
           <div class="bureau-info-head">
             <span class="bureau-flag-text">🇫🇷</span>
             <div>
@@ -271,7 +263,7 @@
             </div>
             <div class="bureau-info-row">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <a href="mailto:claude.guillabert@tomasteed.com">claude.guillabert@tomasteed.com</a>
+              <a href="mailto:contact@tomasteed.com">contact@tomasteed.com</a>
             </div>
           </div>
         </div>
@@ -296,32 +288,28 @@
         <div class="contact-person-name">Mohamed El Fadel KANE</div>
         <div class="contact-person-role">Managing Partner</div>
         <div class="contact-person-location">Abu Dhabi Siège Social</div>
-        <a href="mailto:fadel.kane@tomasteed.com" class="contact-person-email">fadel.kane@tomasteed.com</a>
-      </div>
+        </div>
 
       <div class="contact-person-card reveal">
         <div class="contact-person-initials">CG</div>
         <div class="contact-person-name">Claude GUILLABERT</div>
         <div class="contact-person-role">Partner</div>
         <div class="contact-person-location">Paris</div>
-        <a href="mailto:claude.guillabert@tomasteed.com" class="contact-person-email">claude.guillabert@tomasteed.com</a>
-      </div>
+        </div>
 
       <div class="contact-person-card reveal">
         <div class="contact-person-initials">RG</div>
         <div class="contact-person-name">Rokhya GUEYE</div>
         <div class="contact-person-role">Partner</div>
         <div class="contact-person-location">Dakar</div>
-        <a href="mailto:rokhya.gueye@tomasteed.com" class="contact-person-email">rokhya.gueye@tomasteed.com</a>
-      </div>
+        </div>
 
       <div class="contact-person-card reveal">
         <div class="contact-person-initials">SL</div>
         <div class="contact-person-name">Stéphane LEKEUFACK</div>
-        <div class="contact-person-role">Partner</div>
+        <div class="contact-person-role">Directeur</div>
         <div class="contact-person-location">Abidjan</div>
-        <a href="mailto:stephane.lekeufack@tomasteed.com" class="contact-person-email">stephane.lekeufack@tomasteed.com</a>
-      </div>
+        </div>
 
     </div>
   </div>

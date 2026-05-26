@@ -130,6 +130,22 @@
 }
 .secteur-card:hover::after { opacity: 1; }
 
+.secteur-img-wrap {
+  width: calc(100% + 64px);
+  margin: -40px -32px 28px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  flex-shrink: 0;
+}
+.secteur-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+.secteur-card:hover .secteur-img-wrap img { transform: scale(1.04); }
+
 .secteur-icon-wrap {
   width: 56px;
   height: 56px;
@@ -331,8 +347,8 @@
 
       <!-- 1 Agro-Industrie (Sombre) -->
       <div class="secteur-card reveal delay-1">
-        <div class="secteur-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M12 22V12"/><path d="M12 12C12 7 16 4 21 3c0 5-2 9-9 9z"/><path d="M12 12C12 7 8 4 3 3c0 5 2 9 9 9z"/></svg>
+        <div class="secteur-img-wrap">
+          <img src="assets/Nos_Secteurs_dIntervention/Agro-Alimentaire_Et_Agriculture.avif" alt="Agro-Industrie">
         </div>
         <h3>Agro-Industrie &amp; Agroalimentaire</h3>
         <p>Nous accompagnons les acteurs de l'agro-industrie dans la structuration et le financement de leurs chaînes de valeur agricoles, et la création d'infrastructures durables.</p>
@@ -341,8 +357,8 @@
 
       <!-- 2 Santé & Pharmacie (Blanc) -->
       <div class="secteur-card secteur-card--white reveal delay-2">
-        <div class="secteur-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M9 3h6v5h5v6h-5v5H9v-5H4V8h5V3z"/></svg>
+        <div class="secteur-img-wrap">
+          <img src="assets/Nos_Secteurs_dIntervention/santé.jpg" alt="Santé">
         </div>
         <h3>Santé &amp; Pharmacie</h3>
         <p>Nous facilitons le financement de cliniques, d'hôpitaux et de projets innovants, améliorant de l'accès à la santé et la promotion de solutions médicales de qualité adaptées aux réalités du continent.</p>
@@ -351,8 +367,8 @@
 
       <!-- 3 Mines & Ressources (Sombre) -->
       <div class="secteur-card reveal delay-3">
-        <div class="secteur-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M3 18l4-8 4 5 3-5 4 8H3z"/><path d="M3 21h18"/></svg>
+        <div class="secteur-img-wrap">
+          <img src="assets/Nos_Secteurs_dIntervention/Mines_Et_Industries_Extractives.avif" alt="Mines">
         </div>
         <h3>Mines &amp; Industries extractives</h3>
         <p>Solutions financières adaptées aux projets miniers, pétroliers et extractifs. Connaissance approfondie des standards internationaux et des spécificités réglementaires locales.</p>
@@ -361,8 +377,8 @@
 
       <!-- 4 Hôtellerie & Immobilier (Blanc) -->
       <div class="secteur-card secteur-card--white reveal delay-1">
-        <div class="secteur-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M3 21V5a2 2 0 012-2h14a2 2 0 012 2v16M3 21h18M9 21v-6h6v6M9 7h2M13 7h2M9 11h2M13 11h2"/></svg>
+        <div class="secteur-img-wrap">
+          <img src="assets/Nos_Secteurs_dIntervention/Immobilier_Et_Construction.avif" alt="Immobilier">
         </div>
         <h3>Hôtellerie, Distribution &amp; Immobilier</h3>
         <p>Structuration de financements pour des projets hôteliers, de distribution et immobiliers résidentiels et tertiaires à l'échelle africaine.</p>
@@ -371,8 +387,8 @@
 
       <!-- 5 Construction & Infrastructures (Sombre) -->
       <div class="secteur-card reveal delay-2">
-        <div class="secteur-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M2 18h20M4 18V9a8 8 0 0116 0v9M8 18v-6M12 18V9M16 18v-6"/></svg>
+        <div class="secteur-img-wrap">
+          <img src="assets/Nos_Secteurs_dIntervention/Infrastructures_Et_Secteur_Public.avif" alt="Infrastructures">
         </div>
         <h3>Infrastructures &amp; Construction</h3>
         <p>Nous proposons des financements pour les projets de construction, qu'il s'agisse d'infrastructures publiques ou privées, en respectant les plus hauts standards de qualité et les exigences locales.</p>
@@ -381,8 +397,8 @@
 
       <!-- 6 Pétrole & Gaz (Blanc) -->
       <div class="secteur-card secteur-card--white reveal delay-3">
-        <div class="secteur-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M12 2c0 0-7 7-7 13a7 7 0 0014 0c0-6-7-13-7-13z"/><path d="M10 17a2 2 0 004 0"/></svg>
+        <div class="secteur-img-wrap">
+          <img src="assets/Nos_Secteurs_dIntervention/Energie_Et_Ressources_Naturelles.avif" alt="Énergie">
         </div>
         <h3>Pétrole &amp; Gaz</h3>
         <p>Nous accompagnons les entreprises du secteur pétrolier et guidons dans la mobilisation du capital pour la production, la distribution et la sécurisation de projets énergétiques complexes.</p>
@@ -391,8 +407,8 @@
 
       <!-- 7 Industrie & Manufacturing (Sombre) -->
       <div class="secteur-card reveal delay-1">
-        <div class="secteur-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <div class="secteur-img-wrap">
+          <img src="assets/Nos_Secteurs_dIntervention/Industrie_Manufacturière.avif" alt="Industrie">
         </div>
         <h3>Industrie Manufacturière</h3>
         <p>Nous soutenons le développement de l'industrie manufacturière en Afrique, en favorisant la modernisation des usines et l'augmentation des capacités productives et la valeur ajoutée locale.</p>
@@ -401,8 +417,8 @@
 
       <!-- 8 Eau & Assainissement (Blanc) -->
       <div class="secteur-card secteur-card--white reveal delay-2">
-        <div class="secteur-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M12 2l7 11a7 7 0 11-14 0L12 2z"/></svg>
+        <div class="secteur-img-wrap">
+          <img src="assets/Nos_Secteurs_dIntervention/Eau_Et_Assainissement.avif" alt="Eau">
         </div>
         <h3>Eau &amp; Assainissement</h3>
         <p>Nous structurons des financements pour des projets d'accès à l'eau potable et l'assainissement, contribuant au développement humain et à la croissance durable en Afrique.</p>
@@ -411,8 +427,8 @@
 
       <!-- 9 Télécommunications, Médias & Technologies (Sombre) -->
       <div class="secteur-card reveal delay-3">
-        <div class="secteur-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;color:var(--green)"><path d="M1.42 9a16 16 0 0121.16 0M5 12.55a11 11 0 0114.08 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
+        <div class="secteur-img-wrap">
+          <img src="assets/Nos_Secteurs_dIntervention/Télécommunication_Médias_Et_Technologie.avif" alt="TMT">
         </div>
         <h3>Télécommunications, Médias &amp; Technologies</h3>
         <p>Nous structurons des solutions de financement innovantes pour les acteurs du secteur TMT, soutenant le développement des infrastructures numériques et de la connectivité sur le continent.</p>
@@ -432,7 +448,7 @@
     <h2 class="reveal delay-1" data-i18n="secteurs-cta-title">Votre secteur a des besoins<br><em>qui lui sont propres</em></h2>
     <p class="reveal delay-2" data-i18n="secteurs-cta-p">TOMASTEED analyse chaque opportunité avec une approche sur mesure. Nos équipes s'adaptent aux spécificités de votre marché et de votre transaction.</p>
     <div class="reveal delay-3" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
-      <a href="contact.html" class="btn btn-primary">
+      <a href="contact.html" class="btn btn-outline" style="background:var(--white);color:var(--text-dark);border-color:var(--white);">
         <span data-i18n="secteurs-cta-btn1">Discutons de votre projet</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
