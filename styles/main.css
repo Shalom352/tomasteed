@@ -1,47 +1,54 @@
 /* ============================================================
    TOMASTEED — Design System
-   Refonte 2025 — Inspiration Blackstone
+   Refonte 2025 — Inspiration Blackstone × Charte TOMASTEED
+   Couleurs officielles charte : #2E2D2C (noir 95%), #DC4920 (rouge), #327D48 (vert)
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
 
 /* ── Variables ── */
 :root {
-  /* Fonds */
-  --black:        #0a0a0a;
-  --black-pure:   #000000;
-  --black-deep:   #111110;
-  --black-card:   #181716;
-  --black-hover:  #1f1e1d;
+  /* ── Palette officielle charte graphique TOMASTEED ── */
+  --black:        #2E2D2C;    /* Noir 95% officiel */
+  --black-pure:   #1a1918;    /* Plus sombre pour hero */
+  --black-deep:   #222120;    /* Sections sombres */
+  --black-card:   #252423;    /* Cartes */
+  --black-hover:  #2e2d2c;
   --white:        #ffffff;
-  --white-soft:   #f0ede8;
+  --white-soft:   #f5f3f0;
   --white-section:#fafaf8;
   --off-white:    #F5F3F0;
 
   /* Texte sur fond blanc */
-  --text-dark:    #0a0a0a;
-  --text-mid:     #3a3835;
+  --text-dark:    #2E2D2C;    /* Noir officiel sur fond blanc */
+  --text-mid:     #4a4947;
   --text-grey-d:  #6b6866;
 
-  /* Accent */
-  --red:          #DC4920;
+  /* ── Accents officiels charte ── */
+  --red:          #DC4920;    /* Rouge officiel RVB 220/73/32 */
   --red-dark:     #B83A18;
+  --red-light:    #e5623d;
   --red-muted:    rgba(220,73,32,0.10);
-  --green:        #327D48;
+  --green:        #327D48;    /* Vert officiel RVB 50/125/72 */
+  --green-dark:   #266038;
+  --green-muted:  rgba(50,125,72,0.10);
+
+  /* Or — accent premium (non charte mais cohérent avec le positionnement) */
   --gold:         #C8A882;
   --gold-light:   #DFC4A0;
   --gold-dark:    #b8923a;
-  --gold-muted:   rgba(200,168,130,0.12);
+  --gold-muted:   rgba(200,168,130,0.10);
 
   /* Neutres */
-  --grey:         #6B6966;
-  --grey-light:   #9B9896;
-  --border:       rgba(255,255,255,0.07);
-  --border-white: rgba(0,0,0,0.09);
-  --border-gold:  rgba(200,168,130,0.20);
+  --grey:         #7a7876;
+  --grey-light:   #a8a5a2;
+  --border:       rgba(255,255,255,0.06);
+  --border-white: rgba(46,45,44,0.10);
+  --border-red:   rgba(220,73,32,0.20);
 
-  /* Typo */
-  --font-body:    'Nunito Sans', 'Avenir', sans-serif;
+  /* ── Typographie — Avenir (charte) / Cormorant Garamond (serif institutionnel) ── */
+  /* Note: Avenir n'est pas sur Google Fonts, on utilise Nunito Sans comme alternative web */
+  --font-body:    'Nunito Sans', 'Avenir', 'Century Gothic', sans-serif;
   --font-serif:   'Cormorant Garamond', Georgia, serif;
 
   /* UI */
@@ -51,9 +58,9 @@
   --radius-xl:    8px;
   --transition:   0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-fast: 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --shadow:       0 12px 48px rgba(0,0,0,0.35);
-  --shadow-lg:    0 24px 80px rgba(0,0,0,0.55);
-  --shadow-gold:  0 8px 32px rgba(200,168,130,0.12);
+  --shadow:       0 12px 48px rgba(0,0,0,0.40);
+  --shadow-lg:    0 24px 80px rgba(0,0,0,0.60);
+  --shadow-red:   0 8px 32px rgba(220,73,32,0.18);
 }
 
 /* ── Reset ── */
@@ -66,7 +73,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--black);
+  background-color: var(--black-pure);
   color: var(--white);
   line-height: 1.7;
   overflow-x: hidden;
@@ -97,43 +104,50 @@ h3, h4, h5 {
 .serif { font-family: var(--font-serif); font-weight: 300; }
 .serif-italic { font-family: var(--font-serif); font-style: italic; font-weight: 300; }
 
-/* ── Label style Blackstone ── */
-/* Usage: <span class="label-dash">NOM SECTION</span> */
+/* ── Label style Blackstone (tiret + texte caps) ── */
 .label-dash {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.63rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--red);   /* rouge officiel TOMASTEED sur fond sombre */
 }
 .label-dash::before {
   content: '';
   display: inline-block;
-  width: 28px;
+  width: 24px;
   height: 1px;
-  background: var(--gold);
-  opacity: 0.7;
+  background: var(--red);
+  opacity: 0.6;
   flex-shrink: 0;
 }
 
-/* Version sur fond blanc */
+/* Version sur fond blanc : rouge foncé */
 .label-dash--dark {
-  color: var(--gold-dark);
+  color: var(--red);
 }
 .label-dash--dark::before {
-  background: var(--gold-dark);
+  background: var(--red);
+}
+
+/* Version verte (accent secondaire officiel) */
+.label-dash--green {
+  color: var(--green);
+}
+.label-dash--green::before {
+  background: var(--green);
 }
 
 /* Ancien label (rétrocompat) */
 .label {
-  font-size: 0.63rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--red);
 }
 
 /* ── Layout ── */
@@ -143,14 +157,13 @@ h3, h4, h5 {
   padding: 0 2rem;
 }
 
-/* ── Sections : noir (défaut) et blanc (alternance Blackstone) ── */
+/* ── Sections ── */
 .section {
-  padding: 128px 0;
+  padding: 120px 0;
 }
 
-/* Fond noir pur (hero, marquee, certaines sections) */
 .section--black {
-  background: var(--black);
+  background: var(--black-pure);
   color: var(--white);
 }
 .section--black-deep {
@@ -158,49 +171,31 @@ h3, h4, h5 {
   color: var(--white);
 }
 
-/* Fond blanc (rupture visuelle forte — style Blackstone) */
+/* ── Fond blanc (rupture visuelle Blackstone) ── */
 .section--white {
   background: var(--white);
   color: var(--text-dark);
 }
-.section--white .section-header h2 {
-  color: var(--text-dark);
-}
-.section--white .section-header h2 em {
-  color: var(--gold-dark);
-  font-style: italic;
-}
-.section--white .section-header p {
-  color: var(--text-grey-d);
-}
-.section--white .label-dash {
-  color: var(--gold-dark);
-}
-.section--white .label-dash::before {
-  background: var(--gold-dark);
-}
-.section--white .label {
-  color: var(--gold-dark);
-}
-.section--white .divider {
-  background: var(--gold-dark);
-}
+.section--white .section-header h2 { color: var(--text-dark); }
+.section--white .section-header h2 em { color: var(--red); font-style: italic; }
+.section--white .section-header p { color: var(--text-grey-d); }
+.section--white .label-dash { color: var(--red); }
+.section--white .label-dash::before { background: var(--red); }
+.section--white .label { color: var(--red); }
+.section--white .divider { background: var(--red); }
 
-/* Fond crème doux */
 .section--offwhite {
   background: var(--white-section);
   color: var(--text-dark);
 }
 .section--offwhite .section-header h2 { color: var(--text-dark); }
-.section--offwhite .section-header h2 em { color: var(--gold-dark); }
+.section--offwhite .section-header h2 em { color: var(--red); }
 .section--offwhite .section-header p { color: var(--text-grey-d); }
-.section--offwhite .label-dash { color: var(--gold-dark); }
-.section--offwhite .label-dash::before { background: var(--gold-dark); }
+.section--offwhite .label-dash { color: var(--red); }
+.section--offwhite .label-dash::before { background: var(--red); }
 
 /* ── Section Header ── */
-.section-header {
-  margin-bottom: 72px;
-}
+.section-header { margin-bottom: 72px; }
 
 .section-header .label,
 .section-header .label-dash {
@@ -217,7 +212,7 @@ h3, h4, h5 {
 
 .section-header h2 em {
   font-style: italic;
-  color: var(--gold);
+  color: var(--red);     /* em en rouge officiel */
 }
 
 .section-header p {
@@ -232,14 +227,14 @@ h3, h4, h5 {
 .divider {
   width: 40px;
   height: 1px;
-  background: var(--gold);
+  background: var(--red);
   margin: 24px 0;
   opacity: 0.5;
 }
 .divider--center { margin: 24px auto; }
-.divider--red { background: var(--red); }
+.divider--green { background: var(--green); }
 .divider--wide { width: 80px; }
-.divider--white { background: rgba(255,255,255,0.15); }
+.divider--white { background: rgba(255,255,255,0.12); }
 
 /* ── Section line ── */
 .section-line {
@@ -279,25 +274,25 @@ h3, h4, h5 {
 }
 
 .btn-outline {
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.18);
   color: var(--white);
   background: transparent;
 }
 .btn-outline:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--red);
+  color: var(--red);
   transform: translateY(-2px);
-  background: var(--gold-muted);
+  background: var(--red-muted);
 }
 
-/* Bouton "Learn More →" style Blackstone — sobre, avec cercle flèche */
+/* Bouton "Learn More →" style Blackstone */
 .btn-learn-more {
   display: inline-flex;
   align-items: center;
   gap: 14px;
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--white);
   transition: gap 0.3s ease, color 0.3s ease;
   padding: 0;
@@ -308,51 +303,46 @@ h3, h4, h5 {
 }
 .btn-learn-more:hover {
   gap: 20px;
-  color: var(--gold);
+  color: var(--red);
   transform: none;
 }
 .btn-learn-more .arrow-circle {
-  width: 36px;
-  height: 36px;
+  width: 36px; height: 36px;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.25);
+  display: flex; align-items: center; justify-content: center;
   transition: border-color 0.3s ease, background 0.3s ease;
   flex-shrink: 0;
 }
 .btn-learn-more:hover .arrow-circle {
-  border-color: var(--gold);
-  background: var(--gold-muted);
+  border-color: var(--red);
+  background: var(--red-muted);
 }
 .btn-learn-more svg { width: 14px; height: 14px; }
 
-/* Version sombre (sur fond blanc) */
+/* Version sur fond blanc */
 .btn-learn-more--dark {
   color: var(--text-dark);
 }
 .btn-learn-more--dark .arrow-circle {
-  border-color: rgba(0,0,0,0.25);
+  border-color: rgba(46,45,44,0.22);
 }
 .btn-learn-more--dark:hover {
-  color: var(--gold-dark);
+  color: var(--red);
 }
 .btn-learn-more--dark:hover .arrow-circle {
-  border-color: var(--gold-dark);
-  background: rgba(184,146,58,0.08);
+  border-color: var(--red);
+  background: var(--red-muted);
 }
 
-.btn-gold {
-  background: transparent;
-  border: 1px solid var(--border-gold);
-  color: var(--gold);
+.btn-green {
+  background: var(--green);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(50,125,72,0.22);
 }
-.btn-gold:hover {
-  background: var(--gold);
-  color: var(--black-deep);
+.btn-green:hover {
+  background: var(--green-dark);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-gold);
 }
 
 .btn-dark {
@@ -382,30 +372,29 @@ h3, h4, h5 {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 .card:hover {
-  border-color: var(--border-gold);
+  border-color: var(--border-red);
   transform: translateY(-6px);
   box-shadow: var(--shadow);
 }
 .card:hover::after { opacity: 1; }
 
-/* Card sur fond blanc */
 .card--white {
   background: var(--white);
   border-color: var(--border-white);
   color: var(--text-dark);
 }
 .card--white:hover {
-  border-color: rgba(184,146,58,0.3);
-  box-shadow: 0 12px 48px rgba(0,0,0,0.1);
+  border-color: rgba(220,73,32,0.25);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.09);
 }
 
-/* ── Grid Layouts ── */
+/* ── Grid ── */
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -415,7 +404,7 @@ h3, h4, h5 {
   background: rgba(255,255,255,0.03);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 /* ── Badge ── */
@@ -423,25 +412,21 @@ h3, h4, h5 {
   display: inline-flex;
   align-items: center;
   padding: 5px 14px;
-  border: 1px solid var(--border-gold);
+  border: 1px solid var(--border-red);
   border-radius: 20px;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--gold);
-  background: var(--gold-muted);
+  color: var(--red);
+  background: var(--red-muted);
+}
+.badge--green {
+  border-color: rgba(50,125,72,0.25);
+  color: var(--green);
+  background: var(--green-muted);
 }
 
-/* ── Stat box ── */
-.stat-box {
-  background: var(--black-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 28px 24px;
-  text-align: center;
-  transition: var(--transition-fast);
-}
-.stat-box:hover { border-color: var(--border-gold); }
+/* ── Stat number ── */
 .stat-number {
   font-family: var(--font-serif);
   font-size: 2.8rem;
@@ -450,7 +435,7 @@ h3, h4, h5 {
   line-height: 1;
   margin-bottom: 8px;
 }
-.stat-number .accent { color: var(--gold); }
+.stat-number .accent { color: var(--red); }
 .stat-desc {
   font-size: 0.62rem;
   font-weight: 700;
@@ -461,9 +446,9 @@ h3, h4, h5 {
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+::-webkit-scrollbar-track { background: var(--black-pure); }
+::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--red); }
 
 /* ── Selection ── */
 ::selection { background: rgba(220,73,32,0.28); color: var(--white); }
